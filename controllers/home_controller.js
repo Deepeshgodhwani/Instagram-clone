@@ -1,10 +1,11 @@
 module.exports.home= function(req , res){
 
-    return res.end('<h1>YOU ARE THE BEST</h1>');
+   console.log(req.cookies)
+   res.cookie('deepesh', 20);
+    return res.render('home', {
+
+        tittle : 'HOLAA!!'
+    })
 }
 
-// module.exports.again=function(req , res){
-
-//     return res.end('<h1> AGAIN AGAIN AGAIN AGAIN');
-// }
 
