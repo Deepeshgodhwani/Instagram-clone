@@ -1,11 +1,24 @@
 
 const User = require('../modules/user')
 
+
+module.exports.homeuser =function(req ,res){
+    
+    return res.render('user_home', {
+
+        tittle: 'USER HOME'
+    })
+
+    
+
+};
+
 module.exports.profile =function(req ,res){
     
-    return res.render('home', {
+    return res.render('userprofile', {
 
-        tittle: 'USER'
+        // content : 'header'
+
     })
 
     
@@ -15,8 +28,15 @@ module.exports.profile =function(req ,res){
 
 module.exports.signin= function(req , res){
 
-    return res.render('user_signin',{
     
+    if(req.isAuthenticated()){
+          
+        return  res.redirect('/user/profile')
+   }
+
+
+    return res.render('user_signin',{
+
         title : 'SIGN-IN'
 
     })
@@ -25,19 +45,24 @@ module.exports.signin= function(req , res){
 
 
 module.exports.signup= function(req , res){
-
-    return res.render('user_signup',{
+       
+        if(req.isAuthenticated()){
+          
+             return res.redirect('/user/profile')
+        }
     
-        title : 'SIGN-up'
+        
+        return res.render('user_signup',{
+    
+           title : 'SIGN-up'
 
-    })
+        })
 }
 
 
 
 module.exports.create= function(req , res){
 
-    console.log(req.body)
     if(req.body.password !=req.body.confirm_password)
     {
             return  res.redirect('back')
@@ -76,7 +101,12 @@ module.exports.create= function(req , res){
 
 module.exports.createSession= function(req , res){
 
-    // COMMING AFTER BREAK :)
-
+    return  res.redirect('user_home');
 };
 
+
+module.exports.destroySession= function(req, res){
+
+    req.logout();
+    return res.redirect('/')
+}

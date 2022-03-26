@@ -11,7 +11,7 @@ console.log('router is working');
 router.get('/', homeController.home);
 
 
-router.use('/user', require('./user'));
+router.use('/user/', require('./user'));
 
 
 module.exports = router;

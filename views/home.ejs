@@ -5,13 +5,19 @@
 <head>
     <title>
 
-        <%= tittle%>
     </title>
+    <link rel="stylesheet" href="/css/header.css">
+   
 </head>
 <body>
 
-    <h1>
-        /<%= tittle%>
+    <%- include('header'); -%>
+
+     <h1 style="position: absolute; top: 80px;">
+     HOME
     </h1>
+ 
+
+    <%- include('footer'); -%>
 </body>
 </html>

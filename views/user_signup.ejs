@@ -9,15 +9,18 @@
 </title>
 
 <link rel="stylesheet" href="/css/signup.css"> 
+<!-- <link rel="stylesheet" href="/css/header.css"> -->
+    
 
 </head>
 <body>
+    <%- include('header'); -%>
 <h1>
 
     ITS A SIGN UP PAGE
 </h1>
 
-</body>
+
 
 <form action="/user/create" method="post">
 
@@ -30,5 +33,9 @@
     <input type="submit"  value=" SIGN UP">
 
 </form>
+<%- include('footer'); -%>
+</body>
+
+</body>
 
 </html>

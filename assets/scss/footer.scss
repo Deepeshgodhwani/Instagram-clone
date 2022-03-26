@@ -1,0 +1,44 @@
+
+
+// body{
+//     margin: 0;
+//     padding: 0;
+// }
+
+
+.stupid{
+
+
+    position: absolute;
+    top: 100vh;
+    background-color: black;
+    width: 84.5rem;
+    height: 50px;
+    bottom: -30px;
+    display: flex;
+    align-items: center;
+
+    #footer{
+        color: white;
+        font-size: 1.3rem;
+        margin-left: 20px;
+    }
+
+    #icons{
+
+        position: absolute;
+        right: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        width: 200px;
+
+        a{
+
+            color: white;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+    }
+
+}

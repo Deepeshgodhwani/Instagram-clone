@@ -1,0 +1,30 @@
+
+<head>
+
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+
+
+<nav id="nav">
+<div id="home">
+    HEADER
+</div>
+
+
+<header id="header">
+ 
+    <% if (locals.user) { %>
+        <div id="ok">
+        <div > <a> <%= user.name%> <a> </div>
+         <div ><a href="/user/signout"> SIGN OUT</a></div>
+        </div>
+    <% }else{ %>
+
+        <div><a href="/user/signup"> SIGN UP</a></div>
+        <div><a href="/user/signin"> SIGN IN</a></div>
+    
+    <%  } %> 
+            
+</header>
+
+</nav>
