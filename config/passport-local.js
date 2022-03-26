@@ -57,7 +57,7 @@ passport.checkAuthenticatedUser= function(req ,res ,next)
     {
          return next();
     }
-    return res.redirect('/user/signin');
+    return res.redirect('/signin');
 }
 
 //

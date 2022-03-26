@@ -18,6 +18,22 @@
     </h1>
  
 
+    <div id="posts-box" style="position: absolute; top: 10rem; font-size: 1.5rem;">
+        <ul>
+  
+  
+          <% for( let i of post){%>
+            <p>
+             <li> <%= i.content %></li>
+             <box>
+               <%= i.user.name%>
+             </box>
+            </p>
+            <%}%>
+        </ul>
+  
+      </div>
+
     <%- include('footer'); -%>
 </body>
 </html>

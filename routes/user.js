@@ -10,12 +10,13 @@ router.get('/user_home',passport.checkAuthenticatedUser, userController.homeuser
 router.get('/profile',passport.checkAuthenticatedUser, userController.profile);
 router.get('/signin',userController.signin)
 router.get('/signup',userController.signup)
+router.use('/post', require('../routes/post'))
 
 
 router.post('/create' , userController.create);
 router.post('/create-session', passport.authenticate(
     'local',
-    {failureRedirect: 'user/signin'}
+    {failureRedirect: 'signin'}
 ), userController.createSession)
 
 

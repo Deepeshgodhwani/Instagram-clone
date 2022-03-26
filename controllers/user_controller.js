@@ -1,13 +1,28 @@
 
 const User = require('../modules/user')
+const post =require('../modules/post')
 
 
 module.exports.homeuser =function(req ,res){
     
-    return res.render('user_home', {
+    // post.find({}, function(err, posts){
+    //     return res.render('user_home', {
+    //         tittle: 'USER HOME',
+    //         post : posts
+    //     })
+    // })
+    post.find({}).populate('user').exec(function(err, posts){
+        return res.render('user_home', {
 
-        tittle: 'USER HOME'
+            tittle: 'USER HOME',
+            post : posts
+    
+        })
+
     })
+
+
+    
 
     
 
@@ -100,8 +115,8 @@ module.exports.create= function(req , res){
 
 
 module.exports.createSession= function(req , res){
-
-    return  res.redirect('user_home');
+    
+    return  res.redirect('user_home')
 };
 
 

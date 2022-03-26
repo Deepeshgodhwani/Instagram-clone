@@ -22,7 +22,7 @@
       USER HOME
     </h1>
     
-    <form id="post-form" style="position: absolute; top: 150px;" action="", method="post">
+    <form id="post-form" style="position: absolute; top: 150px;" action="post/create", method="post">
       
       <h3>
         POSTS
@@ -31,6 +31,24 @@
       <input type="submit", value="POST">
 
     </form>
+
+    <div id="posts-box" style="position: absolute; top: 18rem; font-size: 1.5rem;">
+      <ul>
+
+
+        <% for( let i of post){%>
+          <p>
+           <li> <%= i.content %></li>
+           <box>
+             <%= i.user.name%>
+           </box>
+          </p>
+          <%}%>
+      </ul>
+
+    </div>
+
+
 
   
     <%- include('footer'); -%>

@@ -2,12 +2,12 @@ const mongoose= require('mongoose');
 
 const postSchema = mongoose.Schema({
 
-    content : {
+    content: {
 
         type : String,
         require: true
     },
-    user : {
+    user: {
 
         type: mongoose.Schema.Types.ObjectId,
         ref : 'user'

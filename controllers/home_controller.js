@@ -1,11 +1,20 @@
+
+const post = require('../modules/post')
+
+
+
 module.exports.home= function(req , res){
 
-   console.log(req.cookies)
-   res.cookie('deepesh', 20);
-    return res.render('home', {
 
-        tittle : 'HOLAA!!'
+    post.find({}).populate('user').exec(function(err, posts){
+        return res.render('home', {
+
+            post : posts
+    
+        })
+
     })
+
 }
 
 
