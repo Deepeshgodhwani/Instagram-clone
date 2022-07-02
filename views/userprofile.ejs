@@ -6,26 +6,114 @@
     <title>
 
     </title>
-    <!-- <link rel="stylesheet" href="/css/header.css"> -->
-   
+    <link rel="stylesheet" href="/css/user_profile.css">
 </head>
-<body style="background-color:blanchedalmond;">
+    
+
+<body>
+   
+      <!-- PROFILE PICTURE UPDATION  -->
+      <%if(user.id==user_profile._id){%>   
+
+        <div class="profile-updation-container">
+            <div onclick="endProcess()" id="container-background"></div>
+            <div id="options-box">
+               <div id="box-heading"> <p >Change profile photo</p></div>
+                <form class="picture-selection" action="/user/update/profilepicture?id=<%=user_profile._id%>&type=true" enctype="multipart/form-data" method="post" >
+                    <label id="label" for="selection-button">Upload Photo</label>
+                    <input id="selection-button" type="file" name="avtar"  placeholder="Profile Picture"  ><br> 
+                </form>
+                <a id="remove-picture"  href="/user/update/profilepicture?id=<%=user_profile._id%>&type=false"> <p >Remove current photo</p></a>
+                <div onclick="endProcess()" id="Cancel-process" > <p >Cancel </p></div>
+            </div>
+        </div>  
+     <%}%>
+
 
     <%- include('header'); -%>
-<div style="position: absolute; top: 80px;">
-    <h1>
-        USER PROFILE
-    </h1>
+  
 
-    <p>
-        NAME : <%=user.name%>   
-    </p>
-    <p>
-        EMAIL : <%=user.email%>
-    </p>
-    <%- include('footer'); -%>
-</div>
-</body>
 
+  <div class="outer-box">
+   <div id="profile-container">     
+     <div id="box-1">
+        <% if(user.avtar){%>
+              <img onclick="updateProfile(true)" id="user-picture" src="<%=user.avtar%>" alt="<%=user.name%>" width="200px" height="200px">      
+            <%}else{%>
+                <!-- <i onclick="updateProfile(false)" id="user-avtar" class="fa-solid fa-user"></i> -->
+
+                <form id="form" action="/user/update/profilepicture?id=<%=user_profile._id%>&type=true" enctype="multipart/form-data" method="post" >
+                    <label for="selection-button2"><i id="user-avtar" class="fa-solid fa-user"></i> </label>
+                    <input  type="file" id="selection-button2" name="avtar" required> 
+                </form>
+
+            <%}%>
+     </div>    
+        <div id="box-2">
+            <div id="name">
+                <p id="user_name"> <%=user_profile.username%></p>
+
+                <%if(user.id==user_profile._id){%>
+                     <a href="/user/editprofile?id=<%=user_profile._id%>"><button id="button_edit_profile">Edit Profile</button></a>
+                     <img  id="settings-logo" src="../assets/images/settings.png">
+                 <%}else if(following==true){%>
+
+                    <button id="message-button">Message</button>
+                    <a class="unfollowLink" href="/user/tofollow/following?id=<%=user_profile._id%>"><button id="unfollow-">
+                        <img src="../assets/images/unfollow-1.png" id="unfollow-logo1">
+                        <img  src="../assets/images/unfollow-2.png" id="unfollow-logo2">
+                    </button>
+                    </a>
+
+                 <%}else{%>
+
+                   <a class="follow-button" style="text-decoration: none;" href="/user/tofollow/following?id=<%=user_profile._id%>" > <button  id="follow-">Follow</button></a>
+
+                 <%}%>
+            </div>
+            <div id="followers">
+                   <p id="posts_count"> <b><%=user_profile.posts.length%> </b>posts</p>
+                   <p id="followers_count"> <b><%=user_profile.followers.length%> </b> followers</p>
+                   <p id="following_count"><b> <%=user_profile.following.length%> </b>following</p>
+            </div> 
+            <p id="name-"><%=user_profile.name%></p>
+
+            <div id="bio">
+
+                <%=user_profile.bio%>
+            </div>    
+        </div>
+     </div>   
+   <div id="post-container">
+    <%if(user_profile.posts.length==0){%>
+        <div id="no-post-box">
+            <img id="camera-logo" src="../assets/images/camera.png">
+            <p id="no-post">No posts yet</p>
+        </div>
+    <%}else{%>
+         <% for(post of user_profile.posts){%>
+                <img id="post-image" src="<%=post.content%>"> 
+         <%}%>
+     <%}%>  
+      </div>  
+      
+ 
+<!--           
+        <% if( user.id== user_profile.id){%>
+         
+
+       <form action="/user/update/<%= user_profile.id%>" enctype="multipart/form-data" method="post" >
+           <input type="file" name="avtar"  placeholder="Profile Picture"  ><br>
+           <input type="submit" value="change-profile Picture" > 
+       </form>
+       <%}%> -->
+
+  
+ </div>  
+
+
+
+ <script src="/js/jquery.js"></script>
+ <script src="/js/user_profile_ajax.js"></script>
 </body>
 </html>

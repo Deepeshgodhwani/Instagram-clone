@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+#chatting-box {
+  position: relative;
+  top: 100px;
+  left: 50%;
+  width: 40%; }
+  #chatting-box #user-chat-box {
+    border: 3px solid lightgray;
+    width: 80%;
+    height: 60vh;
+    position: relative; }
+    #chatting-box #user-chat-box #chat-message-list {
+      width: 100%;
+      height: 80%;
+      list-style: none;
+      overflow: auto;
+      padding: 10px; }
+      #chatting-box #user-chat-box #chat-message-list .other-message {
+        text-align: left;
+        padding: 0px; }
+        #chatting-box #user-chat-box #chat-message-list .other-message span {
+          display: inline-block;
+          padding: 15px;
+          background-color: aqua; }
+      #chatting-box #user-chat-box #chat-message-list .self-message {
+        text-align: right;
+        padding: 10px; }
+        #chatting-box #user-chat-box #chat-message-list .self-message span {
+          display: inline-block;
+          padding: 15px;
+          background-color: antiquewhite; }
+    #chatting-box #user-chat-box #text {
+      position: absolute;
+      bottom: 0px;
+      width: 86%;
+      height: 40px; }
+    #chatting-box #user-chat-box .send-Button {
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+      height: 40px;
+      width: 40px;
+      border: 2px solid red; }

@@ -1,0 +1,574 @@
+
+body{
+
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+
+.homepage{
+
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        #features{
+
+               display: flex;
+               height: 80%;
+               width: 100%;
+               justify-content: center;
+               position: relative;
+                
+                #card1{
+                      
+                    width: 25%;
+                    position: relative;
+                    img{
+
+                          height: 100%;
+                          width: 100%;
+                          opacity: 1;
+
+                    }
+                    #layer{
+
+                          position: absolute;
+                          height: 100%;
+                          width: 100%;
+                          background-color: rgb(222,50,126);
+                          opacity: 0.8;
+                          top: 0;
+                    }
+                    
+
+             } 
+             
+             #card2{
+                      
+                width: 25%;
+                position: relative;
+                img{
+
+                      height: 100%;
+                      width: 100%;
+                      opacity: 1;
+
+                }
+                #layer{
+
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgb(189,71,147);
+                    opacity: 0.7;
+                    top: 0;
+              }
+
+              }
+              
+              #card3{
+                      
+                width: 25%;
+                position: relative;
+                img{
+
+                      height: 100%;
+                      width: 100%;
+                      opacity: 1;
+
+                }
+                #layer{
+
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: rgb(104, 70, 158);
+                    opacity: 0.8;
+                    top: 0;
+              }
+                
+
+                }
+                
+                #card4{
+                      
+                    width: 25%;
+                    position: relative;
+                    img{
+
+                          height: 100%;
+                          width: 100%;
+                          opacity: 1;
+
+                    }
+                    #layer{
+
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        background-color: rgb(32,123,178);
+                        opacity: 0.8;
+                        top: 0;
+                  }
+
+                  }   
+                  
+                  #heading{
+
+                         position: absolute;
+                         color: white;
+                         font-size: 3.5rem;
+                         word-spacing: 2px;
+                         font-family:Arial;
+                         font-weight: bold;
+                         text-align: start;
+                         width: 80%;
+                         top: 6rem;
+                         p{
+                              position: absolute;
+                              color: white;
+                              font-size: 3.5rem;
+                              word-spacing: 2px;
+                              font-family:Arial;
+                              font-weight: bold;
+                              margin-left: 23rem;
+                              bottom: 10px;
+                              top:20px;
+                         }
+                  }
+                #signin{
+
+                     position: absolute;
+                     bottom: 20px;
+                     margin-right: 250px;
+                     background-color: black;
+                    
+                     border-radius: 20px;
+                     width: 100px;
+                     height: 40px;
+                     a{
+                        color: white;
+                        text-decoration: none;
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 12px;
+                     }
+
+                }
+                #signup{
+
+                     position: absolute;
+                     background-color: black;
+                     bottom: 20px;
+                     
+                     border-radius: 20px;
+                     width: 100px;
+                     height: 40px;
+                     a{
+                        color: white;
+                        text-decoration: none;
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 12px;
+                     }
+
+                    
+                   
+                }
+
+
+                
+        }
+
+          .containerbackground{
+
+            //    width: 100%;
+            //    height: 100%;
+               background-color: black;
+               opacity: 0.7;
+               position: absolute;  
+               width: 0;
+               height: 0;
+               overflow: hidden; 
+
+
+          }
+
+        .signin-container{
+
+                  position: absolute;
+                  width: 0;
+                  height: 0;
+                  overflow: hidden;
+                  // width: 27%;
+                  // height: 90%;
+                  // overflow:none;
+                  background-color: black;
+                  right: 41%;
+                  top: 6%;
+                  color: white;
+                  border-radius: 15px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                 
+
+                 h3{
+                       font-size: 2.2rem;
+                       position: absolute;
+                       top: -5%;
+                       i{
+                        border: 2px solid rgb(31,31,31);
+                        border-radius: 15px;
+                        width: 45px;
+                        font-size: 1.5rem;
+                        height: 35px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                       margin-left: -60px;
+                       margin-top: -2px;  
+                       color: white;                     
+                     }
+                       
+                 }
+                 #p{
+                  font-size: 1rem;
+                  position: absolute;
+                  top: 8%;
+                  left: 20%;  
+                 }
+                 #email{
+                       background-color: transparent;
+                       outline: none;
+                       border: none;
+                       border-bottom:2px solid white;
+                       color: white;
+                       font-size: 1.2rem;
+                       width: 85%;
+                       margin-left: 0%;
+                       padding: 5px;
+                       padding-left: 40px;
+                       margin-top: -60px;
+                 }
+                 #emailicon{
+
+                        position: absolute;
+                        width: 20px;
+                        top: 31%;
+                        left: 12%;
+                 }
+                 #passwordicon{
+                        position:absolute;
+                        width: 25px;
+                        left: 12%;
+                        top: 42%;
+
+                 }
+                 #password{
+
+                  background-color: transparent;
+                  outline: none;
+                  border: none;
+                  margin-top: 20px;
+                  border-bottom:2px solid white;
+                  color: white;
+                  font-size: 1.2rem;
+                  width: 85%;
+                  margin-left: 0%;
+                  padding: 5px;
+                  padding-left: 40px;
+
+
+                 }
+                 #sections{
+
+                        margin-top: 20px;
+                        display: flex;
+                        font-size: 0.9rem;
+                        justify-content: space-between;
+                        width: 100%;
+
+
+                        input{
+
+                               margin-top: 2px
+                        };
+                        #pe{
+                              margin-right: 90px;
+                        }
+                        #forgotlink{
+
+                              margin-right: -12px;
+                        }
+
+                       
+
+
+                 }
+
+                 .button{
+
+                    width: 40%;
+                    height: 35px;
+                    position: absolute;
+                  //   background-color: orangered;
+                    background-color: transparent;
+                    border: 1px solid white;
+                    font-size: 1.2rem;
+                    color: white;
+                    text-transform: capitalize;
+                    border-radius: 8px;
+                    top: 65%;
+                    left: 30%;
+                    
+                 }
+                 #box{
+                       
+                       position: relative;
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       justify-content: space-evenly;
+                       width: 50%;
+                       border: 1px solid white;
+                       border-radius: 20px;
+                       height: 40px;
+                       top: 85px;
+                 }
+
+                 #googleicon{
+
+                  width: 25px;
+                  left: 5px;                  
+                 }
+
+                 #para{
+                   
+                       font: 1.5rem;
+                       color: white;
+                       text-decoration: none;
+
+                 }
+                 #signupbutton{
+                      
+                      position :absolute;  
+                      bottom: 1px;                
+                 }
+
+        }
+
+
+        .signup-container{
+
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            // width: 27%;
+            // height: 90%;
+            // overflow:none;
+            background-color: black;
+            right: 41%;
+            top: 6%;
+            color: white;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            #relative{
+
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+
+                  #signup-heading{
+
+                        font-size: 1.8rem;
+                        position: relative;
+                        right: 15%;
+                        display: flex;
+                        bottom: 10px;
+
+                        i{
+                              border: 2px solid rgb(31,31,31);
+                              border-radius: 15px;
+                              width: 45px;
+                              font-size: 1.5rem;
+                              height: 35px;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              position: absolute;
+                             margin-left: -70px;
+                             margin-top: -2px;  
+                             color: white;                     
+                        }
+
+                  }
+                 
+                  #paragragh{
+                        position: absolute;
+                        top: 14%;
+                        left: 8%;
+                        text-align: justify;
+                        word-spacing: 2px;
+                        font-size: 1rem;
+                        color: rgb(127,127,127);
+                  }
+                  #signiup-options{
+                          
+                           position: absolute;
+                           top: 25%;
+                           display: flex;
+                           justify-content: space-between;
+                           width: 50%;
+                           left: 18%;
+
+                           #googlesignup{
+
+                                 border: 2px solid rgb(29,29,29);
+                                 background-color: rgb(23,23,23);
+                                 width: 80px;
+                                 height: 35px;
+                                 border-radius: 15px;
+                                 display: flex;
+                                 justify-content: center;
+                                 align-items: center;
+                                 font-size: 1.2rem;
+                                 color: white;
+
+                                 i{
+                                       color: white;
+                                 }
+                           }
+                           #fbsignup{
+                              border: 2px solid rgb(29,29,29);
+                              background-color: rgb(23,23,23);
+                              width: 80px;
+                              height: 35px;
+                              border-radius: 15px;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              font-size: 1.2rem;
+                              
+                              i{
+                                    color: white;
+                              }
+
+                           }
+                  }
+                  #signup-form{
+
+                        position: relative;
+                        top: 20%;
+                        // border: 2px solid red;
+                        height: 59%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                  }
+                  #username{
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        border-bottom:2px solid white;
+                        color: white;
+                        font-size: 1rem;
+                        width: 75%;
+                        margin-left: 0%;
+                        padding: 5px;
+                         
+                       }
+                       #useremail{
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        border-bottom:2px solid white;
+                        color: white;
+                        font-size: 1rem;
+                        width: 75%;
+                        margin-left: 0%;
+                        padding: 5px;
+ 
+                       }
+                       #userpassword{
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        border-bottom:2px solid white;
+                        color: white;
+                        font-size: 1rem;
+                        width: 75%;
+                        margin-left: 0%;
+                        padding: 5px;
+
+                      }
+                       #confpassword{
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                        border-bottom:2px solid white;
+                        color: white;
+                        font-size: 1rem;
+                        width: 75%;
+                        margin-left: 0%;
+                        padding: 5px;
+
+                       }
+                       #submitbutton{
+                        width: 40%;
+                        height: 40px;
+                        background-color: transparent;
+                        border: 1px solid white;
+                        font-size: 1.2rem;
+                        color: white;
+                        text-transform: capitalize;
+                        border-radius: 8px;
+                        position: absolute;
+                        right: 1px;
+                        top: -20px;
+                       }
+                       #signin-button{
+                             position: absolute;
+                             bottom: -20px;
+                             text-transform: none;
+                       }
+
+                  
+                  
+
+                 
+            }
+            
+
+
+
+
+        }
+
+
+        #information{
+
+               height: 20%;
+               width: 100%;
+               background-color: black;
+        }
+
+
+
+           
+}

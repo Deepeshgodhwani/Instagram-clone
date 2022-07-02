@@ -6,34 +6,108 @@
     <title>
 
     </title>
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
    
 </head>
 <body>
+      
+   <div class="homepage" >
+    <div id="features">
+       <div id="card1">
+     
+          <img src="../assets/images/makefrnds.webp">
+          <div id="layer"></div>
+       </div>
+       <div id="card2">
+     
+        <img src="../assets/images//havechat.jpg">
+        <div id="layer"></div>
+     </div>
+     <div id="card3">
+     
+      <img src="../assets/images/postpicture.webp">
+      <div id="layer"></div>
+   </div>
+   <div id="card4">
+     
+    <img src="../assets/images/injoy.jpg">
+    <div id="layer"></div>
+ </div>
+      
+       <div onclick="signup()" id="signup"><a>SIGN UP</a></div>
+      <div onclick="signin()" id="signin"><a>SIGN IN</a></div>
+      <div id="heading">
+           
+           make friends,have chat,post pictures
+           <p>have fun</p>
+      </div>
+      <div class="containerbackground">
+      </div>
+      <div class="signin-container">
 
-    <%- include('header'); -%>
+            <h3><a href="/"><i  class="fa-solid fa-angle-left"></i></a>welcome back !</h3>
+            <p id="p">login to continue</p>
+            
+      <form class="form" action="/user/create-session" method="post">
+        <input id="email" type="text" name="username" placeholder="Email Id" required><br>
+        <img src="../assets/images/envelope.png" id="emailicon" >
+        <img src="../assets/images/lock.png" id="passwordicon">
+         <input id="password" type="password" name="password" placeholder="Password" required><br>
+         <div id="sections">
+            <span> <input type="checkbox" ></span><span id="pe">Remember me</span>
+            <a id="forgotlink"> Forgot Password?</a>
+         </div>
+         <input class="button" type="submit" value="login" required>
+      </form>
+      <a href="/user/auth/google"> <div id="box">
+          <img id="googleicon" src="../assets/images/google.png">  
+      <p><a id="para" href="/user/auth/google">  Sign In With Google </a></p>
+           
+       </div>
+         </a>
+      <p id="signupbutton">Need an account? <a onclick="signup(1)" style="text-decoration: underline; color:rgb(85,26,139);">Sign Up</a></p>
 
-     <h1 style="position: absolute; top: 80px;">
-     HOME
-    </h1>
- 
-
-    <div id="posts-box" style="position: absolute; top: 10rem; font-size: 1.5rem;">
-        <ul>
-  
-  
-          <% for( let i of post){%>
-            <p>
-             <li> <%= i.content %></li>
-             <box>
-               <%= i.user.name%>
-             </box>
-            </p>
-            <%}%>
-        </ul>
-  
       </div>
 
-    <%- include('footer'); -%>
-</body>
+      <div class="signup-container">
+         <div id="relative">
+         <h2 id="signup-heading"> <a href="/"><i  class="fa-solid fa-angle-left"></i></a> Sign Up</h2>
+         <p id="paragragh">Sign up with one of following options</p>
+         <div id="signiup-options">
+         <div id="googlesignup">
+            <a href="/user/auth/google"><i class="fa-brands fa-google"></i></a>
+         </div>
+         <div id="fbsignup">
+            <i class="fa-brands fa-facebook-f"></i>
+          
+         </div>
+      </div>
+         <form id="signup-form" action="/user/create" method="post">
+            <input id="username" type="text" name="name" placeholder="Name" required><br>
+            <input id="useremail" type="text" name="username" placeholder="username" required><br>
+            <input id="useremail" type="email" name="email" placeholder="Email" required><br>
+            <input id="userpassword" type="password" name="password" placeholder="Password" required><br>
+            <input id="confpassword" type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+            <input id="submitbutton" type="submit"  value=" SIGN UP">
+            <p id="signin-button">Already have an account? <a onclick="signin(1)" style="text-decoration: underline; color:rgb(85,26,139);"> Sign In</a></p>
+
+        </form>
+
+        
+      </div>
+      </div>
+
+
+    </div>   
+
+    <div id="information">
+
+    </div>
+   </div>
+  
+    <script src="/js/jquery.js"> </script>  
+   <script src="/js/home.js"></script>
+  
+      </body>
 </html>

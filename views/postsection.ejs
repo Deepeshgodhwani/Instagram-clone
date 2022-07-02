@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style="margin:0; padding:0;">
+    <%- include('header'); -%>
+
+
+    <form id="post-form" action="create", enctype="multipart/form-data"  method="post" >
+      
+        <h3>
+          POSTS
+        </h3>
+        <input type="file" name="content" required>
+        <textarea name="caption", cols="30", rows="3"   placeholder="caption here..?"></textarea><br>
+        <input type="submit", value="POST">
+  
+      </form>
+
+    </body>
+</html>

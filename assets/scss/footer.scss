@@ -9,12 +9,12 @@
 .stupid{
 
 
-    position: absolute;
-    top: 100vh;
+    position: fixed;
+    bottom: 0%;
     background-color: black;
+    // background-color: #D0DAEE;
     width: 84.5rem;
     height: 50px;
-    bottom: -30px;
     display: flex;
     align-items: center;
 

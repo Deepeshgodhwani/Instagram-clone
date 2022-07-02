@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="/css/edit_profile.css">
+        
+    </head>
+    <body>
+        <%- include('header'); -%>
+            
+             <div class="form-box">
+                <div id="profile-box">
+
+                     <div id="section-heading">
+                          <div id="heading-1"><p>Edit Profile</p></div>
+                          <div id="heading-2"><p>Change password</p></div>
+                     </div>
+                     <div id="section">
+                        <div id="profile">
+                           <img id="user-profile" src="<%=User.avtar%>">
+                            <p id="user-name"><%=User.username%></p>
+                       </div>
+                       <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=profile" id="profile-form">
+                           <div id="slot-1">
+                              <p id="head-name"> Name</p>
+                              <input id="value-name" type="text" name="name">
+                           </div>
+                           <p id="para">Help people discover your account by using the name
+                            that you're known by: either your full name, nickname</p>
+                           <div id="slot-2">
+                               <p id="head-bio">Bio</p>
+                               <textarea name="bio" id="value-bio" cols="30" rows="10"></textarea> 
+                           </div>   
+
+                           <p id="heading">enter your password to submit form</p>
+                           <div id="slot-3">
+                              <p id="head-password">password</p>
+                              <input id="value-password" type="text" name="password" required>
+                              <input type="submit">
+                           </div>  
+
+                    </form>
+
+
+                    <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=password" class="password-changing-form">
+                        <p>Old password</p>
+                        <input type="text" name="password" required>
+                        <p>New password</p>
+                        <input type="text" name="newPassword" required>
+                        <p>Confirm new password</p>
+                        <input type="text" name="ConfirmNewPassword" required> 
+                        <input type="submit">
+                    </form>
+                   </div> 
+               </div>
+          </div>
+    </body>
+</html>
+

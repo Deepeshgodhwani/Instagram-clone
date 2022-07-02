@@ -6,52 +6,86 @@
     <title>
 
     </title>
-    <!-- <link rel="stylesheet" href="/css/header.css"> -->
-
+    <link rel="stylesheet" href="/css/user_home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
     <style>
       body{
         margin: 0%;
       }
     </style>
 </head>
-<body style="background-color: blanchedalmond;" >
 
-    <%- include('header'); -%>
+<body onload="preloader()">
 
-    <h1 style="position: absolute; top: 100px;">
-      USER HOME
-    </h1>
+  <div id="loading">
+
+    <img id="instagram-logo" src="../assets/images/instagram-logo.png">
+    <p >From</p>
+    <img id="meta-logo" src="../assets/images/meta-logo.png">
+ </div>
+<%- include('header'); -%>
     
-    <form id="post-form" style="position: absolute; top: 150px;" action="post/create", method="post">
-      
-      <h3>
-        POSTS
-      </h3>
-      <textarea name="content", cols="30", rows="3"   placeholder="Type here..."></textarea><br>
-      <input type="submit", value="POST">
+    <div id="container">
+      <div id="advertisement"></div>
+      <div class="feed">
 
-    </form>
+         <div id="posts-box">
+           <ul type="none">
 
-    <div id="posts-box" style="position: absolute; top: 18rem; font-size: 1.5rem;">
-      <ul>
-
-
-        <% for( let i of post){%>
-          <p>
-           <li> <%= i.content %></li>
-           <box>
-             <%= i.user.name%>
-           </box>
-          </p>
-          <%}%>
-      </ul>
+             <% for(  post of post){%>          
+               <%- include('_post') -%>      
+            <%}%>
+        </ul> 
+    </div>
 
     </div>
 
+    <div id="friends">
+       <h1> FRIENDS</h1>
+      <% for ( u of users) {  %>
+
+           <%if(u.id==locals.user.id){%>
+
+           <%}else{%>
+                 
+            <p> <a href="profile/<%= u.id%>" > <%= u.name %> </a> 
+                  
+           <%}%>
+          <%if(user.id!=u._id){%>
+
+            <a href="/user/tofollow/following?id=<%=u.id%>" style="margin-left: 20px;">Follow</a></p>
+          <%}%>
+          
+           <%}%>
+    </div>
+    
+
+  </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/user_home_ajax.js"></script>
+<script>
   
-    <%- include('footer'); -%>
-   
+  // to delete post using ajax
+     
+   $('.delete-post-button').each(function(){
+
+         self=this;
+         deletePost=new DeletePost(self)
+   })
+
+       // to toggle like using ajax
+    $('.toggle-like-button').each(function(){
+          self=this;
+          let toggleLike = new ToggleLike(self);
+
+          
+    })
+
+</script>
+     
 </body>
 </html>

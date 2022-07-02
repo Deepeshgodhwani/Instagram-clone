@@ -1,0 +1,108 @@
+    
+      
+        <li class="d-<%= post.id%>" id="post"> 
+           <div id="postheader">
+             <div id="postcreator">
+              <% if(post.user.avtar) {%>
+               <img id="profile" src="<%= post.user.avtar%>" >
+               <%}else{%>
+                  <i id="user-avtar" class="fa-solid fa-user"></i>
+                  <%}%>
+               <h3 style="text-transform:capitalize;"><%= post.user.name%> <br><p><%=post.createdAt%></p></h3>
+
+             </div>
+               <div class="" >
+               <button  style="background-color: transparent; border: none; color:black; font-size: larger;" class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+
+               </button>
+               <ul class="dropdown-menu dropdown-menu-dark" style="position: absolute;" aria-labelledby="dropdownMenuButton2">
+               <li><a class="dropdown-item" href="/user/post/postView/<%= post.id%>"><span >Get post</span></a></li>
+                  <% if (locals.user._id == post.user.id){%>
+                 <li> <a class="delete-post-button"  href="post/delete/<%= post.id%>"><span>Delete post</span> </a></li>
+                 <%}%>
+                <li><a class="dropdown-item" href="#"><span>Report</span></a></li>
+                <!-- <li><a class="dropdown-item" href="#"><span> <i class="fa-solid fa-circle-info"></i></span><span> get info</span></a></li> -->
+                </ul>
+              </div>
+           </div> 
+           
+            <div id="caption">
+              <p><%=post.caption%></p>
+            </div>
+             <img id="postimage" src="<%=post.content %>">
+             <div id="ratings">
+              <a class="toggle-like-button" postId="<%=post._id%>" data-likes="<%=post.likes.length%>" href="/user/liked/toggle?id=<%=post._id%>&type=Post"><img class="like" src="../assets/images/like.png"></a>
+              
+              <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                  <img id="comment"src="../assets/images/comment.png">
+              </a>  
+              
+                <img id="share" src="../assets/images/send.png">
+             </div>
+             <div id="numbering">
+                    <div class="<%=post._id%>" id="total-likes">
+                        <%=post.likes.length%> likes
+                    </div>
+                    <div id="total-comments">
+                         view all 105 comments
+                    </div>
+                    
+             </div>
+              <form class="comment-form" id="comments-<%-post._id%>" action="comment/create", method="post" >
+                <img src="<%= post.user.avtar%>" >
+              <input id="text" type="text" name = "comment" placeholder="Do Comment" required>
+              <input type="hidden" name = "post" value= "<%= post._id %>">
+              <input id="commentbutton" type="submit"  value="comment">
+             </form> 
+
+     <!---------------------------- comments section -->    
+       <div style="background-color:rgb(58, 58, 58); opacity:1; display: flex; justify-content: center; align-items: center; width: 100%;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div id="post-view">
+          <img id=image src="<%=post.content%>"> 
+            <div id="container">
+              <div id="userdetail">
+                    <img id="profilepicture" src="<%=post.user.avtar%>">
+                    <p id="name"><%=post.user.name%></p>       
+              </div> 
+              <ul id="comments-section">
+                  <%  for (comment of post.comments){%>
+    
+                    <li id="comments-list"><%if(locals.user.id==comment.user.id) { %>
+                        <small>
+                            <a id="commentDelete" href="/user/comment/delete/<%= comment.id%>"> X</a>
+                       </small><%}%>  <%=comment.content%> <br>
+                       <box style="font-size: 1rem;"> <%= comment.user.name%></box>
+                    </li>
+               <%- include('_comment') -%>
+            <%}%> 
+          </ul>
+       <div id="achievements">
+        <img id="likes" src="../assets/images/like.png">
+        <img id="comments" src="../assets/images/comment.png" >
+        <img id="transfer" src="../assets/images/send.png">
+       </div>
+       <div id="numberings">
+              <div id="total-like">
+                    256 likes
+              </div>
+       </div>
+        <form class="comment-forms" id="comments-<%-post._id%>" action="/user/comment/create", method="post" >
+         
+          <% if(post.user.avtar){%>    
+                   <img  id="profilepicture" src="<%= post.user.avtar%>">  
+            <%}else{%>
+              <i id="user-avtar" class="fa-solid fa-user"></i>
+            <%}%>
+        <input id="content" type="text" name = "comment" placeholder="Do Comment" required>
+        <input type="hidden" name = "post" value= "<%= post._id %>">
+        <input id="commentsubmit" type="submit"  value="comment">
+     </form>  
+         </div>
+           </div>
+          <button id="close-button" type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        
+      </div> 
+     <!---------------------------------------------------------------------------> 
+         </li>
+
+   

@@ -1,5 +1,6 @@
 const mongoose= require ('mongoose');
-mongoose.connect("mongodb://localhost/SOCIAL-MEDIA-APP_db");
+const env=require('./environment');
+mongoose.connect(`mongodb://localhost/${env.db}`);
 const db =mongoose.connection;
 
 db.once('open', function(error){

@@ -1,50 +1,357 @@
 
 
-body{
-    margin: 0;
-    height: 50px;
-}
-
-
 
 #nav{
     width: 100%;
     display: flex;
-    background-color:rgb(36,37,42);
-    // position: fixed;
+    background-color:rgb(255,255,255);
+    position: fixed;
     height: 50px;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    z-index: 9999999;
 
-    #home{
-        color: white;
-        font-size: 1.2rem;
-        margin-left: 30px;
+
+    #Instagram-logo{
+        width: 20%;
     }
+    #search-bar{
+        width: 30%;
+    }
+    #slots{
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 20px;
 
-    #header{
+        .icon{
+            width: 25px;
+            height: 25px;
 
-          display: flex;
-          position: absolute;
-          right: 10px;
-          justify-content: space-evenly;
-          width: 20%;
-          
-           #ok{
-
+        }
+        #profile-picture{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+        #user-avtar{
+                      
+            font-size: 1rem;
+            background-color:rgb(219,219,219);
+            color: white;
+            border-radius: 50%;
+            width: 27px;
+            height: 27px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            margin-left: 20px;           
-           }
-        
-          a{
-              text-decoration: none;
-              color: white;
-              font-size: 1.2rem;
-
-          }
-
-
+       }
     }
+
+    
+
+}
+
+.create-post{
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        z-index: 99999;
+    // width: 100%;
+    // height: 100vh;
+    // opacity: 1;
+    // overflow: none;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    #background-color{
+        position: absolute;
+        opacity: 0.7;
+        background: black;
+        width: 100%;
+        height: 100vh;
+
+        i{
+            position: absolute;
+            right: 20px;
+            top: 3%;
+            font-size: 1.2rem;
+            color: white;
+
+  
+        }
+    }
+
+    .post-form{
+        width: 25rem;
+        border-radius: 15px;
+        height: 27rem;
+        background-color: white;
+        position: relative;
+       
+    }
+    
+    #select-picture{
+       
+        width: 25rem;
+        border-radius: 15px;
+        height: 27rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        // position: absolute;
+        // overflow: hidden;
+        // width: 0;
+        // height: 0;
+       
+         .header{
+            height: 10%;
+            width: 100%;
+            border-bottom: 1px solid rgb(219,219,219);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+            p{
+                margin-top: 18px;
+            }
+
+         }
+
+         #main{
+            display: flex;
+               width: 100%;
+               height: 90%;
+               flex-direction: column;
+               justify-content: center;
+               align-items: center;
+            }
+            img{
+                width: 100px;
+                height: 80px;
+            }
+            #description{
+                font-size: 1.3rem;
+                font-weight: 100;
+            }
+
+            label{
+                cursor: pointer;
+                background-color:rgb(0,149,246);
+                color: white;
+                width: 10rem;
+                height: 32px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                font-weight: 500;
+                align-items: center;
+                font-size: 0.9rem;
+
+            }
+            #select-button{
+
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+    }
+
+    #create-new-post{
+        // position: relative;
+        // background-color: white;
+        // width: 42rem ;
+        // height:25rem ;
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        position: absolute;
+        
+
+
+        .header2{
+            height: 12%;
+            width: 100%;
+            border-bottom: 1px solid rgb(219,219,219);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;         
+            padding-left: 10px;
+            padding-right: 10px;
+
+            #heading{
+                 
+                font-weight: 600;
+                font-size: 1.1rem;
+                margin-top: 15px;
+            }
+
+            #back-icon{
+
+                font-size: 1.1rem;
+                margin-top: 5px;
+            }
+
+            #share-button{
+                background-color: transparent;
+                border: none;
+                color: rgb(0,151,247);
+
+            }
+
+        }
+         #main{
+
+            width: 100%;
+            height: 88%;
+            display: flex;
+
+            #image-section{
+                width: 50%;
+                height: 100%;
+                border-bottom-left-radius:15px;
+                
+                 #post-image{
+
+                    width: 100%;
+                    height: 100%;
+                 }
+            }
+            #caption-section{
+                width: 50%;
+                height: 100%;
+
+                #profile{
+                    display: flex;
+                    height: 15%;
+                    align-items: center;
+                    padding-left: 15px;
+                    // border: 2px solid red;
+                    padding-top: 17px;
+
+                    #user-avtar{
+                      
+                        font-size: 1rem;
+                        background-color:rgb(219,219,219);
+                        color: white;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 17px;
+                        
+                   }
+                   #dp{
+                     
+                      width: 29px;
+                      height: 29px;
+                   }
+                   #username{
+                       
+                         color: black;
+                         font-weight: 500;
+                         margin-left: 10px;
+                         font-size: 1.1rem;
+                   }
+
+                }
+
+                #caption-area{
+                    border: none;
+                    outline: none;
+                    margin-left: 15px;
+                }
+                
+            }
+
+    
+
+         }
+      
+    }
+
+    #confirmation-slot{
+        position: absolute;
+        // width: 100%;
+        // height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+
+
+        #background-c{
+        position: absolute;
+        opacity: 0.4;
+        background: black;
+        width: 100%;
+        height: 100vh;
+        }
+        
+        #contain-er{
+
+            background-color: white;
+            position: relative;
+            width: 25rem;
+            height: 13rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 30px;
+        }
+        #heading-{
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        #p1{
+          
+             margin-top: -10px;
+             font-size: 0.9rem;
+             color: rgb(142,142,142);
+        }
+        #p2{
+            border-top:1px solid rgb(219,219,219);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+            color: red;
+            font-weight: 700;
+            position: absolute;
+            bottom:40px;
+            font-size:0.9rem;
+            padding-top: 10px;
+        }
+        #p3{
+            border-top: 1px solid rgb(219,219,219);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            position: absolute;
+            bottom: 0px;
+            font-size: 0.9rem;
+            padding-top: 10px;
+        }
+    }
+
+
+
 
 }
 

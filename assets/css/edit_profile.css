@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+.form-box {
+  position: relative;
+  top: 50px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa; }
+  .form-box #profile-box {
+    width: 60%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    border: 1px solid #dbdbdb; }
+  .form-box #section-heading {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    border-bottom: 1px solid #dbdbdb; }
+    .form-box #section-heading #heading-1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      height: 50px;
+      font-size: 1.3rem;
+      font-family: calibri;
+      font-weight: 600;
+      border-bottom: 2px solid black;
+      margin-right: 20px; }
+    .form-box #section-heading #heading-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      height: 50px;
+      font-size: 1.3rem;
+      font-family: calibri;
+      margin-left: 40px; }
+  .form-box #section {
+    width: 100%;
+    height: 65vh;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column; }
+    .form-box #section #profile {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .form-box #section #profile #user-profile {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; }
+      .form-box #section #profile #user-name {
+        font-size: 1.4rem;
+        margin-left: 3%; }
+    .form-box #section #profile-form {
+      width: 80%;
+      display: flex;
+      flex-direction: column; }
+      .form-box #section #profile-form #slot-1 {
+        display: flex; }
+      .form-box #section #profile-form #slot-2 {
+        display: flex; }
+      .form-box #section #profile-form #slot-3 {
+        display: flex; }
+    .form-box #section .password-changing-form {
+      width: 0;
+      position: absolute;
+      overflow: hidden; }

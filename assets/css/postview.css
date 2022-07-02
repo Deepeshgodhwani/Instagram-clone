@@ -1,0 +1,31 @@
+.post-section {
+  width: 100%;
+  height: 90vh;
+  padding-top: 60px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  margin: auto; }
+  .post-section #post-view {
+    width: 70%;
+    background-color: white;
+    height: 90%;
+    display: flex;
+    margin-top: 20px; }
+    .post-section #post-view #image {
+      width: 50%; }
+    .post-section #post-view #container #userdetail {
+      display: flex; }
+    .post-section #post-view #container #achievements #likes {
+      width: 30px;
+      height: 30px; }
+    .post-section #post-view #container #achievements #comments {
+      width: 30px;
+      height: 30px; }
+    .post-section #post-view #container #achievements #transfer {
+      width: 30px;
+      height: 30px; }
+
+#profilepicture {
+  width: 30px;
+  height: 30px; }

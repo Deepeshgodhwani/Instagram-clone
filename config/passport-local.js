@@ -2,25 +2,43 @@ const passport = require('passport');
 
 const localStrategy = require('passport-local').Strategy;
 
-const User= require('../modules/user')
+const User= require('../models/user')
 
 passport.use( new localStrategy({
-    usernameField : 'email'
+    usernameField : 'username',
+    passReqToCallback: true
 },
- function(email, password, done){
-  
-     User.findOne({email : email}, function(err, user){
-         if(err){
-             console.log('ERROR IN FINDING USER ---> PASSPORT');
-              return done(err);
-         }
-         if(!user || password != user.password){
-             console.log("INVALID USER/PASSWORD");
-              return done(null , false)
-         }
-         
-         return done(null, user)
-        
+ function(req,username, password, done){
+    User.findOne({username:username}, function(err,user){
+        if(err){
+
+            console.log(err);
+        }
+         if(!user){  
+             User.findOne({email : username}, function(err,userr){
+                // console.log(userr);
+                if(err){
+                    req.flash('error', err)
+                     return done(err);
+                } 
+    
+            if(!userr || password != userr.password){
+                req.flash('error','INVALID USER/PASSWORD');
+                 return done(null , false)
+            }
+                
+            return done(null, userr)
+          })
+        }else{
+
+            if(!user || password != user.password){
+                req.flash('error','INVALID USER/PASSWORD');
+                 return done(null , false)
+            }
+                
+            return done(null, user)
+               
+        }      
      });
     
 
@@ -57,7 +75,7 @@ passport.checkAuthenticatedUser= function(req ,res ,next)
     {
          return next();
     }
-    return res.redirect('/signin');
+    return res.redirect('/user/signin');
 }
 
 //

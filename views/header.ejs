@@ -2,29 +2,95 @@
 <head>
 
     <link rel="stylesheet" href="/css/header.css">
+    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
+
 </head>
 
 
 <nav id="nav">
-<div id="home">
-    HEADER
+<div id="Instagram-logo">
+        <a  style="font-family:billabong; font-weight: bold; font-size: 25px;">
+          Instagram  
+        </a>
 </div>
+<div id="search-bar">
 
-
-<header id="header">
- 
+</div>
+<div id="slots">   
     <% if (locals.user) { %>
-        <div id="ok">
-        <div > <a> <%= user.name%> <a> </div>
-         <div ><a href="/user/signout"> SIGN OUT</a></div>
+        <a  href="/user/user_home">
+          <img class="icon" src="../assets/images/homepageicon.png">
+        </a>
+         <a href="/user/direct/"><img class="icon" src="../assets/images/send.png"></a>
+         <!-- <a href="/user/post/postsection"><img class="icon" src="../assets/images/createpost.png"></a> -->
+         <img onclick="createPost()" class="icon" src="../assets/images/createpost.png">       
+         <a><img class="icon" src="../assets/images/exploreicon.png"> </a>
+            <% if(user.avtar) {%>
+
+                <a href="/user/profile/<%= locals.user.id%>" > <image id="profile-picture" src="<%= user.avtar%>"> <a> 
+               
+             <%}else{%>
+                <a href="/user/profile/<%= locals.user.id%>" >    <i id="user-avtar" class="fa-solid fa-user"></i></a>
+              <%}%>
+         <div><a href="/user/signout"><img class="icon" src="../assets/images/logout.png"></a> </div>
         </div>
-    <% }else{ %>
-
-        <div><a href="/user/signup"> SIGN UP</a></div>
-        <div><a href="/user/signin"> SIGN IN</a></div>
-    
-    <%  } %> 
-            
-</header>
-
+         <% } %>
+</div>
 </nav>
+
+
+    <!--CREATE POST   -->
+
+    <div class="create-post">
+
+      <div onclick="closeTheProcess()" id="background-color">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+         <!-- <div class="container">  -->
+           <form class="post-form" action="post/create", enctype="multipart/form-data"  method="post">
+              <div id="select-picture">
+                  <div class="header"> <p id="heading">Create new post </p> </div>   
+                    <div id="main">
+                          <img id="image" src="../assets/images/drag.jpg">
+                           <p id="description">Drag photos and videos here</p>
+                           <label for="select-button">Select From Computer</label>
+                            <input  id="select-button" type="file" name="content" required>
+                          
+                      </div>        
+                 </div>
+              <div id="create-new-post">
+                <div class="header2"><i onclick="closeTheProcess()" id="back-icon" class="fa-solid fa-arrow-left-long"></i> <p id="heading">Create new post </p> <input id="share-button" type="submit" value="Share"></div>
+                   <div id="main">
+                     <div id="image-section">
+                         <img src="" id="post-image">
+                     </div>
+                          <div id="caption-section">
+                             <div id="profile">
+                               <% if (user.avtar){%>
+                                  <img id="dp" src="<%=user.avtar%>">
+                                <%}else{%>
+                                   <i id="user-avtar" class="fa-solid fa-user"></i>  
+                                  <%}%>
+                              <p id="username"><%=user.name%></p>
+                             </div>
+                                <textarea id="caption-area" cols="37",rows="5"  placeholder="Write a caption..." name="caption"></textarea>
+                           </div>
+                    </div>                         
+             </div>
+        </form>    
+        <div id="confirmation-slot">
+          <div id="background-c"></div>
+             <div id="contain-er">
+                 <p id="heading-"> Discard post?</p>
+                 <p id="p1">If you leave, your edits won't be saved.</p>
+                 <p onclick="discard()" id="p2">Discard</p>
+                 <p onclick="continueProcess()" id="p3">Cancel</p>
+           </div>
+      </div> 
+  </div>
+
+ <script src="/js/jquery.js"></script>   
+<script src="/js/create_post.js">
+     
+
+</script>

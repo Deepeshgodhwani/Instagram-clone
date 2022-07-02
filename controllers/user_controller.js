@@ -1,44 +1,61 @@
 
-const User = require('../modules/user')
-const post =require('../modules/post')
+const User = require('../models/user')
+const post =require('../models/post')
+const Following=require('../models/following');
+const fs=require('fs');
+const path= require('path');
 
 
-module.exports.homeuser =function(req ,res){
-    
-    // post.find({}, function(err, posts){
-    //     return res.render('user_home', {
-    //         tittle: 'USER HOME',
-    //         post : posts
-    //     })
-    // })
-    post.find({}).populate('user').exec(function(err, posts){
-        return res.render('user_home', {
-
-            tittle: 'USER HOME',
-            post : posts
-    
-        })
-
-    })
-
-
+module.exports.homeuser = async function(req ,res){
     
 
-    
+ try{
+    let posts= await post.find({})
+         .sort('-createdAt')
+         .populate('user')
+         .populate({
+            path:'likes',
+            populate:{
+                path:'user'
+            }
+         })
+         .populate({
+                     path : 'comments',
+                      populate: {
+                                  path : 'user'
+                       },
+                       populate:{
+                        path:'likes',
+                        populate :{
+                            path:'user'
+                        }
+                       }
+                    })   
+                    
+ let users= await  User.find({})
+  let user = await User.findById(req.user._id);
+    let user_following= await Following.find({user:user._id});
+    // console.log(user_following);
+   
 
+ req.flash('success', "REACHED PROFILE !!")
+    return res.render('user_home', {
+
+      tittle: 'USER HOME',
+      post : posts,
+      users: users,
+      User_following:user_following
+
+
+      })
+ 
+}catch(err){
+   
+      console.log("ERROR IN FETCHING POST AND USER", err)
+      return res.redirect('back')
+}
 };
 
-module.exports.profile =function(req ,res){
-    
-    return res.render('userprofile', {
-
-        // content : 'header'
-
-    })
-
-    
-
-};
 
 
 module.exports.signin= function(req , res){
@@ -95,7 +112,7 @@ module.exports.create= function(req , res){
             User.create(req.body, function(err,user){
                 if(err){
                     console.log("error in creating user");
-                    return ; 
+                    return res.redirect('back') ; 
                    }
                  
                 return res.redirect('/user/signin');   
@@ -115,13 +132,18 @@ module.exports.create= function(req , res){
 
 
 module.exports.createSession= function(req , res){
+
+
+    req.flash('success', 'successfully logged in')
     
-    return  res.redirect('user_home')
+    return res.redirect('/user/user_home');
 };
 
 
 module.exports.destroySession= function(req, res){
 
     req.logout();
+    req.flash('success', 'successfully logged out ')
     return res.redirect('/')
 }
+

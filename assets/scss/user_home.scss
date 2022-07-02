@@ -1,0 +1,397 @@
+
+
+body{
+    
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+ 
+}
+
+#loading{
+        
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    z-index: 99999;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid red;
+
+    #instagram-logo{
+        width: 80px;
+        height: 80px;
+        margin-bottom: 100px;
+    }
+
+    p{
+        position: absolute;
+        bottom: 80px;
+        font-weight: 400;
+        font-size: 1.1rem;
+    }
+
+    #meta-logo{
+        width: 150px;
+        height: 50px;
+        position: absolute;
+        bottom: 50px;
+    }
+}
+
+
+#container{
+
+    display: flex;
+    background-color:rgb(240, 240, 240);
+    justify-content: space-between;
+    color:black;
+    text-transform: capitalize;
+    padding-top: 60px;
+    height: 100vh;
+    #advertisement{
+
+        width: 20%;
+    }
+
+//    post //  
+   
+    .feed{
+
+        width: 50%;
+        height: 95vh;
+        overflow: scroll;
+       
+    }
+
+    .feed::-webkit-scrollbar{
+  
+         width: 0;
+        
+    }
+    #post{
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+        background-color: rgb(255,255,255);
+        border: 1px solid rgb(219,219,219);
+
+        #postheader{
+                
+              display: flex;
+              width: 100%;
+              justify-content: space-between;
+              align-items: center;
+              height: 70px;
+              background-color:  rgb(255,255,255);
+              padding: 10px;
+              padding-right: 30px;
+
+              .dropdown{
+                   button{
+                        transform: rotate(90deg);
+                   }
+                   
+              }
+              
+               
+               #postcreator{
+                display: flex;
+                width: 40%;
+                justify-content: space-between;
+                align-items: center;
+
+
+                   #profile{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                   }
+
+                   #user-avtar{
+                      
+                        font-size: 1.5rem;
+                        background-color:rgb(219,219,219);
+                        color: white;
+                        border-radius: 50%;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                   }
+                   h3{
+                       margin-top: 25px;
+                       font-size: 1.2rem;
+                       text-transform:lowercase;
+                       width: 80%;
+                      
+                       p{
+                        color:rgb(152,152,152);
+                        font-size: 0.7rem;
+                        margin-top: 0px;
+                        overflow: hidden;
+                        height: 16px;
+                        width: 80%;
+                       }
+
+                   }
+               }
+              
+        }
+        #caption{
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: auto;
+            // border: 2px solid red;
+            display: flex;
+            align-items: center;
+           
+        }
+
+
+        #postimage{
+                    
+            width: 100%;
+            height: 80vh;
+
+        }
+
+        #ratings{
+
+            display: flex;
+            justify-content: space-between;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              font-size: 1.5rem;
+              width: 18%;
+              margin-left: 10px;
+              align-items: center;
+ 
+              .like{
+                width: 25px;
+                height: 25px;
+                color: rgb(0, 0, 0);
+              } 
+              #comment{
+                width: 25px;
+                height: 25px;
+              }
+              #share{
+                    width: 25px;
+                    height: 25px;
+                    transform: rotate(10deg);
+              }
+
+              
+        }
+        #numbering{
+                  
+            display:flex;
+            flex-direction: column;
+            width: 80%;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            // border: 2px solid red;
+           
+
+            
+            
+             #total-likes{
+                 color:rgb(64,64,64);
+                 font-weight: bold;    
+                 font-size: 0.9rem;
+                 text-transform: none;
+
+             }
+             #total-comments{
+                color:rgb(142,142,142);
+                font-size: 0.8rem;
+             }
+
+       }
+       .comment-form{
+
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        border-top: 1px solid rgb(224, 224, 224);
+        position: relative;
+        
+        img{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            position: absolute;
+            left: 10px;
+
+        }
+        #text{
+            border:none ;
+            width: 70%;
+            padding: 5px;
+            outline: none;
+            position: relative;
+            right: 50px;
+
+        }
+        #commentbutton{
+             border: none;
+             background-color: transparent;
+             position: absolute;
+             right: 10px;
+        }
+   }  
+    }
+    #friends{
+
+        width: 28%;
+        // border-left: 2px solid grey;
+        height: 100vh;
+        padding: 20px; 
+        
+    }
+
+}
+
+
+
+
+// comment section //// --------------------------------------------- //
+
+.post-section{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+}
+
+#post-view{
+          
+    width: 70%;
+    // background-color: rgb(255,255,255);
+    height: 90%;
+    display: flex;
+    margin-top: 20px;
+    #image{
+       
+         width: 50%;
+    }
+    #container{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255,255,255);
+        #userdetail{
+            display: flex;
+            position: relative;
+            top: -40px;
+            border-bottom: 1px solid rgb(224, 224, 224);
+            align-items: center;
+
+            #profilepicture{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-bottom: 12px;
+                margin-left: 10px;
+        
+            }
+            #name{
+                margin-left: 12px;
+                text-transform: capitalize;
+                font-size: 1.2rem;
+            }
+        }  
+        #achievements{
+            position: absolute;
+            bottom: 22%;
+            border-top: 1px solid rgb(224, 224, 224);
+            padding-left: 0px;
+            width: 35%;
+            display: flex;
+            // justify-content: space-between;
+            padding-top: 10px;
+
+            #likes{
+                width: 30px;
+                height: 30px;
+                margin-left: 15px;
+            }
+            #comments{
+                 
+                width: 30px;
+                height: 30px;
+                margin-left: 15px;
+            }
+            #transfer{
+
+                width: 30px;
+                height: 30px;
+                margin-left: 15px;
+
+            }
+
+        }
+        #numberings{
+            position: absolute;
+            bottom: 17%;
+            padding-left: 15px;
+            font-weight: bold;
+            
+        }
+        .comment-forms{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border-top: 1px solid rgb(224, 224, 224);
+            position: relative;
+
+            #profilepicture{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                position: absolute;
+                left: 10px;
+    
+            }
+            #content{
+                border:none ;
+                width: 70%;
+                padding: 5px;
+                outline: none;
+                position: relative;
+                right: 20px;
+    
+            }
+            #commentsubmit{
+                 border: none;
+                 background-color: transparent;
+                 position: absolute;
+                 right: 10px;
+            }
+        }
+         
+        
+    }
+    
+}
+
+#close-button{
+    background-color: white;
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    color: white;
+    
+}
+#profilepicture{
+width: 30px;
+height: 30px;
+}

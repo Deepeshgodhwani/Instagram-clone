@@ -1,0 +1,45 @@
+
+
+<html>
+    <head>
+       <link rel="stylesheet" href="/css/chattingSection.css">        
+    </head>
+    <body>
+        <%- include('header'); -%>
+
+        <div id="chatting-box">
+       
+            <div id="user-chat-box">
+
+            <ul id="chat-message-list">
+                <li class="other-message">
+                    <span>
+                        Other Message
+                    </span>
+                </li>
+                <li class="self-message">
+                    <span>
+                        Self Message
+                    </span>
+                </li>
+            </ul>
+               <input id="text" type="text" name="messages" required>
+                <button class="send-Button">send</button> 
+        </div>
+        </div>
+          
+         
+
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.js" ></script> --> -->
+           <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+           <script src="/js/jquery.js"></script>
+            <script src="/js/chat_engine.js"> </script>
+           
+        <%if(locals.user){%>
+          <script>
+                     
+                  new chatEngine('user-chat-box','<%=locals.user.username%>');  
+          </script>
+          <%}%>
+    </body>
+</html>

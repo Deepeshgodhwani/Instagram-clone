@@ -1,0 +1,54 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="/css/postview.css">
+    </head>
+ <body>
+  <%- include('header') -%>
+   <div class="post-section">
+    <div id="post-view">
+      <img id=image src="<%=posts.content%>"> 
+        <div id="container">
+          <div id="userdetail">
+                <img id="profilepicture" src="<%=posts.user.avtar%>">
+                <p id="name"><%=posts.user.name%></p>
+                
+          </div> 
+          <ul id="comments-section">
+              <%  for (comment of posts.comments){%>
+
+                <li id="comments-list"><%if(locals.user.id==comment.user.id) { %>
+                    <small>
+                        <a id="commentDelete" href="/user/comment/delete/<%= comment.id%>"> X</a>
+                     </small><%}%>  <%=comment.content%> <br>
+                     <a href="/user/liked/toggle?id=<%=comment._id%>&type=Comment"><img style=" margin-top:10px; width: 20px; " src="../assets/images/like.png"></a>
+                   <p><%=comment.likes.length%> likes</p>
+
+                   <box style="font-size: 1rem;"> <%= comment.user.name%></box>
+                </li>
+           <%- include('_comment') -%>
+        <%}%> 
+      </ul>
+   <div id="achievements">
+    <img id="likes" src="../assets/images/like.png">
+    <img id="comments" src="../assets/images/comment.png" >
+    <img id="transfer" src="../assets/images/send.png">
+   </div>
+   <div id="numberings">
+          <div id="total-like">
+                
+          </div>
+          <div id="total-comment">
+               view all 105 comments
+          </div>
+   </div>
+    <form class="comment-forms" id="comments-<%-posts._id%>" action="/user/comment/create", method="post" >
+       <img  id="profilepicture" src="<%= posts.user.avtar%>" >
+    <input id="content" type="text" name = "comment" placeholder="Do Comment" required>
+    <input type="hidden" name = "post" value= "<%= posts._id %>">
+    <input id="commentsubmit" type="submit"  value="comment">
+ </form>  
+     </div>
+       </div>
+    </div>     
+    </body>
+  </html>

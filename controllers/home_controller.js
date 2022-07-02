@@ -1,5 +1,5 @@
 
-const post = require('../modules/post')
+const post = require('../models/post')
 
 
 
