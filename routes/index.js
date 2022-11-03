@@ -1,15 +1,25 @@
 
 const express = require('express');
-
 const router = express.Router();
+const account=require('../routes/account');
+const userController= require('../controllers/user_controller');
 
-const homeController= require('../controllers/home_controller');
+const {renderExplore}=userController;
 
 
-console.log('router is working');
 
-router.get('/', homeController.home);
 
+
+router.get('/', function(req,res){
+    
+     if(req.user){
+        return  res.redirect('/user/user_home');
+     }else{
+        return res.render('signin',{type:false})
+   }
+});
+router.use('/account/',account);
+router.get('/explore',renderExplore);
 router.use('/user/', require('./user'));
 
 

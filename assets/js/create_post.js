@@ -2,40 +2,70 @@
 
 {
 
+   
+
      let pageNo=0; 
     
     function postCreationOn(){
+        
+      $('#container').on('scroll touchmove mousewheel', function(e){
+         e.preventDefault();
+         e.stopPropagation();
+         return false;
+       })
+      
+       $('.create-post').on('scroll touchmove mousewheel', function(e){
+         e.preventDefault();
+         e.stopPropagation();
+         return false;
+       }) 
 
          
-       $('html, body').css({
-          overflow: 'hidden',
-          height: '100vh'
-       }); 
-           
+       $('#outer-box').on('scroll touchmove mousewheel', function(e){
+         e.preventDefault();
+         e.stopPropagation();
+         return false;
+       })
+
+       $('.outer').on('scroll touchmove mousewheel', function(e){
+         e.preventDefault();
+         e.stopPropagation();
+         return false;
+       })
+
+
         $('.create-post').css({
 
            opacity:'1',
-           overflow:'none',
+           overflow:'hidden',
            width:'100%',
            height:'100vh'
         })
+
+        $('.create-icon').css({display:"none"});
+        $('.createPost').css({display:"flex"});
+
     }
 
 
     function postCreationOff(){
 
-          $('html, body').css({
-             overflow:'none',
-             height:'auto'
-          }); 
+      $('#container').off('scroll touchmove mousewheel');
+      $('.create-post').off('scroll touchmove mousewheel');
+      
+      $('.outer-box').off('scroll touchmove mousewheel');
+      $('.outer').off('scroll touchmove mousewheel');
 
-            $('.create-post').css({
-                opacity:'0',
-                overflow:'hidden',
-                width:'0',
-                height:'0',
-                position:'absolute'
-             })
+      $('.create-post').css({
+         opacity:'0',
+         overflow:'hidden',
+         width:'0',
+         height:'0',
+      })
+
+      $('.create-icon').css({display:"flex"});
+      $('.createPost').css({display:"none"});     
+
   }
 
 function selectingPictureOn(){
@@ -56,7 +86,7 @@ function selectingPictureOn(){
           width:'0',
           height:'0',
           overflow:'hidden',
-           position:'absolute'
+          position:'absolute'
     })
      pageNo =1;
          
@@ -78,6 +108,7 @@ function discardProcessON(){
       width:"100%",
       height:'100vh',
       overflow:'none'
+     
    })
 } 
 
@@ -88,6 +119,7 @@ function discardProcessOff(){
       height:'0',
       overflow:'hidden'
     })
+    $('#select-button').val('');
 } 
 
 
@@ -99,8 +131,9 @@ function discardProcessOff(){
 
 
   let file= $('#select-button')
+      
       file.change(function(event){
-        
+          console.log("hey");
            var path=URL.createObjectURL(event.target.files[0])
            selectingPictureOff();
    
@@ -143,13 +176,6 @@ function discardProcessOff(){
    var continueProcess =function(){
       discardProcessOff();
    }
-
-
-      
-
-    
-
-
 
 
 }

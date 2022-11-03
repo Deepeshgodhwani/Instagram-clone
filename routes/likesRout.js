@@ -1,7 +1,8 @@
 const express= require('express');
 const router = express.Router();
+const passport=require('passport');
 const likes=require('../controllers/likesController');
 
-router.post('/toggle',likes.liked);
+router.get('/toggle',passport.checkAuthenticatedUser,likes.liked);
 
 module.exports =router;

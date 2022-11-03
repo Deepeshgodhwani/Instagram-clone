@@ -1,58 +1,88 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/edit_profile.css">
+    <title>Edit Profile • Instagram</title>
+    <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+ </head>
+ <body>
+    <%- include('header'); -%>
+        
+    <div class="form-box">
+        <div id="profile-box">
+
+             <div id="section-heading">
+                  <div onclick="toggleSection(true)" id="heading-1"><p>Edit Profile</p></div>
+                  <div onclick="toggleSection(false)" id="heading-2"><p>Change password</p></div>
+             </div>
+             <div id="section">
+            
+               <form autocomplete="off" method="post" action="/user/editprofile/update?id=<%=User._id%>&type=profile" id="profile-form">
+                   <div id="slot-1">
+                      <div id="head-name"><p> Name</p></div>
+                      <div id="contain">
+                        <div ><input id="value-name" autocomplete="off" value="<%=User.name%>" type="text" name="name"></div>
+                    </div>
+                    </div>
+                   <div id="username">
+                        <div  id="head-username"><p>Username</p></div>
+                        <div  id="value-username"><input type="text" autocomplete="off" maxlength="14" value="<%=User.username%>" name="username"></div>  
+                    </div>
+                   <div id="slot-2">
+                       <div id="head-bio"><p>Bio</p></div>
+                       <div ><textarea name="bio" id="value-bio" maxlength="150" autocomplete="off" placeholder="Bio"  cols="40" rows="5"></textarea></div>
+                   </div>   
+
+                   <div id="slot-3">
+                       <div id="head-password"><p>Password</p></div>
+                       <div id="value-password">
+                          <p id="heading">Enter your password to submit form</p>
+                        <input type="password" class="password" name="password" minlength="8" autocomplete="off" placeholder="Password" required></div>
+                   </div>  
+                   <div id="button">
+                    <input id="submit" type="submit">
+                   </div>
+            </form>
+
+            
+            <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=password"  id="passwordChangeSection" class="password-changing-form">
+                <div id="old-password">
+                    <p id="value-old">Old password</p>
+                    <input autocomplete="off" type="password" minlength="8" class="oldPass" name="password" required>
+                </div>
+                <div id="new-password">
+                    <p id="value-new">New password</p>
+                    <input type="password" autocomplete="off" minlength="8" maxlength="14" class="newPass" name="newPassword" required>
+                </div>
+                <div id="confirm-password">
+                    <p id="confirm">Confirm new password</p>
+                    <input id="pass" minlength="8" autocomplete="off" type="password" maxlength="14" class="confPass" name="ConfirmNewPassword" required> 
+                </div>
+                <div id="submit-2">
+                    <input id="sub" type="submit" value="Change Password">
+                </div>
+            </form>
+           </div> 
+       </div>
+  </div>
+
+  <!-- flash message   -->
+  <div id="message"></div>
+  
+  <script src="/js/jquery.js"></script>
+ <script src="/js/edit_profile.js" ></script>
+</body>
+ </html>
+ 
+ <!DOCTYPE html>
 <html>
     <head>
-    <link rel="stylesheet" href="/css/edit_profile.css">
+    
         
     </head>
-    <body>
-        <%- include('header'); -%>
-            
-             <div class="form-box">
-                <div id="profile-box">
-
-                     <div id="section-heading">
-                          <div id="heading-1"><p>Edit Profile</p></div>
-                          <div id="heading-2"><p>Change password</p></div>
-                     </div>
-                     <div id="section">
-                        <div id="profile">
-                           <img id="user-profile" src="<%=User.avtar%>">
-                            <p id="user-name"><%=User.username%></p>
-                       </div>
-                       <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=profile" id="profile-form">
-                           <div id="slot-1">
-                              <p id="head-name"> Name</p>
-                              <input id="value-name" type="text" name="name">
-                           </div>
-                           <p id="para">Help people discover your account by using the name
-                            that you're known by: either your full name, nickname</p>
-                           <div id="slot-2">
-                               <p id="head-bio">Bio</p>
-                               <textarea name="bio" id="value-bio" cols="30" rows="10"></textarea> 
-                           </div>   
-
-                           <p id="heading">enter your password to submit form</p>
-                           <div id="slot-3">
-                              <p id="head-password">password</p>
-                              <input id="value-password" type="text" name="password" required>
-                              <input type="submit">
-                           </div>  
-
-                    </form>
-
-
-                    <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=password" class="password-changing-form">
-                        <p>Old password</p>
-                        <input type="text" name="password" required>
-                        <p>New password</p>
-                        <input type="text" name="newPassword" required>
-                        <p>Confirm new password</p>
-                        <input type="text" name="ConfirmNewPassword" required> 
-                        <input type="submit">
-                    </form>
-                   </div> 
-               </div>
-          </div>
-    </body>
+   
 </html>
 

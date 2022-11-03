@@ -11,7 +11,6 @@ module.exports.liked= async function(req,res){
                 Likable= await Post.findById(req.query.id).populate('likes')
             }else{
                 Likable= await Comment.findById(req.query.id).populate('likes')
-
             }
             
             // checking like is done by user is exist or not
@@ -22,14 +21,13 @@ module.exports.liked= async function(req,res){
              user:req.user._id
            })
                 
-                //  if exist then delete it
+             //  if exist then delete it
             if(existinglike){
-                
-                Likable.likes.pull(existinglike._id);
+              
+                Likable.likes.pull(existinglike);
                 Likable.save();
                 existinglike.remove();
                 deleted=true;
-
                if(req.xhr){
                      
                    return res.status(200).json({
@@ -37,7 +35,9 @@ module.exports.liked= async function(req,res){
                           Deleted:deleted
                       }
                    })
-               }       
+               }
+               
+               return res.redirect("back");
                 
 
                 // else create that like
@@ -48,7 +48,8 @@ module.exports.liked= async function(req,res){
                     likeable:req.query.id,
                     onmodel:req.query.type
                 })
-                 Likable.likes.push(newLike._id);
+             
+                 Likable.likes.push(newLike);
                  Likable.save();
                  deleted=false;
                  if(req.xhr){
@@ -59,9 +60,11 @@ module.exports.liked= async function(req,res){
                         }
                     })
                  }
+               return res.redirect("back");
             }
 
         }catch(err){
+
               console.log("error in like post or comment",err)
         }
 }

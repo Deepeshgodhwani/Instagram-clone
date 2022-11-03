@@ -1,54 +1,130 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    <link rel="stylesheet" href="/css/postview.css">
-    </head>
- <body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/postview.css">
+   <script src="https://fontawesome.com/" crossorigin="anonymous"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Instagram photo by <%=posts.user.name%></title>
+  <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+
+</head>
+<body>
   <%- include('header') -%>
    <div class="post-section">
     <div id="post-view">
       <img id=image src="<%=posts.content%>"> 
         <div id="container">
           <div id="userdetail">
-                <img id="profilepicture" src="<%=posts.user.avtar%>">
-                <p id="name"><%=posts.user.name%></p>
-                
+               <a href="/user/profile/<%=posts.user._id%>">
+                 <img class="profilepicture" src="<%=posts.user.avtar%>">
+                </a>
+                <a style="text-decoration: none; color:black;" href="/user/profile/<%=posts.user._id%>">
+                  <p id="name"><%=posts.user.username%></p>
+                </a>
+                <%if(eligible==true){%>
+                  <div class="options" >
+                    <button  style="background-color: transparent; border: none; color:black; font-size: larger;" class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu" style="position: absolute; width: 1rem;" aria-labelledby="dropdownMenuButton2">
+                      <li> <a class="delete-post-button"  href="/user/post/delete/<%= posts.id%>"><span>Delete post</span> </a></li>
+                    </ul>
+                   </div>
+                  <%}%>
           </div> 
           <ul id="comments-section">
+            <%if(posts.caption){%>
+            <li class="caption" style="display:flex; padding-right: 1.5rem; margin-bottom: 1rem; column-gap:10px;">
+              <img class="dp" src="<%=posts.user.avtar%>">
+              <div style="line-height: 15px; margin-top: 5px;">
+                <p id="name" style=" display: inline; font-weight: 600; margin-top: 5px;"><%=posts.user.username%></p>
+                &nbsp;
+                <p id="caption" style="display :inline;  word-wrap: break-word; font-size:0.9rem;margin-top: 5px; font-family: calibri;"><%=posts.caption%></p>
+              </div>
+            </li>
+            <%}else{%>
+              <li style="position:absolute;" class="caption"></li>
+             <%}%>
+           
               <%  for (comment of posts.comments){%>
 
-                <li id="comments-list"><%if(locals.user.id==comment.user.id) { %>
-                    <small>
-                        <a id="commentDelete" href="/user/comment/delete/<%= comment.id%>"> X</a>
-                     </small><%}%>  <%=comment.content%> <br>
-                     <a href="/user/liked/toggle?id=<%=comment._id%>&type=Comment"><img style=" margin-top:10px; width: 20px; " src="../assets/images/like.png"></a>
-                   <p><%=comment.likes.length%> likes</p>
-
-                   <box style="font-size: 1rem;"> <%= comment.user.name%></box>
+                <li class="comment<%=comment._id%>" id="comments-list">
+                  <div class="box" >
+                    <a href="/user/profile/<%=comment.user._id%>">
+                      <img class="dp" src="<%=comment.user.avtar%>">
+                    </a>
+                    <div style="word-wrap:break-word ;" id="comment">
+                      <a style="text-decoration: none; color:black;" href="/user/profile/<%=comment.user._id%>">
+                        <p style="font-weight: 600;">
+                          <%= comment.user.username%>
+                        </p>
+                      </a> 
+                      &nbsp;    
+                      <%=comment.content%> 
+                      <div id="like-delete"> 
+                        <p style="font-size: 0.8rem;" class="<%=comment._id%>"><%=comment.likes.length%> likes</p>
+                        <%if(locals.user.id==comment.user.id) { %>  
+                        <div style="cursor: pointer; font-size: 0.8rem;" class="delete<%=comment._id%>"  commentId="<%=comment._id%>" onclick="toggleDelete('delete<%=comment._id%>')"  link="/user/comment/delete/<%= comment.id%>">Delete</div>
+                        <%}%> 
+                     </div>
+                    </div>
+                  </div>
+                  
+                  <div style="cursor: pointer;" class="btn<%=comment._id%>" onclick="toggleLike('btn<%=comment._id%>')" commentId="<%=comment._id%>" data-likes="<%=comment.likes.length%>"  link="/user/liked/toggle?id=<%=comment._id%>&type=Comment">
+                      <%if(comntliked[itr]==true){%>
+                      <div id="liked">
+                        <i id="red" class="fa-solid fa-heart"></i>
+                      </div>
+                      <%}else{%>
+                        <div id="unlike">      
+                          <i id="white" class="fa-regular fa-heart"></i>
+                       </div>   
+                        <%}%>
+                      </div>
                 </li>
-           <%- include('_comment') -%>
+                <%itr++%>
         <%}%> 
       </ul>
    <div id="achievements">
-    <img id="likes" src="../assets/images/like.png">
-    <img id="comments" src="../assets/images/comment.png" >
-    <img id="transfer" src="../assets/images/send.png">
-   </div>
-   <div id="numberings">
-          <div id="total-like">
-                
+    <div id="out">
+      <a class="toggle-like-post" data-likes="<%=posts.likes.length%>" href="/user/liked/toggle?id=<%=posts._id%>&type=Post">
+        <%if(liked==true){%>
+          <div id="liked">
+            <i id="red" class="fa-solid fa-heart"></i>
           </div>
-          <div id="total-comment">
-               view all 105 comments
-          </div>
+          <%}else{%>
+            <div id="unlike">      
+              <i id="white" class="fa-regular fa-heart"></i>
+           </div>   
+            <%}%>
+      </a> 
+      <i id="commentBtn" class="fa-regular fa-comment"></i>
+    </div>
+    <p id="likedd"><%=posts.likes.length%> likes</p>
    </div>
-    <form class="comment-forms" id="comments-<%-posts._id%>" action="/user/comment/create", method="post" >
-       <img  id="profilepicture" src="<%= posts.user.avtar%>" >
-    <input id="content" type="text" name = "comment" placeholder="Do Comment" required>
+<form class="comment-forms" id="comments-<%-posts._id%>" action="/user/comment/create", method="post" >
+    <img  id="profilepicture" src="<%= posts.user.avtar%>" >
+    <input id="content" type="text" maxlength="150" name = "comment" placeholder="Add a comment..." autocomplete="off" required>
     <input type="hidden" name = "post" value= "<%= posts._id %>">
-    <input id="commentsubmit" type="submit"  value="comment">
- </form>  
+    <input id="commentsubmit" type="submit"  value="Post">
+</form>  
      </div>
        </div>
-    </div>     
+    </div>  
+    
+    <!-- flash message   -->
+    <div id="message"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/post-view.js"></script>
+    <script>
+    </script>
     </body>
-  </html>
+</html>

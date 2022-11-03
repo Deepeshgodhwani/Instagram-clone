@@ -4,42 +4,45 @@ const localStrategy = require('passport-local').Strategy;
 
 const User= require('../models/user')
 
+
 passport.use( new localStrategy({
     usernameField : 'username',
     passReqToCallback: true
 },
- function(req,username, password, done){
-    User.findOne({username:username}, function(err,user){
-        if(err){
+async function(req,username, password, done){     
 
-            console.log(err);
-        }
-         if(!user){  
-             User.findOne({email : username}, function(err,userr){
-                // console.log(userr);
+       let user= await User.findOne({username:username});   
+         if(!user){
+              
+             User.findOne({email : username}, async function(err,userr){
                 if(err){
-                    req.flash('error', err)
+                    console.log(err);
                      return done(err);
                 } 
-    
-            if(!userr || password != userr.password){
-                req.flash('error','INVALID USER/PASSWORD');
-                 return done(null , false)
+             
+            if(!userr){
+                return done(null ,false);
             }
-                
-            return done(null, userr)
+            
+  
+            const check= await userr.matchPassword(password);
+       
+            if(!check){
+                 return done(null , false);    
+            }
+
+             return done(null, userr) ; 
           })
         }else{
-
-            if(!user || password != user.password){
-                req.flash('error','INVALID USER/PASSWORD');
+      
+            const check= await user.matchPassword(password);
+            if(!user || !check){
                  return done(null , false)
             }
-                
-            return done(null, user)
-               
+
+            return done(null, user)  
         }      
-     });
+     
     
 
 }
@@ -49,6 +52,7 @@ passport.use( new localStrategy({
 
 
 passport.serializeUser(function(user,done){
+
        return done(null , user.id);
 
 })
@@ -75,7 +79,7 @@ passport.checkAuthenticatedUser= function(req ,res ,next)
     {
          return next();
     }
-    return res.redirect('/user/signin');
+    return res.redirect('/');
 }
 
 //

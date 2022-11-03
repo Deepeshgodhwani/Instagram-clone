@@ -1,19 +1,13 @@
-body {
+* {
   margin: 0;
   padding: 0;
   text-transform: capitalize; }
 
-.stop-scroll {
-  margin: 0;
-  height: 100%;
-  overflow: hidden; }
-
 .outer-box {
   background-color: #fafafa;
   width: 100%;
-  margin-top: 0;
   height: auto;
-  padding-top: 6%;
+  padding-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center; }
@@ -22,7 +16,8 @@ body {
     width: 70%;
     justify-content: space-between;
     min-height: 12rem;
-    height: auto; }
+    height: auto;
+    margin-top: 10px; }
   .outer-box #box-1 {
     width: 33%;
     display: flex;
@@ -30,7 +25,8 @@ body {
     .outer-box #box-1 #user-picture {
       width: 150px;
       height: 150px;
-      border-radius: 50%; }
+      border-radius: 50%;
+      margin-top: 0px; }
     .outer-box #box-1 #selection-button2 {
       position: absolute;
       z-index: -1;
@@ -49,7 +45,9 @@ body {
     display: flex;
     flex-direction: column;
     width: 67%;
-    height: auto; }
+    padding-top: 0px;
+    height: auto;
+    font-family: calibri; }
     .outer-box #box-2 #name {
       display: flex;
       width: auto;
@@ -57,18 +55,22 @@ body {
       align-items: center;
       padding-left: 20px; }
       .outer-box #box-2 #name #user_name {
-        font-size: 1.5rem;
-        font-weight: lighter; }
+        font-size: 1.8rem;
+        margin-top: 10px;
+        font-weight: lighter;
+        opacity: 0.9;
+        text-transform: lowercase; }
       .outer-box #box-2 #name #button_edit_profile {
         height: 30px;
         background-color: transparent;
         border: 1px solid lightgrey;
         margin-left: 20px;
         border-radius: 5px;
-        font-weight: 750; }
+        font-weight: 750;
+        padding: 0 10px; }
       .outer-box #box-2 #name #settings-logo {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
         margin-left: 20px; }
       .outer-box #box-2 #name #follow- {
         background-color: #0095f6;
@@ -83,30 +85,32 @@ body {
         height: 1.8rem;
         font-weight: 600;
         margin-bottom: 5px; }
-      .outer-box #box-2 #name #message-button {
-        background-color: transparent;
-        border: 1px solid #dbdbdb;
-        width: 5rem;
-        height: 2rem;
-        border-radius: 5px;
-        margin-left: 30px;
-        font-weight: 400; }
-      .outer-box #box-2 #name #unfollow- {
-        background-color: transparent;
-        border: 1px solid #dbdbdb;
-        width: 5rem;
-        height: 2rem;
-        border-radius: 5px;
-        margin-left: 10px; }
-        .outer-box #box-2 #name #unfollow- #unfollow-logo1 {
-          width: 8px;
-          height: 8px;
-          margin-right: -5px;
-          margin-bottom: 2px; }
-        .outer-box #box-2 #name #unfollow- #unfollow-logo2 {
-          height: 15px;
-          width: 15px;
-          margin-right: 5px; }
+      .outer-box #box-2 #name .bundle {
+        display: flex; }
+        .outer-box #box-2 #name .bundle #message-button {
+          background-color: transparent;
+          border: 1px solid #dbdbdb;
+          width: 5rem;
+          height: 2rem;
+          border-radius: 5px;
+          margin-left: 30px;
+          font-weight: 400; }
+        .outer-box #box-2 #name .bundle #unfollow- {
+          background-color: transparent;
+          border: 1px solid #dbdbdb;
+          width: 5rem;
+          height: 2rem;
+          border-radius: 5px;
+          margin-left: 10px; }
+          .outer-box #box-2 #name .bundle #unfollow- #unfollow-logo1 {
+            width: 8px;
+            height: 8px;
+            margin-right: -5px;
+            margin-bottom: 2px; }
+          .outer-box #box-2 #name .bundle #unfollow- #unfollow-logo2 {
+            height: 15px;
+            width: 15px;
+            margin-right: 5px; }
     .outer-box #box-2 #followers {
       margin-left: 20px;
       display: flex;
@@ -114,29 +118,32 @@ body {
       justify-content: space-between;
       text-transform: lowercase;
       font-size: 1.1rem;
-      margin-top: -10px; }
+      cursor: pointer; }
     .outer-box #box-2 #name- {
-      margin-top: 10px;
+      margin-top: -0.5rem;
       margin-left: 20px;
-      font-weight: 500;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 1rem;
-      text-transform: lowercase; }
+      font-weight: bold;
+      opacity: 0.8;
+      font-family: calibri;
+      font-size: 1.2rem;
+      margin-bottom: 5px; }
     .outer-box #box-2 #bio {
       height: auto;
       position: relative;
       width: 35rem;
-      max-height: 10rem; }
+      max-height: 10rem;
+      margin-left: 23px; }
   .outer-box #post-container {
     margin-top: 30px;
     border-top: 2px solid #dbdbdb;
     width: 65%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    column-gap: 1.5rem;
     padding-top: 20px;
-    row-gap: 1.8rem;
-    position: relative; }
+    row-gap: 1.5rem;
+    position: relative;
+    padding-bottom: 1.5rem; }
     .outer-box #post-container #no-post-box {
       width: 100%;
       height: 10rem;
@@ -153,9 +160,46 @@ body {
         font-size: 1.8rem;
         font-family: Candara Light;
         font-weight: 500; }
-    .outer-box #post-container #post-image {
-      width: 31%;
-      height: 18rem; }
+    .outer-box #post-container #post {
+      width: 31.4%;
+      height: 18rem;
+      position: relative; }
+      .outer-box #post-container #post:hover .hover {
+        display: flex; }
+      .outer-box #post-container #post #post-image {
+        width: 100%;
+        height: 18rem; }
+      .outer-box #post-container #post .hover {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 1.5rem;
+        font-family: calibri;
+        display: none; }
+      .outer-box #post-container #post .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.6; }
+      .outer-box #post-container #post .likes {
+        position: relative;
+        color: white;
+        display: flex;
+        column-gap: 0.5rem;
+        font-size: 1.2rem; }
+      .outer-box #post-container #post .comments {
+        position: relative;
+        color: white;
+        display: flex;
+        column-gap: 0.5rem;
+        font-size: 1.2rem; }
 
 .profile-updation-container {
   width: 0;
@@ -217,6 +261,8 @@ body {
       font-family: calibri;
       color: red;
       text-decoration: none; }
+      .profile-updation-container #options-box #remove-picture p {
+        margin-top: 10px; }
     .profile-updation-container #options-box #Cancel-process {
       height: 22%;
       width: 100%;
@@ -224,3 +270,104 @@ body {
       display: flex;
       justify-content: center;
       align-items: center; }
+
+.outerLayer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  z-index: 100000;
+  left: 0; }
+  .outerLayer .background {
+    position: relative;
+    top: 0px;
+    opacity: 0.4;
+    background: black;
+    width: 100%;
+    height: 100vh; }
+  .outerLayer .box {
+    position: absolute;
+    background-color: white;
+    width: 20rem;
+    border-radius: 20px;
+    height: 23rem;
+    display: flex;
+    flex-direction: column; }
+    .outerLayer .box #header {
+      display: flex;
+      border-bottom: 1px solid #dbdbdb;
+      align-items: center;
+      height: 3rem; }
+      .outerLayer .box #header p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-family: calibri;
+        margin-left: 34%;
+        margin-top: 15px; }
+      .outerLayer .box #header i {
+        font-size: 1.5rem;
+        margin-left: 6rem;
+        cursor: pointer; }
+    .outerLayer .box .search-Result::-webkit-scrollbar {
+      display: none; }
+    .outerLayer .box .search-Result {
+      background-color: white;
+      width: 17rem;
+      height: 22rem;
+      border-radius: 20px;
+      display: flex;
+      padding: 0px 20px;
+      flex-direction: column;
+      row-gap: 10px;
+      overflow-y: scroll; }
+      .outerLayer .box .search-Result .Loading {
+        margin-left: 8rem;
+        margin-top: 8rem;
+        display: none; }
+      .outerLayer .box .search-Result .users-detail {
+        display: flex;
+        height: 3rem;
+        position: relative; }
+        .outerLayer .box .search-Result .users-detail i {
+          font-size: 1.5rem;
+          background-color: #dbdbdb;
+          color: white;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+        .outerLayer .box .search-Result .users-detail img {
+          margin-top: 5px;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%; }
+        .outerLayer .box .search-Result .users-detail #user-name2 {
+          text-decoration: none;
+          margin-left: 12px;
+          width: 15rem;
+          margin-top: 10px; }
+          .outerLayer .box .search-Result .users-detail #user-name2 #username {
+            color: #3f3f3f;
+            font-size: 0.9rem;
+            width: 5rem;
+            text-transform: lowercase; }
+          .outerLayer .box .search-Result .users-detail #user-name2 #Name {
+            color: #a7a7a7;
+            font-weight: 500;
+            font-size: 0.7rem;
+            margin-top: -15px; }
+        .outerLayer .box .search-Result .users-detail #follow-button {
+          margin-top: 7px; }
+          .outerLayer .box .search-Result .users-detail #follow-button a {
+            color: white;
+            text-decoration: none;
+            background-color: #0095f6;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            padding: 2px 12px;
+            padding-bottom: 4px; }

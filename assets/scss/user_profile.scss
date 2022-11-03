@@ -1,46 +1,34 @@
 
 
-    body{
+    *{
         margin: 0;
         padding: 0;
         text-transform: capitalize;
        
     }
 
-    .stop-scroll{
-       margin: 0;
-       height: 100%;
-       overflow: hidden;
-    }
-
-
+  
 
     .outer-box{
-        background-color: rgb(250,250,250);
+        background-color:rgb(250,250,250);
         width: 100%;
-        margin-top: 0;
         height: auto;
-        padding-top: 6%;
+        padding-top: 6rem;
         display: flex;
         flex-direction: column;
-        // justify-content: center;
         align-items: center;
-        
-    
 
-        
         #profile-container{
             display: flex;
             width: 70%;
             justify-content: space-between;
             min-height: 12rem;
             height: auto;
-
-            
+            margin-top: 10px; 
         }
         
         #box-1{
-            // border: 2px solid red;
+           
             width: 33%; 
             display: flex;
             justify-content: center;
@@ -49,6 +37,7 @@
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
+                margin-top: 0px;
             }
             
 
@@ -74,11 +63,12 @@
         }
 
         #box-2{
-            // border: 2px solid red;
             display: flex;
             flex-direction: column;
             width: 67%;
+            padding-top: 0px;
             height: auto;
+            font-family: calibri;
 
             #name{
                 display: flex;
@@ -88,9 +78,11 @@
                 padding-left: 20px;
 
                 #user_name{
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
+                    margin-top: 10px;
                     font-weight:lighter;
-                    
+                    opacity: 0.9;
+                    text-transform: lowercase;
                 }
 
                 #button_edit_profile{
@@ -100,15 +92,17 @@
                     margin-left: 20px;
                     border-radius: 5px;
                     font-weight: 750;
+                    padding: 0 10px;
 
                 }
                 #settings-logo{
-                    width: 25px;
-                    height: 25px;
+                    width: 20px;
+                    height: 20px;
                     margin-left: 20px;
                     
                 }
 
+            
 
                 #follow-{
                     background-color: rgb(0,149,246);
@@ -125,41 +119,46 @@
                     margin-bottom: 5px;
                 
                 }
+                .bundle{
+                     display: flex;
                 
-                #message-button{
-                    background-color: transparent;
-                    border: 1px solid rgb(219,219,219);
-                    width: 5rem;
-                    height: 2rem;
-                    border-radius: 5px;
-                    margin-left: 30px;
-                    font-weight: 400;
+                    #message-button{
+                        background-color: transparent;
+                        border: 1px solid rgb(219,219,219);
+                        width: 5rem;
+                        height: 2rem;
+                        border-radius: 5px;
+                        margin-left: 30px;
+                        font-weight: 400;
 
-                }
-
-                #unfollow-{
-
-                    background-color: transparent;
-                    border: 1px solid rgb(219,219,219);
-                    width: 5rem;
-                    height: 2rem;
-                    border-radius: 5px;
-                    margin-left: 10px;
-
-                    #unfollow-logo1{
-                        width: 8px;
-                        height: 8px;
-                        margin-right: -5px;
-                        margin-bottom: 2px;
                     }
-                    #unfollow-logo2{
-                        
-                        height: 15px;
-                        width: 15px;
-                        margin-right: 5px;
+
+                    #unfollow-{
+
+                        background-color: transparent;
+                        border: 1px solid rgb(219,219,219);
+                        width: 5rem;
+                        height: 2rem;
+                        border-radius: 5px;
+                        margin-left: 10px;
+
+                        #unfollow-logo1{
+                            width: 8px;
+                            height: 8px;
+                            margin-right: -5px;
+                            margin-bottom: 2px;
+                        }
+                        #unfollow-logo2{
+                            
+                            height: 15px;
+                            width: 15px;
+                            margin-right: 5px;
+                        }
+                    
+                     }
+
                     }
-                }
-            }
+           }
             #followers{
                 margin-left: 20px;
                 display: flex;
@@ -167,17 +166,18 @@
                 justify-content: space-between;
                 text-transform: lowercase;
                 font-size: 1.1rem;
-                margin-top: -10px;
+                // margin-top:0rem;
+                cursor: pointer;
             }
 
             #name-{
-                margin-top: 10px;
+                margin-top: -0.5rem;
                 margin-left: 20px;
-                font-weight: 500;
-                font-family:Arial, Helvetica, sans-serif;
-                font-size: 1rem;
-                text-transform:lowercase
-                
+                font-weight: bold;
+                opacity: 0.8;
+                font-family:calibri;
+                font-size: 1.2rem;
+                margin-bottom: 5px;
             }
 
             #bio{
@@ -185,6 +185,7 @@
                 position: relative;
                 width: 35rem;
                 max-height: 10rem;
+                margin-left: 23px;
             }
         }
 
@@ -195,10 +196,13 @@
             width: 65%;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            column-gap: 1.5rem;
             padding-top: 20px;
-            row-gap: 1.8rem;
+            row-gap: 1.5rem;
             position: relative;
+            padding-bottom: 1.5rem;
+
+
 
 
             #no-post-box{
@@ -211,8 +215,7 @@
                 margin-top: 50px;
                 row-gap: 20px;
                 
-
-
+                
 
                 #camera-logo{
                     width: 25px;
@@ -226,18 +229,72 @@
 
             }
 
-            #post-image{
-                width: 31%;
-                height:18rem;
+
+            #post{
+                width: 31.4%;
+                height:18rem;  
+                position: relative;
+                
+                &:hover {
+                    .hover{
+                        display: flex;
+                    }
+                }
+
+                #post-image{
+                    width: 100%;
+                    height:18rem;
+                    
+                    
+                }    
+                
+                .hover{
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    column-gap: 1.5rem;
+                    font-family: calibri;
+                    display: none;
+
+                    
+                    
+                }
+                .background{
+                    position: absolute;
+                    top: 0;
+                    left:0; 
+                    width: 100%;
+                    height: 100%;
+                    background-color: black;   
+                    opacity: 0.6;
+                }
+                
+                .likes{
+                    position: relative;
+                    color: white;
+                    display: flex;
+                    column-gap: 0.5rem;
+                    font-size: 1.2rem;
+                }
+                .comments{
+                    position: relative;
+                    color: white;
+                    display: flex;
+                    column-gap: 0.5rem; 
+                    font-size: 1.2rem;
+                    
+                }
             }
         }
-        
-
-         
     }
+    
 
-
-
+    
+    
     .profile-updation-container{
         // width: 100%;
         // height: 100vh;
@@ -252,6 +309,7 @@
         
         #container-background{
            background-color: black;
+        //    overflow-y: scroll;
            opacity:0.4;
            width: 100%;
            height: 100%;
@@ -316,6 +374,10 @@
                 color: red;
                 text-decoration: none;
 
+                p{
+                    margin-top: 10px;
+                }
+
             }
             #Cancel-process{
                 height:22%;
@@ -329,3 +391,129 @@
         }
 
     }
+
+
+//   user followers and followings list //
+
+.outerLayer{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0px;
+        z-index: 100000;
+        // overflow-y: scroll;
+        left: 0;
+    .background{
+        position: relative;
+        top:0px;
+        opacity:0.4;
+        background: black;
+        width: 100%;
+        height: 100vh;
+    }
+    .box{
+        position: absolute;
+        background-color: white;
+        width: 20rem;
+        border-radius: 20px;
+        height: 23rem;
+        display: flex;
+        flex-direction: column;
+        #header{
+            display: flex;
+            border-bottom: 1px solid rgb(219,219,219);
+            align-items: center;
+            height: 3rem;
+            p{
+                font-size: 1.2rem;
+                font-weight: 600;
+                font-family: calibri;
+                margin-left: 34%;
+                margin-top: 15px;
+            }
+            i{
+                font-size: 1.5rem;
+                margin-left: 6rem;
+                cursor: pointer;
+            }
+        }
+    
+        .search-Result::-webkit-scrollbar{
+            display: none;
+        }
+        .search-Result{
+            background-color: white;
+            width: 17rem;
+            height: 22rem;
+            border-radius: 20px;
+            display: flex;
+            padding: 0px 20px;
+            flex-direction: column;
+            row-gap: 10px;
+            overflow-y: scroll;
+
+         .Loading{
+            margin-left: 8rem;
+            margin-top: 8rem;
+            display: none;
+         }   
+            .users-detail {
+               display: flex;
+               height: 3rem;
+               position: relative;
+               i {
+                 font-size: 1.5rem;
+                 background-color: rgb(219, 219, 219);
+                 color: white;
+                 border-radius: 50%;
+                 width: 32px;
+                 height: 32px;
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+               }
+               img {
+                 margin-top: 5px;
+                 width: 45px;
+                 height: 45px;
+                 border-radius: 50%;
+               }
+               #user-name2{                
+                   text-decoration: none;
+                   margin-left: 12px;
+                   width: 15rem;
+                   margin-top: 10px;
+        
+                   #username {
+                     color: rgb(63, 63, 63);
+                     font-size: 0.9rem;
+                     width: 5rem;
+                     text-transform: lowercase;
+                   }
+                   #Name {
+                     color: rgb(167,167,167);
+                     font-weight: 500;
+                     font-size: 0.7rem;
+                     margin-top: -15px;
+                   }
+                 }
+                 #follow-button{
+                      margin-top: 7px;
+                   a{
+                       color: white;
+                       text-decoration: none;
+                       background-color: rgb(0,149,246);
+                       font-size: 0.8rem;
+                       border-radius: 5px;
+                       padding: 2px 12px;
+                       padding-bottom: 4px;
+                   }        
+                 }
+             }
+       }
+    }
+    
+}  

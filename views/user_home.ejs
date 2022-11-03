@@ -3,89 +3,142 @@
 <html>
 
 <head>
-    <title>
+  <title>
+    Instagram
+  </title>
+  <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
 
-    </title>
-    <link rel="stylesheet" href="/css/user_home.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
-    <style>
-      body{
-        margin: 0%;
-      }
-    </style>
+  <link rel="stylesheet" href="/css/user_home.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
+   
+  <style>
+    body {
+      margin: 0%;
+    }
+  </style>
 </head>
 
 <body onload="preloader()">
 
   <div id="loading">
-
     <img id="instagram-logo" src="../assets/images/instagram-logo.png">
-    <p >From</p>
+    <p>From</p>
     <img id="meta-logo" src="../assets/images/meta-logo.png">
- </div>
-<%- include('header'); -%>
-    
+  </div>
+
+  <%- include('header'); -%>
+
     <div id="container">
       <div id="advertisement"></div>
       <div class="feed">
+          <div id="posts-box">
+          <ul type="none">
 
-         <div id="posts-box">
-           <ul type="none">
 
-             <% for(  post of post){%>          
-               <%- include('_post') -%>      
-            <%}%>
-        </ul> 
+            <%for( post of Post) {%>
+
+
+              <%- include('_post'); -%>
+
+                <% i++;%>
+                  <%}%>
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="aside">
+        <div id="users-container">
+          <div id="login-user-info">
+            <img src="<%=user.avtar%>">
+            <div id="login-user-name">
+              <a style="text-decoration: none; color:black;" href="/user/profile/<%=user._id%>">
+                <p id="user-name">
+                  <%=user.username%>
+                </p>
+                <p id="na-me">
+                  <%=user.name%>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div id="header">
+            <p id="heading">suggestion for you </p> <a>
+              <p id="button">see all</p>
+            </a>
+          </div>
+          <%let length= users.length > 5 ? 5 : users.length %>
+          <% for ( let i=0; i < length;i++) { %>
+            <% if(users[i].id!=locals.user.id){%>
+                <div id="users-detail">
+                  <a href="profile/<%= users[i].id%>">
+                    <%if(users[i].avtar){%>
+                      <img id="user-avatar" src="<%=users[i].avtar%>">
+                      <%}else{%>
+                        <i class="fa-solid fa-user"></i>
+                        <%}%>
+                  </a>
+                  <a id="user-name2" href="profile/<%= users[i].id%>">
+                      <p id="username">
+                        <%= users[i].username %>
+                      </p>
+                      <p id="name">
+                        <%= users[i].name %>
+                      </p>
+                  </a>
+                  <div id="follow-button">
+                    <a class="followbtn" href="/user/tofollow/following?id=<%=users[i].id%>">Follow</a>
+                  </div>
+                </div>
+             <%}%>
+             <%}%>
+        </div>
+        <div style="color: rgb(142, 142, 142); display: flex; flex-direction:column;font-size: 0.8rem;" class="my-4">
+          <p style="margin-left: 2.5rem; margin-bottom: 5px;">This project is made with <i class="fa-solid fa-heart"></i> by Deepesh Godwani</p>
+          <div style=" margin-left: 2.5rem ;display: flex; column-gap: 15px;">
+            <a target="_blank" style="text-decoration: none; color: rgb(142, 142, 142);" href="https://www.linkedin.com/in/deepesh-godwani-4269531b0/"><p><i class="fa-brands fa-linkedin-in"></i> Linkedin</p></a>
+            <a target="_blank" style="text-decoration: none; color: rgb(142, 142, 142);" href="https://github.com/Deepeshgodwani"><p><i class="fa-brands fa-github"></i> Github</p></a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    </div>
+    <!-- flash message   -->
+    <div id="message"></div>
 
-    <div id="friends">
-       <h1> FRIENDS</h1>
-      <% for ( u of users) {  %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/user_home_ajax.js"></script>
+    <script>
 
-           <%if(u.id==locals.user.id){%>
+      // to delete post using ajax
 
-           <%}else{%>
-                 
-            <p> <a href="profile/<%= u.id%>" > <%= u.name %> </a> 
-                  
-           <%}%>
-          <%if(user.id!=u._id){%>
+      $('.delete-post-button').each(function () {
 
-            <a href="/user/tofollow/following?id=<%=u.id%>" style="margin-left: 20px;">Follow</a></p>
-          <%}%>
-          
-           <%}%>
-    </div>
-    
+        self = this;
+        deletePost = new DeletePost(self)
+      })
 
-  </div>
+      // to toggle like using ajax
+      $('.toggle-like-button').each(function () {
+        self = this;
+        let toggleLike = new ToggleLike(self);
+
+      })
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="/js/jquery.js"></script>
-<script src="/js/user_home_ajax.js"></script>
-<script>
-  
-  // to delete post using ajax
-     
-   $('.delete-post-button').each(function(){
+      $('.followbtn').each(function(){
+        self =this;
+        let togglebtn= new FollowUnfollow(self);
+      })
 
-         self=this;
-         deletePost=new DeletePost(self)
-   })
+    </script>
 
-       // to toggle like using ajax
-    $('.toggle-like-button').each(function(){
-          self=this;
-          let toggleLike = new ToggleLike(self);
-
-          
-    })
-
-</script>
-     
 </body>
+
 </html>

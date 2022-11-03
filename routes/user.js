@@ -13,21 +13,17 @@ router.get('/update/profilepicture',passport.checkAuthenticatedUser, userProfile
 router.get('/editprofile' ,passport.checkAuthenticatedUser,userProfileCont.editProfile);
 router.post('/editprofile/update' ,passport.checkAuthenticatedUser,userProfileCont.updateProfile);
 
-router.get('/signin',userController.signin)
-router.get('/signup',userController.signup)
+
+
 router.use('/post', require('../routes/post'));
-router.use('/direct', require('../routes/messages'));
+router.use('/direct', require('./inbox'));
 router.use('/profile/post', require('../routes/post'));
 router.use('/liked',likes);
 router.use('/comment', require('../routes/commentrout'));
 router.use('/tofollow',require('./user_following'));
+router.use('/search', passport.checkAuthenticatedUser,userController.users);
 
-router.post('/create' , userController.create);
-router.post('/create-session', passport.authenticate(
-    'local',
-    {failureRedirect: '/'}
-), userController.createSession)
-router.get('/auth/google',passport.authenticate('google', {scope: ['profile', 'email'] }));
-router.get('/auth/google/callback',passport.authenticate('google' ,{failureRedirect: '/user/signin'}),userController.createSession)
-router.get('/signout', userController.destroySession);
+
+
+
 module.exports = router;

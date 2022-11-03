@@ -7,10 +7,13 @@ const fs=require('fs');
 const path=require('path');
 
 
+// rendering post section 
 module.exports.postSection=function(req ,res){
 
-  
-       return res.render('postsection');
+   
+       return res.render('postsection',{
+         page:"postView"
+       });
 }
 
 module.exports.userPosts=   function(req, res){
@@ -20,9 +23,7 @@ module.exports.userPosts=   function(req, res){
 
             console.log("error in postcontroller",err)
          }else{
-
-             console.log(req.file);   
-
+ 
               userPost.create({
                content : userPost.path+'/'+req.file.filename,
                user : req.user._id,
@@ -39,33 +40,13 @@ module.exports.userPosts=   function(req, res){
                         user.posts.push(post);
                         user.save();
                })  
-                       
-   //      if(req.xhr){
-
-   //             return res.status(200).json({
-
-   //              data: {
-   //               post: post,
-                 
-     
-   //           },message : 'Post Created !!'
-        
-   //     })
-
-   //   }
              return res.redirect('/user/user_home');
-
-
            });
                
          }  
        }
       )
-    
-
-
-
-          
+  
       
 };
 
@@ -90,8 +71,7 @@ module.exports.deletePost= async function(req, res){
                     user.save();
             })
 
-                post.remove()
-                req.flash('success', 'Post Deleted !!')
+                post.remove();
                  
                 if(req.xhr){
 
@@ -107,8 +87,9 @@ module.exports.deletePost= async function(req, res){
                   
                 }
                  await Comment.deleteMany({ post : req.params.id})
+                 console.log(req.user.id);
                 
-                  return res.redirect('back')       
+                  return res.redirect(`/user/profile/${req.user.id}`)       
           
           }else{
              return  res.redirect('back')
@@ -121,6 +102,9 @@ module.exports.deletePost= async function(req, res){
       
 }
 
+
+// to render post view section //
+
 module.exports.postview= async function(req,res){
 
    try{
@@ -128,20 +112,66 @@ module.exports.postview= async function(req,res){
     let post= await userPost.findById(req.params.id)
     .populate('user')
     .populate({
-                path : 'comments',
-                 populate: {
-                             path : 'user'
-                  }
-               })   
-
+                  path : 'comments',
+                  options: {sort:'-createdAt'},
+                populate: [{
+                             path:'user',
+                             model:'user'
+                },{
+                             path :'likes',
+                             model:'likes'
+                }]
+    }).populate('likes') ;  
+          
+       let comntliked=[];
+       let iterator=0;
     
-    return res.render('post-view',{
+       for(let i=0;i<post.comments.length;i++){
+         for(let j=0;j<post.comments[i].likes.length;j++){
+            if(post.comments[i].likes[j].user==req.user.id){
+               comntliked[i]=true;
+            }
+         }
+         if(!comntliked[i]){
+            comntliked[i]=false;
+         }
+       }
+
+       let liked=false;
+      for(let i=0;i<post.likes.length;i++){
+            if(req.user.id==post.likes[i].user){
+               liked=true;
+            }
+      }
+      let eligible=false;
+      
+      req.user.id==post.user.id?eligible=true:eligible=false;
+         console.log(eligible);
+      if(req.xhr){
+         return res.status(201).json({
+            post:post,
+            itr:iterator,
+            comntliked:comntliked,
+            liked:liked,
+           
+            
+         })
+      }
+      
+   
+   return res.render('post-view',{
         
-        posts:post
+        posts:post,
+        itr:iterator,
+        comntliked:comntliked,
+        liked:liked,
+        eligible:eligible,
+        page:"postView"
     });
 
         
    }catch(err){
-
+        
+         console.log("error in rendering post view section",err);
    }
 }

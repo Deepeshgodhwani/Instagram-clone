@@ -2,16 +2,146 @@
 const User = require('../models/user')
 const post =require('../models/post')
 const Following=require('../models/following');
-const fs=require('fs');
-const path= require('path');
+const following = require('../models/following');
+
 
 
 module.exports.homeuser = async function(req ,res){
     
-
+        
  try{
     let posts= await post.find({})
          .sort('-createdAt')
+         .populate('user')
+         .populate({
+            path:'likes',
+            populate:{
+                path:'user'
+            }
+         })
+         .populate({
+                     path : 'comments',
+                     options:{sort:'-createdAt'},
+                     populate: {
+                                  path : 'user'
+                     }
+                    })   
+
+        let liked=[];
+        let iterator=0
+        for(let i=0;i<posts.length;i++){
+            for(let b=0;b<posts[i].likes.length;b++){
+                if(posts[i].likes[b].user.username==req.user.username){
+                    liked[i]=true;
+                }
+            }
+
+            if(!liked[i]){
+                liked[i]=false;
+            }
+        }
+           
+        
+
+ let user = await User.findById(req.user._id);
+ let user_following= await Following.find({user:user._id}).populate("following");
+ 
+ let usernames =[];
+ let itr=0;
+ for(user of user_following){
+     usernames[itr++]=user.following.username;
+ }
+
+
+  let validUser=await User.find({"username": {$nin:usernames}}).sort('-createdAt');
+  
+
+    return res.render('user_home', {
+
+      tittle: 'USER HOME',
+      Post : posts,
+      users: validUser,
+      User_following:user_following,
+      Liked:liked,
+      i:iterator,  
+      page:"home"
+      })
+ 
+}catch(err){
+   
+      console.log("ERROR IN FETCHING POST AND USER", err)
+      return res.redirect('/')
+}
+};
+
+
+
+module.exports.signin= function(req , res){
+ 
+    if(req.isAuthenticated()){
+
+        return  res.redirect('/user/user_home');
+
+    }else{
+        console.log("error in signin");
+    }
+
+
+    return res.render('signin',{
+
+        type:false ,
+        title : 'SIGN-IN'
+
+    })
+}
+ 
+
+// to search user //
+
+module.exports.users= async function(req,res){
+    try{
+          
+        if(req.query.search==""){return res.status(201).json([])};
+
+        const keyword =req.query.search
+        ? {
+            $or:[
+                {name:{$regex:req.query.search,$options:"i"}},
+                {username:{$regex:req.query.search,$options:"i"}}
+            ],
+         }:{};
+       const users =await User.find(keyword).find({_id:{$ne:req.user._id } });
+       return res.status(201).json({
+          users:users
+       });
+
+
+    }catch(err){
+       console.log("error in searching user", err);
+    }
+}
+
+
+
+// to render explore section  //
+
+module.exports.renderExplore= async (req,res)=>{
+      
+    try{
+         
+        let user= await User.findById(req.user.id).populate('following');
+        
+        let userFollowings=[];
+        let iterator=0;
+        for( let following of user.following){
+            userFollowings[iterator++]=following.following;
+            
+        }
+        userFollowings[iterator]=req.user.id;
+
+  
+       let posts =await post.find({"user":{$nin:userFollowings}})
+       .sort('-createdAt')
          .populate('user')
          .populate({
             path:'likes',
@@ -25,125 +155,27 @@ module.exports.homeuser = async function(req ,res){
                                   path : 'user'
                        },
                        populate:{
-                        path:'likes',
-                        populate :{
+                          path:'likes',
+                       populate :{
                             path:'user'
                         }
                        }
                     })   
-                    
- let users= await  User.find({})
-  let user = await User.findById(req.user._id);
-    let user_following= await Following.find({user:user._id});
-    // console.log(user_following);
-   
 
- req.flash('success', "REACHED PROFILE !!")
-    return res.render('user_home', {
-
-      tittle: 'USER HOME',
-      post : posts,
-      users: users,
-      User_following:user_following
-
-
-      })
- 
-}catch(err){
-   
-      console.log("ERROR IN FETCHING POST AND USER", err)
-      return res.redirect('back')
-}
-};
-
-
-
-module.exports.signin= function(req , res){
-
-    
-    if(req.isAuthenticated()){
-          
-        return  res.redirect('/user/profile')
-   }
-
-
-    return res.render('user_signin',{
-
-        title : 'SIGN-IN'
-
-    })
-}
- 
-
-
-module.exports.signup= function(req , res){
+                  
        
-        if(req.isAuthenticated()){
-          
-             return res.redirect('/user/profile')
-        }
-    
-        
-        return res.render('user_signup',{
-    
-           title : 'SIGN-up'
+        return res.render('explore',{
 
-        })
-}
-
-
-
-module.exports.create= function(req , res){
-
-    if(req.body.password !=req.body.confirm_password)
-    {
-            return  res.redirect('back')
-
+           posts:posts,
+           page:"explore"          
+        });
+    }catch(err){
+        console.log("error in fetching posts in explore section",err);
     }
-
-    User.findOne({email: req.body.email}, function(err,user){
-        if(err)
-        {
-           console.log("error in finding user")
-           return;      
-        } 
-        
-        if(!user){
-            User.create(req.body, function(err,user){
-                if(err){
-                    console.log("error in creating user");
-                    return res.redirect('back') ; 
-                   }
-                 
-                return res.redirect('/user/signin');   
-
-            })
-        }else{
-
-            return  res.redirect('back');
-            
-        }
-
-
-    })
-
-};
-
-
-
-module.exports.createSession= function(req , res){
-
-
-    req.flash('success', 'successfully logged in')
     
-    return res.redirect('/user/user_home');
-};
-
-
-module.exports.destroySession= function(req, res){
-
-    req.logout();
-    req.flash('success', 'successfully logged out ')
-    return res.redirect('/')
 }
+ 
+
+
+
 

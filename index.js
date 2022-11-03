@@ -8,13 +8,10 @@ const cookieParser= require("cookie-parser")
 const session= require('express-session');
 const passport =require('passport');
 const localPassport= require('./config/passport-local');
-const passportGoogle = require('./config/passport-googleAuth2');
+const facebookStrategy= require('./config/passport_facebookAuth.js');
 const MongoStore=  require("connect-mongodb-session")(session);
-const sassMiddleware= require("node-sass-middleware");
-const flash= require("connect-flash");
-const flashMiddleware= require("./config/flash-middleware"); 
+const sassMiddleware= require("node-sass-middleware"); 
 const path=require('path');                                                                                                                           
-const { assert } = require('console');
 
 // const extended = require('it/lib/extended');
 
@@ -35,14 +32,18 @@ chatServer.listen(5000 ,function(err){
 
 
 
+if(env.name =='development'){
+     
+    app.use(sassMiddleware({
+        src: path.join(__dirname,env.asset_path,'scss'),
+        dest :path.join(__dirname,env.asset_path,'css'),
+        debug: true,
+        outputStyle:'extended',
+        prefix: '/css'
+    }))
 
-app.use(sassMiddleware({
-    src: path.join(__dirname,env.asset_path,'scss'),
-    dest :path.join(__dirname,env.asset_path,'css'),
-    debug: true,
-    outputStyle:'extended',
-    prefix: '/css'
-}))
+}
+
 
 app.use(express.urlencoded())
 app.use(cookieParser());
@@ -54,6 +55,7 @@ app.set('views', './views');
 
  app.use(express.static(env.asset_path))
  app.use('/user/assets/images',express.static(__dirname+'/'+env.asset_path+'/images'));
+ app.use('/account/password/assets/images',express.static(__dirname+'/'+env.asset_path+'/images'));
  app.use('/assets/images',express.static(__dirname+'/'+env.asset_path+'/images'));
  app.use('/user/post/assets/images',express.static(__dirname+'/'+env.asset_path+'/images'));
 
@@ -84,8 +86,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser)
-app.use(flash());
-app.use(flashMiddleware.setFlash)
 app.use('/uploads',express.static(__dirname+'/uploads'));
 
 

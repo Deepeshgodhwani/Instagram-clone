@@ -14,7 +14,6 @@ const followingSchema=mongoose.Schema({
         require:true
     }
 
-
 },
   {
     timestamps:true

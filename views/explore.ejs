@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Instagram</title>
+    <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 5rem;
+            /* padding-bottom: 2rem; */
+            background-color: rgb(250,250,250);
+
+        }
+
+        #post-container{
+            width: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 1.5rem;
+            row-gap: 1.5rem;
+            position: relative;
+            height: auto;
+            padding: 10px;
+            padding-bottom: 1rem;
+            
+        }
+        #post{
+            width: 31.4%;
+            height:18rem;  
+            position: relative;
+        }
+
+        .post2{
+            width: 31.4%;
+            height:36rem;  
+            position: relative;
+        }
+
+        
+
+        #post:hover .hover{
+            display: flex;
+        }
+
+        .post2:hover .hover{
+            display: flex;
+        }
+
+        #post-image{
+                width: 100%;
+                height:18rem;
+        }
+
+        .post-image2{
+            width: 100%;
+            height:36rem;   
+        }
+
+        .hover{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 1.5rem;
+            font-family: calibri;
+            display: none;
+
+        }
+       
+        .background{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;   
+            opacity: 0.6;
+        }
+
+        .likes{
+           position: relative;
+           color: white;
+           display: flex;
+           column-gap: 0.5rem;
+           font-size: 1.2rem;
+        }
+        .comments{
+            position: relative;
+            color: white;
+            display: flex;
+            column-gap: 0.5rem; 
+            font-size: 1.2rem;
+
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <%- include('header'); -%>
+    <div class="outer">
+        <div id="post-container">
+            <% for(let itr=0; itr< posts.length ;itr++){%>
+                <%if(itr%10==2||itr%10==5){%>
+                    <div class="post2">
+                        <img class="post-image2" src="<%=posts[itr].content%>">
+                        <a href="/user/post/postView/<%= posts[itr]._id%>" > 
+                            <div class="hover">
+                                <div class="background"></div>
+                                <div class="likes"><i class="fa-sharp fa-solid fa-heart"></i><p><%=posts[itr].likes.length%></p></div>
+                                <div class="comments"><i class="fa-solid fa-comment"></i><p><%=posts[itr].comments.length%></p></div>  
+                            </div>
+                        </a>
+                    </div>
+                <%}else{%>
+                    <div id="post"> 
+                        <img id="post-image" src="<%=posts[itr].content%>"> 
+                        <a href="/user/post/postView/<%= posts[itr]._id%>" > 
+                        <div class="hover">
+                            <div class="background"></div>
+                            <div class="likes"><i class="fa-sharp fa-solid fa-heart"></i><p><%=posts[itr].likes.length%></p></div>
+                            <div class="comments"><i class="fa-solid fa-comment"></i><p><%=posts[itr].comments.length%></p></div>
+                        </div>
+                        </a>
+                    </div>
+                    <%}%>
+                <%}%> 
+            </div> 
+            <%-include('footer')-%>
+        </div>
+        <script > 
+  // to close search bar 
+
+  $('.outer').click(function(){
+   $('.searchResult').css({display:"none"})
+   $('#close').css({display:"none"});
+   $('#logo').css({display:"flex"})
+   $('.loading').css({display:'none'});
+   $('.search').val('');
+
+})
+    </script>
+</body>
+</html>

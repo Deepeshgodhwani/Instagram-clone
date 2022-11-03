@@ -5,6 +5,7 @@ const likeSchema= mongoose.Schema({
     // user which like the object
     user:{
         type:mongoose.Schema.ObjectId,
+        ref:'user',
         require: true
     },
     // object on which the like is done it would either post or comment

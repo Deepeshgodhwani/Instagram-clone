@@ -3,27 +3,153 @@
   display: flex;
   background-color: white;
   position: fixed;
-  height: 50px;
+  height: 60px;
   align-items: center;
-  justify-content: space-between;
   margin-top: 0;
-  z-index: 9999999; }
+  z-index: 1000;
+  border-bottom: 1px solid #dbdbdb; }
   #nav #Instagram-logo {
-    width: 20%; }
-  #nav #search-bar {
-    width: 30%; }
+    margin-left: 15%; }
+    #nav #Instagram-logo img {
+      width: 11rem; }
+  #nav .search-bar {
+    width: 17rem;
+    height: 2.3rem;
+    position: relative;
+    left: 13%;
+    background-color: #efefef;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px; }
+    #nav .search-bar .search {
+      background-color: transparent;
+      width: 12rem;
+      margin-left: 5px;
+      outline: none;
+      height: 2rem;
+      position: relative;
+      border: none; }
+    #nav .search-bar .loading {
+      margin-left: 2.2rem;
+      display: none; }
+    #nav .search-bar #close {
+      display: none; }
+    #nav .search-bar #arrow {
+      position: absolute;
+      color: white;
+      left: 8rem;
+      top: 2.5rem; }
+    #nav .search-bar i {
+      color: #a6a6a6; }
+    #nav .search-bar .searchResult::-webkit-scrollbar {
+      display: none; }
+    #nav .search-bar .searchResult {
+      background-color: white;
+      position: absolute;
+      width: 23rem;
+      top: 3rem;
+      left: -3.5rem;
+      min-height: 20rem;
+      border: 1px solid lightgray;
+      display: none;
+      padding: 10px 20px;
+      flex-direction: column;
+      row-gap: 10px;
+      overflow-y: scroll; }
+      #nav .search-bar .searchResult .users-detail {
+        display: flex;
+        height: 3rem;
+        position: relative; }
+        #nav .search-bar .searchResult .users-detail i {
+          font-size: 1.5rem;
+          background-color: #dbdbdb;
+          color: white;
+          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+        #nav .search-bar .searchResult .users-detail img {
+          margin-top: 5px;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%; }
+        #nav .search-bar .searchResult .users-detail #user-name2 {
+          text-decoration: none;
+          margin-left: 12px;
+          width: 15rem;
+          margin-top: 7px; }
+          #nav .search-bar .searchResult .users-detail #user-name2 #username {
+            color: #3f3f3f;
+            font-size: 0.9rem;
+            width: 5rem;
+            text-transform: lowercase; }
+          #nav .search-bar .searchResult .users-detail #user-name2 #name {
+            margin-top: -17px;
+            color: #a7a7a7;
+            font-weight: 500;
+            font-size: 0.7rem; }
+        #nav .search-bar .searchResult .users-detail #follow-button {
+          margin-top: 7px; }
+          #nav .search-bar .searchResult .users-detail #follow-button a {
+            color: white;
+            text-decoration: none;
+            background-color: #0095f6;
+            font-size: 0.8rem;
+            border-radius: 5px;
+            padding: 2px 12px;
+            padding-bottom: 4px; }
   #nav #slots {
     width: 20%;
+    position: relative;
+    left: 18%;
     display: flex;
-    justify-content: space-between;
-    margin-right: 20px; }
-    #nav #slots .icon {
+    align-items: center; }
+    #nav #slots a {
+      text-decoration: none; }
+    #nav #slots .home-icon {
       width: 25px;
       height: 25px; }
-    #nav #slots #profile-picture {
+    #nav #slots .home-icon2 {
+      width: 23px;
+      height: 23px; }
+    #nav #slots .inbox-icon {
+      width: 27px;
+      height: 27px;
+      margin-left: 1.4rem; }
+    #nav #slots .inbox-icon2 {
+      width: 23px;
+      height: 23px;
+      margin-left: 1.4rem; }
+    #nav #slots .create-icon {
+      width: 23px;
+      height: 23px;
+      margin-left: 1.4rem;
+      cursor: pointer; }
+    #nav #slots .createPost {
+      display: none;
+      margin-left: 1.4rem;
+      font-size: 1.5rem;
+      cursor: pointer; }
+    #nav #slots .explore-icon {
       width: 25px;
       height: 25px;
-      border-radius: 50%; }
+      margin-left: 1.4rem; }
+    #nav #slots .explore-icon2 {
+      width: 25px;
+      height: 25px;
+      margin-left: 1.4rem; }
+    #nav #slots .icon {
+      width: 23px;
+      height: 23px;
+      margin-left: 1.4rem; }
+    #nav #slots #profile-picture {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      margin-left: 1.4rem; }
     #nav #slots #user-avtar {
       font-size: 1rem;
       background-color: #dbdbdb;
@@ -36,7 +162,7 @@
       align-items: center; }
 
 .create-post {
-  position: absolute;
+  position: fixed;
   width: 0;
   height: 0;
   opacity: 0;
@@ -44,7 +170,8 @@
   z-index: 99999;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  overflow-y: scroll; }
   .create-post #background-color {
     position: absolute;
     opacity: 0.7;
@@ -171,8 +298,10 @@
             align-items: center;
             margin-bottom: 17px; }
           .create-post #create-new-post #main #caption-section #profile #dp {
-            width: 29px;
-            height: 29px; }
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-bottom: 15px; }
           .create-post #create-new-post #main #caption-section #profile #username {
             color: black;
             font-weight: 500;
@@ -181,7 +310,8 @@
         .create-post #create-new-post #main #caption-section #caption-area {
           border: none;
           outline: none;
-          margin-left: 15px; }
+          margin-left: 15px;
+          margin-top: 10px; }
   .create-post #confirmation-slot {
     position: absolute;
     display: flex;

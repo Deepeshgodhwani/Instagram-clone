@@ -5,7 +5,8 @@ const User =require('../models/user');
 
 module.exports.following= async function(req,res){
 
-        try{
+        try{ 
+               
             isAlreadyFollowing= await Following.findOne({
                 following:req.query.id,
                 user:req.user._id
@@ -34,19 +35,18 @@ module.exports.following= async function(req,res){
                    user2.followers.pull(follower);
                    user2.save();
 
+
                    if(req.xhr){
 
                     return res.status(200).json({
-                     
                         data:{
-                            following:user1.following,
-                            userId:user2._id
+                            type:"unfollowed"
                         },
-                        message:"success in to unfollow the user "
- 
                    })
 
                    }
+
+                return res.redirect('back')
 
                
 
@@ -76,28 +76,61 @@ module.exports.following= async function(req,res){
                      user2.followers.push(follower);
                      user2.save();
                     
-                   if(req.xhr){
-                       
-
+                   if(req.xhr){   
+                   
                     return res.status(200).json({
                      
                         data:{
-                            following:user1.following,
-                            userId:user2._id
-                        },
-                        message:"success in to follow the user "
+                            type:"followed"
+                        }
  
-                   })
-
-                   }  
-
-                     
-
+                   })}  
+                   return res.redirect('back');
             }
 
         }catch(error){
             console.log("error in following user",error);
         }
         
-         return res.redirect('back')
+        
 }
+
+
+
+module.exports.userFollowers=async (req,res)=>{
+
+
+        try{
+            
+            let user=await User.findById(req.query.id).populate({
+                path:'followers',
+                populate:{
+                    path:"followers"
+                }
+            })
+            
+            res.send(user.followers);
+        }catch(error){
+            console.log("error in fectching followers of user",error);
+        }
+    
+ 
+    
+    }
+
+module.exports.usersFollowing=async (req,res)=>{
+   
+    try{
+        let user=await User.findById(req.query.id).populate({
+            path:"following",
+            populate:{
+                path:"following"
+            }
+        })
+         
+        res.send(user.following);
+    }catch(err){
+        console.log("error in fetching followings of user",err);
+    }
+   
+} 

@@ -4,16 +4,19 @@ const Following=require('../models/following');
 const fs=require('fs');
 const path= require('path');
 
+
+// rendering profile page  //
 module.exports.profile = async function(req ,res){
      
     try{
          
         let loguser= await User.findById (req.user.id).populate('following');
     
-
+         
         let user= await User.findById(req.params.id)
         .populate({
                path :'posts',
+               options:{sort:'-createdAt'},
                populate:{
                    path:'comments',
                    populate:{
@@ -41,12 +44,9 @@ module.exports.profile = async function(req ,res){
            }
                
          return res.render('userprofile', {
-   
                   user_profile: user,
-                  following:isfollowing
-
-                  
-   
+                  following:isfollowing,
+                  page:"profile"              
            })
        
 
@@ -66,10 +66,8 @@ module.exports.update = async function(req ,res){
          
     try{
        
-           console.log(req.query);
             
-        let user = await User.findById(req.query.id)
-          
+        let user = await User.findById(req.query.id)   
           
         User.uploadedAvtar(req , res, function(Err){
             if(Err)
@@ -78,28 +76,23 @@ module.exports.update = async function(req ,res){
             }else{
 
                if(req.file){
-
-                   if(user.avtar){
+                   
+                  let defaultAvtar="https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg";
+                   if(user.avtar&&user.avtar!=defaultAvtar){
 
                           fs.unlinkSync(path.join(__dirname,'..',user.avtar));  
                       
-                   }
-                  
-                        
+                   }              
                     user.avtar= User.avtarPath + '/' + req.file.filename;
                     user.save();
                }else{
                     
+                      fs.unlinkSync(path.join(__dirname,'..',user.avtar));  
                       user.update({unset:{avtar:1}});
                       user.avtar=undefined;
                       user.save();
-                      fs.unlinkSync(path.join(__dirname,'..',user.avtar));  
                      
-               }
-
-
-
-               
+               }               
                 return res.redirect('back');}
 
         })
@@ -123,13 +116,20 @@ module.exports.update = async function(req ,res){
 
 module.exports.editProfile= async function(req,res){
 
-    let user=await User.findById(req.query.id)
+    try{
+         
+        let user=await User.findById(req.query.id);
+        return res.render('edit_user_profile' ,{
+            
+              User:user,
+              page:"edit_profile"
+        });
+        
+    }catch(error){
+          console.log("error in rendering edit profile page",error)
+    }
 
-       
-   return res.render('edit_user_profile' ,{
-       
-         User:user
-   });
+  
 
 }
 
@@ -141,39 +141,77 @@ module.exports.updateProfile= async function(req,res){
        try{
              
             let user= await User.findById(req.query.id);
-                console.log(req.body);
-            
-               if(user.password==req.body.password){
-
-                
-
+              let passwordCheck=await user.matchPassword(req.body.password);
+              
+               if(passwordCheck){
                   
             // when profile form is submitted //    
                        if(req.query.type=='profile'){
-                            
+                           
+                           if(req.body.username){
+                                   
+                                   let check= await User.findOne({'username':req.body.username.toLowerCase()});
+                                    
+                                   if(check&&user.username!=req.body.username){
+                                       return res.status(201).json({
+                                        error:"username alredy exist"
+                                       })
+                                   }else{
+                                      user.username=req.body.username.toLowerCase();
+                                   }
+                                   
+                            }  
+
                            if(req.body.name){
-                             user.name=req.body.name;
-                               
+                               user.name=req.body.name;
                            }
+
+
                            if(req.body.bio){
-                            user.bio=req.body.bio;
-                                
+                               user.bio=req.body.bio;    
                            }
-                            user.save();
+
+                           user.save();
+                           if(req.xhr){
+                              return res.status(201).json({
+                                 user:user
+                              })
+                           }
+                           return res.redirect('back');
                           
                        }else{
                              
             //  when password changing form is submitted //           
-                              if(req.body.newPassword==req.body.ConfirmNewPassword){
-                                   
+                            if(req.body.password==req.body.newPassword||req.body.ConfirmNewPassword==req.body.password){
+                                    return res.status(201).json({error:"same password"}) ;
+                             }else if(req.body.newPassword==req.body.ConfirmNewPassword){
                                      user.password=req.body.newPassword;
                                      user.save();
+                                     if(req.xhr){
+                                        return res.status(201).json({
+                                            message:"password is changed"
+                                        })
+                                     }
+                              }else{
+                                return res.status(201).json({
+                                    error:"passandconf",
+                                    message:"password and confirm password should match"
+                                })  
                               }
+
+                              return res.redirect('back');
                        }
 
+               }else{
+                    
+                    if(req.xhr){
+                          return res.status(201).json({
+                              error:"wrong password"
+                          })
+                    }
+                    return res.redirect('back');
                }
 
-            return res.redirect('back');
        }catch(err){
          console.log("error in updating profile" .err)
        }

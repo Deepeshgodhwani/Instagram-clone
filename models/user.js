@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const multer =require('multer');
 const path = require('path');
 const uploads = path.join('/uploads/user/avtar');
+const bcrypt=require('bcryptjs');
 
 const userShema= new mongoose.Schema({
 
@@ -31,7 +32,8 @@ const userShema= new mongoose.Schema({
              type:String
        },
        avtar : {
-           type : String
+           type : String,
+           default:"https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg"
        },
        posts:[
          {
@@ -67,9 +69,31 @@ const storage = multer.diskStorage({
     }
   })
 
+
+
   // static methods
   userShema.statics.uploadedAvtar= multer({storage: storage}).single('avtar');
   userShema.statics.avtarPath=uploads   
+
+
+  userShema.pre('save',async function(next){
+      if(!this.isModified){
+        next();
+      }
+      if(this.password.length<15){
+        const salt = await bcrypt.genSaltSync(10);
+        this.password= await bcrypt.hash(this.password,salt);
+      }
+  })
+
+
+  userShema.methods.matchPassword=async function(enteredPassword){
+
+     return  await bcrypt.compare(enteredPassword,this.password);
+      
+  }
+
+
 const user = mongoose.model("user", userShema)
 
 module.exports= user;

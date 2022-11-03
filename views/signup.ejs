@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" type="text/css" href="/css/sign_up_page.css">
+    <title>Sign up • Instagram</title>
+  <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+</head>
+<body>
+
+    <div class="outer">   
+        <div class="container">
+           <img id="insta" src="../assets/images/instagram-logoo.png">
+           <div id="para">
+               <p>Sign up to see photos from your friends.</p>
+           </div>
+              <a id="facebook-input"><i class="fa-brands fa-square-facebook"></i> Login with facebook</a>
+              <div id="or">
+                  <div id="or-1">
+              </div>
+                 <p>OR</p> 
+                 <div id="or-2">
+  
+              </div>
+          </div>
+              <form id="signup-form" action="/account/create" sign="post">
+                  <input autocomplete="off" id="name" type="text" name="name" placeholder="Name" required><br>
+                  <input  autocomplete="off"id="username" type="text" name="username" placeholder="Username" required><br>
+                  <input autocomplete="off" id="useremail" type="email" name="email" placeholder="Email" required><br>
+                  <input  autocomplete="off"id="userpassword" type="password" name="password" placeholder="Password" minlength="8" maxlength="14" required><br>
+                  <input  autocomplete="off"id="confpassword" type="password" name="confirm_password" minlength="8" maxlength="14" placeholder="Confirm Password" required><br>
+                  <div class="submitBtn">
+                       <img class="Loading" src="../assets/images/loading.gif">
+                      <input  autocomplete="off"id="submitbutton" type="submit"  value="Sign Up">
+                  </div>
+              </form>  
+              <p class="errorBox">
+              </p>
+      </div>
+      <div id="sign">
+          <p>Have an account?</p>&nbsp;
+          <a href="/">Log in</a>
+      </div>
+     
+    </div>
+   
+      <!-- email verification page -->
+      <div class="enterOtp">
+          <div id="confirmation">
+           <form id="otpForm" method="post" action="/account/verify-email">
+          <img id="image" src="https://cdn-icons-png.flaticon.com/512/6806/6806987.png"  alt=" ">
+          <h4>Enter Confirmation Code</h4>
+          <p id="confirm-para">Enter the confirmation code we sent to deepeshhgodwani28@gmail.com.
+                This will expire in 10 minutes .</p>
+          <p id="errorMessage" style="color: red; margin-left:7rem; margin-bottom: -10px; margin-top: 5px;  font-family: calibri;"></p>
+          <input autocomplete="off" id="confirm-input" name="otp" type="password" maxlength="6" placeholder="Confirmation Code"><br>
+          <div class="submitBtn2">
+              <img class="Loading2" src="../assets/images/loading.gif">
+              <input type="submit" id="next" value="Next">
+          </div>
+          </form> 
+          <a href="/account/signup" style="cursor: pointer;"  id="go">Go Back</a>
+      </div>  
+      <div id="sign">
+          <p>Have an account?</p>&nbsp;
+          <a href="/">Log in</a>
+      </div>
+     
+      </div>
+      <div style="margin-left: 17rem;">
+          <%-include('footer');-%>
+      </div>
+  
+  <script src="/js/jquery.js"> </script>
+  <script src="/js/user_signUp.js"></script>  
+  </body>
+</html>
+

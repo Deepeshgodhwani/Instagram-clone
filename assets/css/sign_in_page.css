@@ -1,0 +1,263 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #fafafa; }
+  .outer h1 {
+    position: absolute;
+    left: 1px; }
+  .outer form {
+    background-color: white;
+    width: 19.5rem;
+    height: auto;
+    min-height: 61vh;
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    .outer form img {
+      width: 90%; }
+    .outer form #email {
+      background-color: #fafafa;
+      border: 1px solid #dbdbdb;
+      width: 86%;
+      height: 2.4rem;
+      padding: 0px 5px;
+      outline: none;
+      border-radius: 2px;
+      margin-bottom: 7px;
+      margin-top: 35px; }
+    .outer form #password {
+      background-color: #fafafa;
+      border: 1px solid #dbdbdb;
+      width: 86%;
+      height: 2.4rem;
+      padding: 0px 5px;
+      outline: none;
+      border-radius: 2px; }
+    .outer form .button {
+      width: 90%;
+      height: 2rem;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: #0095f6;
+      color: white;
+      font-weight: 600;
+      cursor: pointer; }
+    .outer form .divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin-top: 1rem; }
+      .outer form .divider .line1 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid #dbdbdb; }
+      .outer form .divider p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #8e8e8e;
+        font-family: calibri; }
+      .outer form .divider .line2 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid #dbdbdb; }
+    .outer form .facebookLogin {
+      margin-top: 2rem; }
+      .outer form .facebookLogin a {
+        padding-left: 5px;
+        color: #3e5185;
+        font-weight: bold;
+        font-family: calibri;
+        text-decoration: none; }
+      .outer form .facebookLogin img {
+        width: 1rem; }
+    .outer form #forgotlink {
+      margin-top: 1.5rem;
+      cursor: pointer; }
+      .outer form #forgotlink a {
+        color: #385185;
+        font-size: 0.9rem;
+        font-family: calibri;
+        text-decoration: none; }
+    .outer form #errorBox {
+      width: 80%;
+      text-align: center;
+      margin-top: 10px; }
+      .outer form #errorBox p {
+        color: red;
+        font-weight: lighter;
+        font-family: calibri;
+        font-size: 0.9rem; }
+  .outer .signup-box {
+    background-color: white;
+    width: 22rem;
+    height: 4rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #dbdbdb;
+    font-family: calibri;
+    margin-bottom: 3rem; }
+    .outer .signup-box a {
+      color: #0095f6;
+      text-decoration: none;
+      font-weight: 700; }
+
+#container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fafafa;
+  padding-top: 100px; }
+  #container .box {
+    width: 22rem;
+    min-height: 65vh;
+    height: auto;
+    border: 1px solid #dbdbdb;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+    padding: 1rem; }
+    #container .box .para {
+      width: 75%;
+      color: #8e8e8e;
+      font-family: calibri;
+      font-size: 1rem; }
+    #container .box .lock-logo {
+      border: 3px solid black;
+      border-radius: 50%;
+      padding: 1.2rem; }
+      #container .box .lock-logo img {
+        width: 3rem; }
+    #container .box #email {
+      background-color: #fafafa;
+      border: 1px solid #dbdbdb;
+      width: 85%;
+      height: 1rem;
+      padding: 10px;
+      outline: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 14px; }
+    #container .box .button {
+      width: 93%;
+      height: 2rem;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background-color: #0095f6;
+      color: white;
+      font-weight: 600;
+      cursor: pointer; }
+    #container .box .divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin-top: 1rem; }
+      #container .box .divider .line1 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid #dbdbdb; }
+      #container .box .divider p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #8e8e8e;
+        font-family: calibri; }
+      #container .box .divider .line2 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid #dbdbdb; }
+    #container .box .signUp-btn {
+      color: black;
+      font-family: sans-serif;
+      font-size: 14px; }
+    #container .box .signup-a {
+      margin-top: 9px;
+      text-decoration: none; }
+    #container .box .error {
+      color: red; }
+  #container .signIn-btn {
+    border: 1px #b3b2b2 solid;
+    width: 24rem;
+    font-size: 15px;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #FAFAFA;
+    margin-bottom: 3rem; }
+  #container .signIn-btn a {
+    color: black;
+    text-decoration: none; }
+
+@media screen and (max-width: 450px) {
+  .outer {
+    padding: 0; }
+    .outer .form {
+      border: transparent;
+      background-color: #fff;
+      width: 90%; }
+      .outer .form img {
+        width: 75%; }
+      .outer .form #email {
+        width: 70%;
+        height: 1.8rem;
+        padding: 4px; }
+      .outer .form #password {
+        width: 70%;
+        height: 1.8rem;
+        padding: 4px; }
+      .outer .form .button {
+        width: 75%;
+        height: 2.1rem;
+        font-size: 15px; }
+      .outer .form .divider {
+        width: 75%; }
+      .outer .form .facebookLogin a {
+        padding-left: 5px;
+        font-size: 16px;
+        font-weight: 500; }
+      .outer .form .facebookLogin img {
+        width: 1rem; }
+      .outer .form #signup-box1 {
+        display: flex;
+        border: transparent;
+        font-size: 15.5px; }
+    .outer .signUp {
+      margin-top: 1rem;
+      font-family: calibri; }
+      .outer .signUp a {
+        color: #0095f6;
+        text-decoration: none;
+        font-weight: 700; }
+    .outer .signup-box {
+      display: none; }
+    .outer #forgotlink a {
+      font-size: 0.7rem; }
+  .footerHead {
+    row-gap: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+.footerHead {
+  row-gap: 1rem; }
