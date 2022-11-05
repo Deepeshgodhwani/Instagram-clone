@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="/css/sign_in_page.css" />
   
   <title>Instagram</title>
   <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
-
+  <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
 </head>
 <body>
    
@@ -35,9 +35,13 @@
      /><br />
      <input class="button" type="submit" value="Log In" required />
      <div class="divider"><p class="line1"></p><p>OR</p><p class="line2"></p></div>
+     <div class="guestUser">
+      <i class="fa-solid fa-user"></i> <p>Login as a Guest user</p>
+    </div>  
      <div class="facebookLogin">
        <img src="../assets/images/facebook.png">
         <a href="/account/auth/facebook"> Login With Facebook</a></div>
+      
      <%if(type){%>   
      <div id="errorBox">
        <p id="errorMessage">
@@ -49,13 +53,19 @@
      <div onclick="forgotPasswordSlot()" id="forgotlink">
         <a href="/account/enteremail" id="forgotButton"> Forgot password?</a>
       </div>
-      <div class="sicgnUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
+      <div class="signUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
   </form>
   <div class="signup-box"><p>Don't have an account? <a href="/account/signup">Sign up</a></p></div>
   <%-include('footer');-%>
   </div>   
    <script src="/js/jquery.js"></script>
-   <script src="/js/user_signIn.js"></script>
+   <script>
+     $('.guestUser').click(function(){
+      
+          $('#email').val('deepeshhh._');
+          $('#password').val('deepesh1234');
+     })
+   </script>
  </body>
 </html>
 

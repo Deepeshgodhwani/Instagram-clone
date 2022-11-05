@@ -1,8 +1,14 @@
 
 
+
 {
 
    
+    
+   // adujusting post width according to windows width  //
+
+    
+    
 
      let pageNo=0; 
     
@@ -42,10 +48,14 @@
            height:'100vh'
         })
 
+
+
         $('.create-icon').css({display:"none"});
         $('.createPost').css({display:"flex"});
 
     }
+
+
 
 
     function postCreationOff(){
@@ -70,34 +80,38 @@
 
 function selectingPictureOn(){
     
-   $("#select-picture").css({
-      overflow:'none',
-      width:'25rem',
-      height:'27rem',
-      position:'relative'
-   }) 
-      
-   $(".post-form").css({
-      height:'27rem',
-      width:'25rem'
-   })
+
+
+      $("#select-picture").css({
+         display:"flex"
+      }) 
+
+      $('.post-form').css({
+         width:'25rem',
+         height:'27rem'
+      })
+   
+   
    $("#create-new-post").css({
           
-          width:'0',
-          height:'0',
-          overflow:'hidden',
-          position:'absolute'
+         display:"none"
     })
      pageNo =1;
          
  }
+
   function selectingPictureOff(){
-   $("#select-picture").css({
-      overflow:'hidden',
-      width:'0',
-      height:'0',
-      position:'absolute'
-   })
+
+
+      $('.post-form').css({
+         width:'42rem',
+         height:'25rem'
+      })
+      
+      $("#select-picture").css({
+         display:"none",
+      })
+   
   pageNo=2;
          
 }
@@ -133,21 +147,16 @@ function discardProcessOff(){
   let file= $('#select-button')
       
       file.change(function(event){
-          console.log("hey");
+         
            var path=URL.createObjectURL(event.target.files[0])
-           selectingPictureOff();
-   
-            $(".post-form").css({
-               height:'25rem',
-               width:'42rem'
-            })
+
+          
+           selectingPictureOff();  
+          
             $('#post-image').attr("src",path);
             $("#create-new-post").css({
                    
-                   width:'42rem',
-                   height:'25rem',
-                   overflow:'none',
-                   position:'relative'
+                  display:'flex'
             })
 
             pageNo = 2;

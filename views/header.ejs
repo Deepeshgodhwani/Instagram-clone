@@ -3,6 +3,8 @@
 
     <link rel="stylesheet" href="/css/header.css">
     <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
       <style>
            ul.ui-autocomplete{
             position: absolute;
@@ -28,37 +30,41 @@
   <div style="color:black;" class="searchResult" >  
   </div>
 </div>
-<div id="slots">   
-        <a  href="/user/user_home">
-          <%if(page=="home"){%>
-            <img class="home-icon" src="../assets/images/homepageicon.png">
-          <%}else{%>
-            <img class="home-icon2" src="../assets/images/homepageicon2.png">         
-          <%}%>
-        </a>
-        <a href="/user/direct/inbox">
-          <%if(page=="chatting"){%>
-          <img class="inbox-icon" src="../assets/images/messenger2.png">  
-          <%}else{%>
-          <img class="inbox-icon2 " src="../assets/images/messenger.png">
+  <div id="slots">   
+          <a  href="/user/user_home">
+            <%if(page=="home"){%>
+              <img class="home-icon" src="../assets/images/homepageicon.png">
+            <%}else{%>
+              <img class="home-icon2" src="../assets/images/homepageicon2.png">         
             <%}%>
-        </a>   
-        <img onclick="createPost()" class="create-icon" src="../assets/images/createpost.png"> 
-        <div onclick="createPost()" class="createPost" ><i class="fa-solid fa-square-plus"></i></div>   
+            
+          </a>
+          <a href="/user/direct/inbox">
+            <%if(page=="chatting"){%>
+            <img class="inbox-icon" src="../assets/images/messenger2.png">  
+            <%}else{%>
+            <img class="inbox-icon2 " src="../assets/images/messenger.png">
+              <%}%>
+          </a>   
+          <img onclick="createPost()" class="create-icon" src="../assets/images/createpost.png"> 
+          <div onclick="createPost()" class="createPost" ><i class="fa-solid fa-square-plus"></i></div>   
 
-        <a href="/explore">
-          <%if(page=="explore"){%>
-          <img class="explore-icon" src="../assets/images/explorer.png">
-          <%}else{%>
-          <img class="explore-icon" src="../assets/images/explore (1).png"> 
-        </a>
-          <%}%>              
-              <a href="/user/profile/<%= locals.user.id%>" > <image id="profile-picture" src="<%= user.avtar%>"> <a> 
-                    <div><a href="/account/signout"><img class="icon" src="../assets/images/power-off.png"></a> </div>
-                  </div>
-                  <% } %>
-                </div>
+          <a href="/explore">
+            <%if(page=="explore"){%>
+            <img class="explore-icon" src="../assets/images/explorer.png">
+            <%}else{%>
+            <img class="explore-icon" src="../assets/images/explore (1).png"> 
+          </a>
+            <%}%>              
+                <a href="/user/profile/<%= locals.user.id%>" > <image id="profile-picture" src="<%= user.avtar%>"> <a> 
+                      <div><a href="/account/signout"><img class="icon" src="../assets/images/power-off.png"></a> </div>
+  </div>
+<% } %>
+  </div>
     </nav>
+
+
+
     
    <%if(locals.user){%>
 
@@ -70,7 +76,7 @@
         <i style="cursor: pointer;" class="fa-solid fa-xmark"></i>
       </div>
       <!-- <div class="container">  -->
-        <form class="post-form" action="post/create", enctype="multipart/form-data"  method="post">
+        <form class="post-form" action="/user/post/create", enctype="multipart/form-data"  method="post">
           <div id="select-picture">
             <div class="header"> <p id="heading">Create new post </p> </div>   
             <div id="main">
@@ -98,9 +104,9 @@
                     <textarea id="caption-area" cols="37" rows="35" maxlength="150"  placeholder="Write a caption..." name="caption"></textarea>
                   </div>
                 </div>                         
-                        </div>
-                      </form>    
-                      <div id="confirmation-slot">
+         </div>
+        </form>    
+        <div id="confirmation-slot">
           <div id="background-c"></div>
           <div id="contain-er">
             <p style="cursor: pointer;" id="heading-"> Discard post?</p>

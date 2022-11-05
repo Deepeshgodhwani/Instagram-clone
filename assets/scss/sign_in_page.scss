@@ -98,7 +98,8 @@
 
 
     .facebookLogin{
-        margin-top: 2rem;
+      margin-top: 0.5rem;
+
         a{
           padding-left: 5px;   
           color:rgb(62,81,133);
@@ -111,6 +112,18 @@
           width: 1rem;
         }
     
+    }
+
+    .guestUser{
+       font-family: calibri;
+       color:rgb(255,108,55);   
+       cursor: pointer;    
+       font-weight: bold;
+       display: flex;
+       font-size: 1rem;
+       column-gap: 0.5rem;
+       margin-top: 1.5rem;
+
     }
 
     #forgotlink{
@@ -156,7 +169,11 @@
     }
 
   }
+  .signUp{
+    display: none;
+  }
 }
+
 
 // pasword reset slot //
 
@@ -279,85 +296,3 @@
 
 
 
-// resoponsiveness  //
-
-$small: 450px;
-
-@media screen and  (max-width: $small) {
-  .outer{
-    padding: 0;
-     .form{
-        border: transparent;
-        background-color: #fff;
-        // min-height: 94.3vh;
-        width: 90%;
-        img{
-          width: 75%;
-        }
-        #email{
-          width: 70%;
-          height: 1.8rem;
-          padding: 4px;
-        }
-        #password{
-          width: 70%;
-          height: 1.8rem;
-          padding: 4px;
-        }
-        .button{
-          width: 75%;
-          height: 2.1rem;
-          font-size: 15px;
-        }
-        .divider{
-          width: 75%;
-        }
-        .facebookLogin{
-          a{
-            padding-left: 5px; 
-            font-size: 16px;
-            font-weight: 500;
-          }          
-          img{
-            width: 1rem;
-          }
-        }
-        #signup-box1{
-          display: flex;
-          border: transparent;
-          font-size: 15.5px;
-        }
-        
-       
-     }
-     .signUp{
-      margin-top: 1rem;
-        font-family: calibri;  
-      a{
-        color: rgb(0,149,246);
-        text-decoration: none;
-        font-weight: 700;
-      }
-     }
-    .signup-box{
-      display: none;
-    }
-    #forgotlink{
-      a{
-       font-size: 0.7rem;
-      }
-    }
-  }
-  .footerHead{
-    row-gap: 1rem;
-    margin-top: 1rem;
-    background-color: rgb(255,255,255);
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-} 
-
-.footerHead{
-  row-gap: 1rem;
-}

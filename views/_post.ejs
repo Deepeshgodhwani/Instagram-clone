@@ -1,6 +1,6 @@
     
       
-   <li class="d-<%= post.id%>" id="post"> 
+   <div class="d-<%= post.id%>" id="post"> 
     <div id="postheader">
       <div id="postcreator">
        <% if(post.user.avtar) {%>
@@ -15,7 +15,7 @@
         <button  style="background-color: transparent; border: none; color:black; font-size: larger;" class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
 
         </button>
-        <ul class="dropdown-menu" style="position: absolute; width: 1rem;" aria-labelledby="dropdownMenuButton2">
+        <ul type="none" class="dropdown-menu" style="position: absolute; width: 1rem;" aria-labelledby="dropdownMenuButton2">
         <li><a class="" href="/user/post/postView/<%= post.id%>"><span >Go to post</span></a></li>
            <% if (locals.user._id == post.user.id){%>
           <li> <a class="delete-post-button"  href="post/delete/<%= post.id%>"><span>Delete post</span> </a></li>
@@ -83,6 +83,6 @@
 <!---------------------------- comments section -->    
 
 <!---------------------------------------------------------------------------> 
-  </li>
+    </div>
 
    

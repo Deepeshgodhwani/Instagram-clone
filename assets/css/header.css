@@ -188,15 +188,18 @@
     width: 25rem;
     border-radius: 15px;
     height: 27rem;
+    border: 1px solid red;
     background-color: white;
-    position: relative; }
+    position: relative;
+    display: flex; }
   .create-post #select-picture {
     width: 25rem;
     border-radius: 15px;
     height: 27rem;
     position: relative;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    position: absolute; }
     .create-post #select-picture .header {
       height: 10%;
       width: 100%;
@@ -238,13 +241,14 @@
       position: absolute;
       z-index: -1; }
   .create-post #create-new-post {
-    display: flex;
+    position: relative;
+    background-color: white;
+    width: 42rem;
+    height: 25rem;
+    display: none;
     flex-direction: column;
     border-radius: 15px;
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    position: absolute; }
+    overflow: hidden; }
     .create-post #create-new-post .header2 {
       height: 12%;
       width: 100%;

@@ -74,7 +74,7 @@
         width: 7rem;
         border-top: 1px solid #dbdbdb; }
     .outer form .facebookLogin {
-      margin-top: 2rem; }
+      margin-top: 0.5rem; }
       .outer form .facebookLogin a {
         padding-left: 5px;
         color: #3e5185;
@@ -83,6 +83,15 @@
         text-decoration: none; }
       .outer form .facebookLogin img {
         width: 1rem; }
+    .outer form .guestUser {
+      font-family: calibri;
+      color: #ff6c37;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      font-size: 1rem;
+      column-gap: 0.5rem;
+      margin-top: 1.5rem; }
     .outer form #forgotlink {
       margin-top: 1.5rem;
       cursor: pointer; }
@@ -115,6 +124,8 @@
       color: #0095f6;
       text-decoration: none;
       font-weight: 700; }
+  .outer .signUp {
+    display: none; }
 
 #container {
   display: flex;
@@ -207,57 +218,3 @@
   #container .signIn-btn a {
     color: black;
     text-decoration: none; }
-
-@media screen and (max-width: 450px) {
-  .outer {
-    padding: 0; }
-    .outer .form {
-      border: transparent;
-      background-color: #fff;
-      width: 90%; }
-      .outer .form img {
-        width: 75%; }
-      .outer .form #email {
-        width: 70%;
-        height: 1.8rem;
-        padding: 4px; }
-      .outer .form #password {
-        width: 70%;
-        height: 1.8rem;
-        padding: 4px; }
-      .outer .form .button {
-        width: 75%;
-        height: 2.1rem;
-        font-size: 15px; }
-      .outer .form .divider {
-        width: 75%; }
-      .outer .form .facebookLogin a {
-        padding-left: 5px;
-        font-size: 16px;
-        font-weight: 500; }
-      .outer .form .facebookLogin img {
-        width: 1rem; }
-      .outer .form #signup-box1 {
-        display: flex;
-        border: transparent;
-        font-size: 15.5px; }
-    .outer .signUp {
-      margin-top: 1rem;
-      font-family: calibri; }
-      .outer .signUp a {
-        color: #0095f6;
-        text-decoration: none;
-        font-weight: 700; }
-    .outer .signup-box {
-      display: none; }
-    .outer #forgotlink a {
-      font-size: 0.7rem; }
-  .footerHead {
-    row-gap: 1rem;
-    margin-top: 1rem;
-    background-color: white;
-    padding-left: 20px;
-    padding-right: 20px; } }
-
-.footerHead {
-  row-gap: 1rem; }

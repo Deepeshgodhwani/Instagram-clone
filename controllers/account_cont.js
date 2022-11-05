@@ -185,7 +185,8 @@ module.exports.create= async function(req , res){
   module.exports.emailVerification=function(req,res){
 
         res.render('email_verification_page',{
-          error:false
+          error:false,
+          page:'emailVerification'
         });
   }
    
@@ -194,6 +195,7 @@ module.exports.create= async function(req , res){
 
 
   module.exports.forgotPassword= async function(req,res){
+    console.log("reached");
     
       try{    
             
@@ -218,7 +220,7 @@ module.exports.create= async function(req , res){
                   
                  }else{
                     
-                  return  res.redirect(`/account/emailSent?email=${user.email}`);    
+                    return  res.redirect(`/account/emailSent?email=${user.email}`);    
                  }
            })
    
@@ -226,7 +228,8 @@ module.exports.create= async function(req , res){
         }else{
               
           return res.render('email_verification_page',{
-            error:true
+            error:true,
+            page:"success"
           })  
               
         }
@@ -244,7 +247,8 @@ module.exports.create= async function(req , res){
 module.exports.succesEmail=(req,res)=>{
 
   return  res.render('comp1.ejs',{
-     email:req.query.email
+     email:req.query.email,
+     page:"success"
   }) ;
 }
 
@@ -259,7 +263,8 @@ module.exports.succesEmail=(req,res)=>{
            
              return res.render('resetPassword_page',{
                  User:user,
-                 error:false
+                 error:false,
+                 page:"resetPassword"
              });
           }
 

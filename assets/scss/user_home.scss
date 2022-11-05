@@ -46,25 +46,36 @@
   padding-top: 60px;
   height: auto;
   #advertisement {
-    width: 20%;
+    width: 22rem;
+    // border: 1px solid red;
   }
 
   //    post //
 
   .feed {
-    width: 38%;    
+    width:29rem;    
     height: auto;
     position: relative;
+    // border: 1px solid;
+    padding-top: 35px;
 
   }
 
   .feed::-webkit-scrollbar {
     width: 0;
   }
+
+  #posts-box{
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      position: relative;
+      
+  }
+  
   #post {
-    width: 100%;
+    width: 29rem;
     height: auto;
-    margin-top: 30px;
     border: 1px solid rgb(231, 231, 231);
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -79,6 +90,8 @@
       padding: 10px;
       padding-right: 30px;
       border-radius: 10px;
+   
+
 
 
       .options {
@@ -88,9 +101,7 @@
       }
 
       .options{
-        ul{
-            width: 1rem;
-        }
+       
         a{
           text-decoration: none;
           color: black;  
@@ -247,6 +258,7 @@
     width: 28%;
     height: 100vh;
     padding: 20px;
+    // border:1px solid red;
 
     #users-container {
       display: flex;
@@ -367,17 +379,6 @@
 }
 
 
-// #close-button {
-//   background-color: white;
-//   position: absolute;
-//   right: 30px;
-//   top: 25px;
-//   color: white;
-// }
-// #profilepicture {
-//   width: 30px;
-//   height: 30px;
-// }
 
 
 #message{
@@ -391,3 +392,4 @@
   font-family: calibri;
   font-size: 1.1rem;
 }
+
