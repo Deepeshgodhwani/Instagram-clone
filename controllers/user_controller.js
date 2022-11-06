@@ -2,7 +2,7 @@
 const User = require('../models/user')
 const post =require('../models/post')
 const Following=require('../models/following');
-const following = require('../models/following');
+
 
 
 
@@ -10,7 +10,14 @@ module.exports.homeuser = async function(req ,res){
     
         
  try{
-    let posts= await post.find({})
+      let userr= await User.findById(req.user._id).populate('following');
+      let usersId=[];
+      let itt=0;
+      for(let following of userr.following){
+            usersId[itt++]=following.following
+      }
+      usersId[itt]=req.user._id;      
+    let posts= await post.find({user:usersId})
          .sort('-createdAt')
          .populate('user')
          .populate({

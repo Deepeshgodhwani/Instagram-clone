@@ -1,11 +1,21 @@
 
 
+
+$('#text').on('change',function(e){
+    $('#typing').css({display:"flex"});
+     let val=$('#text').val();
+     console.log(val);
+})
+
+
+
 class chatEngine{
-    constructor(chatBoxId,username,userId){
+    constructor(chatBoxId,username,userId,user2){
 
         this.userId=userId
         this.chatroom=chatBoxId
         this.username=username;
+        this.user2=user2;
         this.socket=io.connect('http://localhost:5000');
         if(this.username){
             this.connectionHandler();
@@ -14,7 +24,10 @@ class chatEngine{
     connectionHandler(){
 
         let self=this;
-        
+        if(self.user2){
+            console.log(self.user2);
+            $(`.Id${self.user2}`).css({backgroundColor:"lightgrey"});
+        }
           this.socket.on('connect',function(){
             $("#chat-message-list").stop().animate({ scrollTop: $("#chat-message-list")[0].scrollHeight}, 1);
                  console.log('connetion established  using sockets ....!');
@@ -84,33 +97,13 @@ class chatEngine{
                 
         // console.log("message received" ,data.message);
       $("#chat-message-list").stop().animate({ scrollTop: $("#chat-message-list")[0].scrollHeight}, 1);
-         console.log(data);
+      
         
-         let loggedUser=$('#recent-chat-list').attr('loggedUser');
-         console.log(data.messageRecieverId);
-         console.log(data.data.userId);
-         console.log(loggedUser);
-     
-
-            let latestChatHead=$(`.Id${data.messageRecieverId}`);
-            if(latestChatHead.length==0){
-                latestChatHead=$(`.Id${data.data.userId}`);    
-                $('.usernam').css({marginTop:'1rem',marginBottom:'-20px'});
-                $('.status').css({display:"flex"});
-            }
-            let link=latestChatHead.attr('href');
-            let username=latestChatHead.attr('name');
-            let avtar=latestChatHead.attr('avtar');
+      if(data.data.username!=self.username){
+            $('.usernam').css({marginTop:'1rem',marginBottom:'-20px'});
+            $('.status').css({display:"flex"});
+      }
             
-            latestChatHead.remove();
-            $('#recent-chat-list').prepend(`<div id="chat"> <a class="Id${data.messageRecieverId}" avtar="${avtar}" name="${username}" href="${link}">
-            <img id="user-avtar" src="${avtar}">
-            <div >
-            <p id="user-name">${username}</p>
-            <p  id="latestMessage">${data.data.message.slice(0,30)}</p>
-            </div>
-            </a>  </div>`)
-        
        
        let newMessage=$('<li>');
 

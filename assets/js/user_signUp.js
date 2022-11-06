@@ -45,6 +45,8 @@
                     loading.css({display:"none"});
                     submitBtn.attr('disabled',false);
                     signupForm.css({display:"none"}); 
+                    $("#confirm-para").text(`Enter the confirmation code we sent to ${data.userEmail}
+                    This will expire in 10 minutes .`)
                     emailVerifyPage.css({display:"flex"}) 
                     //render enter your otp page
                 }

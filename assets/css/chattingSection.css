@@ -8,7 +8,7 @@
   background-color: #fafafa;
   display: flex;
   justify-content: center; }
-  #page .container {
+  #page #container {
     position: relative;
     top: 70px;
     width: 65%;
@@ -16,10 +16,13 @@
     background-color: white;
     height: 85vh;
     display: flex; }
-    #page .container #chat-list {
+    #page #container #chat-list::-webkit-scrollbar {
+      display: none; }
+    #page #container #chat-list {
       width: 35%;
-      height: 96%; }
-      #page .container #chat-list header {
+      height: 96%;
+      overflow-y: scroll; }
+      #page #container #chat-list header {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,72 +31,74 @@
         font-size: 1.2rem;
         position: relative;
         border-bottom: 1px solid #dbdbdb; }
-        #page .container #chat-list header p {
+        #page #container #chat-list header p {
           margin-top: 8px; }
-        #page .container #chat-list header img {
+        #page #container #chat-list header img {
           width: 25px;
           height: 25px;
           position: absolute;
           right: 10px;
           top: 13px; }
-      #page .container #chat-list #recent-chat-list::-webkit-scrollbar {
+      #page #container #chat-list #recent-chat-list::-webkit-scrollbar {
         display: none; }
-      #page .container #chat-list #recent-chat-list {
-        padding: 20px 0px;
-        overflow-y: scroll; }
-        #page .container #chat-list #recent-chat-list #chat {
+      #page #container #chat-list #recent-chat-list {
+        padding: 10px 0px;
+        overflow: scroll; }
+        #page #container #chat-list #recent-chat-list #chat {
           display: flex;
           align-items: center; }
-          #page .container #chat-list #recent-chat-list #chat a {
+          #page #container #chat-list #recent-chat-list #chat a {
             display: flex;
             align-items: center;
             text-decoration: none;
             color: black;
-            column-gap: 10px; }
-          #page .container #chat-list #recent-chat-list #chat #user-avtar {
+            column-gap: 10px;
+            padding: 0px 10px; }
+          #page #container #chat-list #recent-chat-list #chat #user-avtar {
             width: 55px;
             height: 55px;
-            border-radius: 50%;
-            margin-bottom: 12px; }
-          #page .container #chat-list #recent-chat-list #chat div {
+            border-radius: 50%; }
+          #page #container #chat-list #recent-chat-list #chat div {
             font-family: calibri;
             display: flex;
-            flex-direction: column; }
-            #page .container #chat-list #recent-chat-list #chat div #user-name {
+            flex-direction: column;
+            margin-top: 20px;
+            line-height: 5px; }
+            #page #container #chat-list #recent-chat-list #chat div #user-name {
               font-size: 0.9rem;
               text-transform: capitali; }
-            #page .container #chat-list #recent-chat-list #chat div #latestMessage {
+            #page #container #chat-list #recent-chat-list #chat div #latestMessage {
               color: #a1a1a1;
               word-wrap: break-word;
               margin-top: -12px;
               width: 14rem;
               line-height: 18px; }
-    #page .container #user-chat-box {
+    #page #container #user-chat-box {
       border-left: 1px solid #dbdbdb;
       width: 65%;
       height: 100%;
       position: relative; }
-      #page .container #user-chat-box header {
+      #page #container #user-chat-box header {
         display: flex;
         align-items: center;
         width: 100%;
         height: 60px;
         border-bottom: 1px solid #dbdbdb; }
-        #page .container #user-chat-box header div p {
+        #page #container #user-chat-box header div p {
           margin-top: 15px;
           text-decoration: none;
           color: black; }
-        #page .container #user-chat-box header #other-user-image {
+        #page #container #user-chat-box header #other-user-image {
           width: 35px;
           height: 35px;
           border-radius: 50%;
           margin-left: 35px;
           margin-right: 10px; }
-        #page .container #user-chat-box header .status {
+        #page #container #user-chat-box header .status {
           display: none; }
-      #page .container #user-chat-box #chat-message-list::-webkit-scrollbar {
+      #page #container #user-chat-box #chat-message-list::-webkit-scrollbar {
         display: none; }
-      #page .container #user-chat-box #chat-message-list {
+      #page #container #user-chat-box #chat-message-list {
         width: 100%;
         max-height: 70%;
         height: auto;
@@ -103,22 +108,24 @@
         font-family: calibri;
         position: absolute;
         bottom: 3rem; }
-        #page .container #user-chat-box #chat-message-list .other-message {
+        #page #container #user-chat-box #chat-message-list #typing {
+          display: none; }
+        #page #container #user-chat-box #chat-message-list .other-message {
           text-align: left;
           padding: 7px;
           max-width: 15rem;
           width: auto;
           overflow: hidden; }
-          #page .container #user-chat-box #chat-message-list .other-message span {
+          #page #container #user-chat-box #chat-message-list .other-message span {
             display: inline-block;
             padding: 10px;
             background-color: white;
             border: 1px solid #efefef;
             border-radius: 20px; }
-        #page .container #user-chat-box #chat-message-list .self-message {
+        #page #container #user-chat-box #chat-message-list .self-message {
           text-align: right;
           padding: 7px; }
-          #page .container #user-chat-box #chat-message-list .self-message span {
+          #page #container #user-chat-box #chat-message-list .self-message span {
             display: inline-block;
             word-wrap: break-word;
             padding: 10px;
@@ -128,7 +135,7 @@
             width: auto;
             text-align: left;
             color: white; }
-      #page .container #user-chat-box #text {
+      #page #container #user-chat-box #text {
         position: absolute;
         bottom: 0px;
         width: 32.5rem;
@@ -141,7 +148,7 @@
         padding-right: 60px;
         right: 1rem;
         outline: none; }
-      #page .container #user-chat-box .send-Button {
+      #page #container #user-chat-box .send-Button {
         position: absolute;
         bottom: 22px;
         right: 40px;
@@ -152,7 +159,7 @@
         color: #4a97f6;
         font-size: 1rem;
         font-weight: 700; }
-    #page .container #box {
+    #page #container #box {
       border-left: 1px solid #dbdbdb;
       width: 65%;
       height: 100%;
@@ -162,7 +169,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column; }
-      #page .container #box #send-logo {
+      #page #container #box #send-logo {
         border-radius: 50%;
         border: 2px solid black;
         width: 90px;
@@ -170,20 +177,20 @@
         display: flex;
         align-items: center;
         justify-content: center; }
-        #page .container #box #send-logo img {
+        #page #container #box #send-logo img {
           width: 45px;
           height: 45px;
           transform: rotate(15deg);
           margin-right: 10px; }
-      #page .container #box #p1 {
+      #page #container #box #p1 {
         font-family: calibri;
         font-size: 1.5rem;
         font-weight: 10;
         opacity: 0.8;
         margin-bottom: -28px; }
-      #page .container #box #p2 {
+      #page #container #box #p2 {
         color: #8e8e9d; }
-      #page .container #box .btn {
+      #page #container #box .btn {
         background-color: #0095f6;
         width: 8rem;
         height: 1.9rem;

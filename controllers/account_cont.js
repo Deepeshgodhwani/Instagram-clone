@@ -85,7 +85,8 @@ module.exports.create= async function(req , res){
                      }else{
                           
                           return  res.status(200).json({
-                            message:"email sent"
+                            message:"email sent",
+                            userEmail:req.body.email
                           });
                      }
                   })      

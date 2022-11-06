@@ -250,4 +250,5 @@ body {
     font-weight: 600; }
 
 .footerHead {
-  row-gap: 1rem; }
+  row-gap: 1rem;
+  margin-right: 16rem; }

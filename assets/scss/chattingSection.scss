@@ -18,7 +18,7 @@
     justify-content: center;
 
        
-    .container{
+    #container{
         position: relative;
         top: 70px;
         width: 65%;
@@ -27,10 +27,14 @@
         height: 85vh;
         display: flex;
     
+        #chat-list::-webkit-scrollbar{
+            display: none;
+        }
 
         #chat-list{
             width: 35%;
             height: 96%;
+            overflow-y: scroll;
 
 
             header{
@@ -59,13 +63,13 @@
             }
 
             #recent-chat-list{
-                padding: 20px 0px;
-                overflow-y: scroll;
+                padding: 10px 0px;
+                overflow: scroll;
                 #chat{
                         display: flex;
                         align-items: center;
-                        // margin-bottom: 15px;
-                        // border: 1px solid;
+                       
+                        
 
                      a{
                         display: flex;
@@ -73,6 +77,9 @@
                         text-decoration: none;
                         color: black;
                         column-gap: 10px;
+                        // background-color: lightgrey;
+                        padding: 0px 10px;
+
                         
 
                      }
@@ -81,7 +88,7 @@
                         width: 55px;
                         height: 55px;
                         border-radius: 50%;
-                        margin-bottom: 12px;
+                        // margin-bottom: 12px;
                     }
 
                     div{
@@ -89,6 +96,8 @@
                            font-family: calibri;
                            display: flex;
                            flex-direction: column;
+                           margin-top: 20px;
+                           line-height: 5px;
                            #user-name{
                               font-size: 0.9rem;
                               text-transform: capitali;
@@ -101,9 +110,6 @@
                             margin-top: -12px;
                             width:14rem ;
                             line-height:18px;
-                           
-                           
-
                            }
                     }
                     
@@ -145,9 +151,8 @@
                     border-radius: 50%;
                     margin-left:35px;
                     margin-right: 10px;
-                     
-                 
                 }
+
                 .status{
                     display: none;
                 }
@@ -166,11 +171,14 @@
                 overflow: auto;
                 padding: 10px;
                 font-family: calibri;
-                // border: 1px solid;
                 position: absolute;
                 bottom: 3rem;
               
     
+                #typing{
+                    display: none;
+                }
+
                 .other-message{
                     text-align: left;
                     padding: 7px;
@@ -206,7 +214,6 @@
                         width: auto;
                         text-align: left;
                         color: white;
-    
                     }
     
                         

@@ -1,11 +1,13 @@
 
 const messageModel= require('../models/messagesModel');
 const Chat =require('../models/chatModel');
+const User=require('../models/user');
 
 
 module.exports.chatSockets=function(socketServer,){
   
       let io=require('socket.io')(socketServer,{
+        pingTimeout:100000,
         cors: {
             origin: "*",
           }
@@ -46,19 +48,19 @@ module.exports.chatSockets=function(socketServer,){
                   chat.save();
                    
                   if(chat.users[0].userId!=data.userId){
-                   var details={
-                      data:data,
-                      messageRecieverId:chat.users[0].userId,
-                    }
-                       
+                    var messageRecieverId=chat.users[0].userId;
                   }else{
-                  var details={
-                      data:data,
-                      messageRecieverId:chat.users[1].userId
-                    }
+                     var messageRecieverId=chat.users[1].userId;
                   }
+
+                let user=await User.findById(messageRecieverId);
                  
-                console.log(details);
+
+                const details={
+                  data:data,
+                  reciever:user
+                }
+                
                 io.in(data.chatRoom).emit('receive_message',details);
             })
       })

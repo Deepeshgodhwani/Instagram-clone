@@ -33,7 +33,8 @@
   color: black;
   text-transform: capitalize;
   padding-top: 60px;
-  height: auto; }
+  height: auto;
+  padding-bottom: 30px; }
   #container #advertisement {
     width: 22rem; }
   #container .feed {
