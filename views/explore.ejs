@@ -14,11 +14,11 @@
             margin: 0;
             padding: 0;
         }
-        .outer{
+        #outer{
             width: 100%;
             height: auto;
             min-height: 100vh;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -41,6 +41,8 @@
             /* border: 1px solid red; */
             
         }
+
+
         #post{
             width: 31.4%;
             height:18rem;  
@@ -127,85 +129,29 @@
             margin-top: 15px;
         }
         
+         #postLoading{
+              position: absolute;
+              padding-top: 10rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;
+              background-color: rgb(250,250,250);
+              height: 100vh;
+              row-gap: 5rem;
+         }
 
-              
-   
-/* 
-    @media only screen and (max-width: 875px) {
-
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        #post-container{
-            width: 100%;
-            column-gap: 0.2rem;
-            row-gap: 0.2rem;
-        }
-
-        #post{
-            width: 32.8%;
-        }
-        .post2{
-            width: 66%;
-        }
-    }
-
-
-
-    @media screen and  (max-width: 700px) {
-        
-        #post{
-           height: 15rem;
-        }
-
-        .post2{
-            height: 15rem;
-        }
-        
-    }
-
-
-            
- @media only screen and  (max-width: 602px) {         
-        
-        #post{
-           height:12rem;
-           width:32.4%;
-        }
-
-        .post2{
-            height: 12rem;
-            width:66%;
-
-        }
-        
-}
-
-@media only screen and  (max-width: 529px) {
-                 
-        #post{
-        height:8rem;
-        }
-
-        .post2{
-            height: 8rem;
-        }
-
-}
- */
-
-
-
-
-
-
-
+         #postLoading img{
+              width: 2rem;
+         }
     </style>
 </head>
-<body>
+<body onload="loadingGif()">
     <%- include('header'); -%>
-    <div class="outer">
+    <div id="postLoading"><img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
+        <%-include('footer')-%>
+    </div>
+    <div id="outer">
         <div id="post-container">
             <% for(let itr=0; itr< posts.length ;itr++){%>
                 <%if(itr%10==1||itr%10==5){%>
@@ -245,7 +191,14 @@
    $('.loading').css({display:'none'});
    $('.search').val('');
 
-})
+  })
+
+  var loadingGif=()=>{
+        let outer=document.getElementById('outer');
+        let loader=document.getElementById('postLoading')
+        outer.style.display='flex';
+        loader.style.display='none';
+  }
     </script>
 </body>
 </html>

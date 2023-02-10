@@ -3,12 +3,29 @@
   padding: 0;
   text-transform: capitalize; }
 
+.postLoading {
+  background-color: #fafafa;
+  padding-top: 6.7rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; }
+  .postLoading .brdr {
+    display: flex;
+    border-top: 2px solid #dbdbdb;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    margin-top: 4rem;
+    width: 65%;
+    margin-left: 15rem;
+    padding-top: 5rem; }
+
 .outer-box {
   background-color: #fafafa;
   width: 100%;
   height: auto;
   padding-top: 6rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center; }
   .outer-box #profile-container {
@@ -163,7 +180,8 @@
     .outer-box #post-container #post {
       width: 31.4%;
       height: 18rem;
-      position: relative; }
+      position: relative;
+      display: flex; }
       .outer-box #post-container #post:hover .hover {
         display: flex; }
       .outer-box #post-container #post #post-image {
@@ -245,7 +263,8 @@
       .profile-updation-container #options-box .picture-selection #label {
         color: #0095f6;
         font-weight: 700;
-        font-family: calibri; }
+        font-family: calibri;
+        cursor: pointer; }
       .profile-updation-container #options-box .picture-selection #selection-button {
         position: absolute;
         z-index: -1;
@@ -260,7 +279,8 @@
       font-weight: 700;
       font-family: calibri;
       color: red;
-      text-decoration: none; }
+      text-decoration: none;
+      cursor: pointer; }
       .profile-updation-container #options-box #remove-picture p {
         margin-top: 10px; }
     .profile-updation-container #options-box #Cancel-process {
@@ -269,7 +289,8 @@
       border-top: 1px solid #dbdbdb;
       display: flex;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      cursor: pointer; }
 
 .outerLayer {
   display: none;

@@ -148,18 +148,20 @@ function discardProcessOff(){
       
       file.change(function(event){
          
-           var path=URL.createObjectURL(event.target.files[0])
-
-          
-           selectingPictureOff();  
-          
-            $('#post-image').attr("src",path);
-            $("#create-new-post").css({
-                   
-                  display:'flex'
-            })
-
-            pageNo = 2;
+         if((event.target.files[0].type === "image/jpeg" ||
+         event.target.files[0].type === "image/png")){
+            var path=URL.createObjectURL(event.target.files[0])
+            selectingPictureOff();  
+             $('#post-image').attr("src",path);
+             $("#create-new-post").css({
+                    
+                   display:'flex'
+             })
+             pageNo = 2;
+         }else{
+              closeTheProcess();
+         }
+           
        })    
     }
 

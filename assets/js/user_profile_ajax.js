@@ -105,15 +105,33 @@
 
 
     }
-
+ 
 
     // profile picture updation //
+     
+      // to end the processs //
+      var endProcess=function(){
+
+        $('.outer-box').off('scroll touchmove mousewheel');
+        $('.profile-updation-container').off('scroll touchmove mousewheel');
+
+         $('.profile-updation-container').css({
+            width: '0',
+            height: '0',
+            overflow: 'hidden'
+         })
+    
+         $('#nav').css({
+            zIndex:'99999'
+         })
+
+     }
 
     //to change existing profile picture //
 
  var updateProfile=function(avtar){
 
-        // $('body').addClass("stop-scroll");
+        
         $('.outer-box').on('scroll touchmove mousewheel', function(e){
             e.preventDefault();
             e.stopPropagation();
@@ -127,7 +145,6 @@
          $('.profile-updation-container').css({
             width: '100%',
             height: '100vh',
-            // overflow: 'none',
             position:'fixed'
          })
     
@@ -138,7 +155,9 @@
  
    let file=$('#selection-button');
         file.change(function(e){
-            
+        if((e.target.files[0].type === "image/jpeg" ||
+            e.target.files[0].type === "image/png")){
+                
              var path=URL.createObjectURL(e.target.files[0]);  
                 let form =$('.picture-selection')
 
@@ -161,8 +180,11 @@
                          })
 
                  })
+         }else{
+             endProcess();
+         }    
            
-        })  
+     })  
   }  
 
 
@@ -171,38 +193,12 @@
   let file=$('#selection-button2');
      file.change(function(e){
         var path=URL.createObjectURL(e.target.files[0]);            
-        
          $('#form')[0].submit(function(e){
             
          })      
-        //    form.remove();
-        //    let newAvtar=$(`<img onclick="updateProfile(true)" id="user-picture" src="${path}" alt="<%=user.name%>" width="200px" height="200px">`)
-       //    newAvtar.appendTo('#box-1')
-
-
   })
  
   // to remove existing profile pircture
-  
-    // to end the processs //
-     var endProcess=function(){
-
-        $('.outer-box').off('scroll touchmove mousewheel');
-        $('.profile-updation-container').off('scroll touchmove mousewheel');
-
-         $('.profile-updation-container').css({
-            width: '0',
-            height: '0',
-            overflow: 'hidden'
-         })
-    
-         $('#nav').css({
-            zIndex:'99999'
-         })
-
-     }
-  
-
 
 //   toggle followers or following list   //
 
@@ -304,9 +300,7 @@ function closed(){
    $('.outerLayer').css({display:"none"});  
    $('.outer-box').css({height:"auto"})
    $('.outerLayer').off('scroll touchmove mousewheel');
-   $('.outer-box').off('scroll touchmove mousewheel');
-
-                   
+   $('.outer-box').off('scroll touchmove mousewheel');             
   }
 
 
@@ -320,3 +314,20 @@ $('.outer-box').click(function(){
     $('.search').val('');
 
 })
+
+
+
+
+
+// post loading //
+
+var toggleLoading=()=>{
+      $('.postLoading').css({
+         display:'none'
+      })
+
+      $('.outer-box').css({
+        display:'flex'
+      })
+}
+    

@@ -22,6 +22,7 @@
             </header>
             <div id="recent-chat-list">
                   <%for(chat of recentChats){%>
+                      <%if(chat.latestMessage){%>
                     <div id="chat"> 
                          <%if(chat.users[0].userId.id!=locals.user._id){%>
                             <a class="Id<%=chat.users[0].userId._id%>" avtar="<%=chat.users[0].userId.avtar%>" name="<%=chat.users[0].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[0].userId._id%>">
@@ -41,6 +42,7 @@
                             </a>  
                       <%}%>
                    </div>
+                   <%}%>
                  <%}%>
             </div>  
          </div>
@@ -123,7 +125,11 @@
       <script>
           new chatEngine('<%=Chatroom._id%>','<%=locals.user.username%>','<%=locals.user._id%>','<%=User2.id%>');       
        </script>
-       <%}%>
+       <%}else{%>
+         <script>
+            new chatEngine(null,'<%=locals.user.username%>','<%=locals.user._id%>',null);       
+         </script>       
+         <%}%>
     <%}%>
 </body>
 </html>

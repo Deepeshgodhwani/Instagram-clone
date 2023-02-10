@@ -60,17 +60,6 @@ module.exports.messagesSection= async function(req,res){
        
   let chats= await Chatroom.find({users:{$elemMatch:{userId:req.user._id}}})
                    .populate('users.userId').populate('latestMessage').sort('-updatedAt'); 
-    
-        for( let i=0;i<chats.length;i++){
-       
-            if(chats[i].latestMessage==null){
-               chats.splice(i,1);
-             }
-          
-         }
-      
-       
-          
        return res.render('chattingSection' ,{
            Chatroom:chatroom,
            User2:user2,

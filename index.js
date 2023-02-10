@@ -10,7 +10,7 @@ const passport =require('passport');
 const localPassport= require('./config/passport-local');
 const facebookStrategy= require('./config/passport_facebookAuth.js');
 const MongoStore=  require("connect-mongodb-session")(session);
-const sassMiddleware= require("node-sass-middleware"); 
+const sassMiddleware= require("node-sass-middleware");  
 const path=require('path');                                                                                                                           
 
 // const extended = require('it/lib/extended');

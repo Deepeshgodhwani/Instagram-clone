@@ -7,7 +7,6 @@ const User=require('../models/user');
 module.exports.chatSockets=function(socketServer,){
   
       let io=require('socket.io')(socketServer,{
-        pingTimeout:100000,
         cors: {
             origin: "*",
           }
@@ -15,33 +14,31 @@ module.exports.chatSockets=function(socketServer,){
         
     
         io.on('connection',function(socket){
-           console.log('new connection received ', socket.id);
+          console.log("connected to socket.io");
+           
 
 
-           socket.on("disconnect", () => {
-                console.log("socket disconnected"); 
-          });
+          //  socket.on("disconnect", () => {
+          //       console.log("socket disconnected"); 
+          //  });
 
 
-          socket.on('join_room',function(data){
-
-              console.log('joining request rec.',data);
-              socket.join(data.chatRoom);
-              io.in(data.chatRoom).emit('user_joined',data);
+          socket.on('setup',function(data){
+            console.log(data.userId);
+            socket.join(data.userId);
+            console.log("user joined", data.name);
           })
 
 
           //detect send_message and broadcast to everyone in the room //
         
           socket.on('send_message', async function(data){
-        
 
-            socket.join(data.chatRoom);
                let message=await messageModel.create({
                   sender:data.userId,
                   content:data.message,
                   chat:data.chatroom
-              })
+               })
              
                 let chat=await Chat.findById(message.chat);
                   chat.latestMessage=message._id;
@@ -60,8 +57,11 @@ module.exports.chatSockets=function(socketServer,){
                   data:data,
                   reciever:user
                 }
-                
-                io.in(data.chatRoom).emit('receive_message',details);
+                 
+                chat.users.forEach(user=>{
+                  let userId=user.userId.toString();
+                  socket.in(userId).emit('receive_message',details);
+                })
             })
       })
 

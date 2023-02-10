@@ -62,7 +62,8 @@ $('#profile-form').submit(function(e){
              } 
         },
         error:function(err){
-            console.log("error in submitting edit profile form using ajax",err);
+          
+           statusMessage("Something went wrong. Please try again.");
         }
     })
 

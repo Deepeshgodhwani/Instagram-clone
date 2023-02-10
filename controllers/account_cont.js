@@ -1,7 +1,7 @@
 
 const User = require('../models/user');
-const OTP=require('../models/otp_model');
 const nodemailer =require('../config/nodemailer');
+const OTP=require('../models/otp_model');
 
 
 // To check login credentials and //

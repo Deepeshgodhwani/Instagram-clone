@@ -16,6 +16,7 @@ module.exports.postSection=function(req ,res){
        });
 }
 
+
 module.exports.userPosts=   function(req, res){
 
      userPost.uploadedPost (req,res,function(err){
