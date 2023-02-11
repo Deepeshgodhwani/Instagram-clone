@@ -35,12 +35,17 @@
       <div class="feed">
         <%- include('stories'); -%>
           <div id="posts-box">
+            <%if(Post.length){%>
             <%for( post of Post) {%>
 
               <%- include('_post'); -%>
 
                 <% i++;%>
                   <%}%>
+             <%}else{%>
+                <div style="color: rgb(124, 124, 124);
+                font-size: 0.9rem;  width: 100%;  display: flex; justify-content: center; padding-top: 7rem;">Do follow in order to see posts</div>
+              <%}%>      
         </div>
       </div>
 
@@ -64,6 +69,7 @@
             </a>
           </div>
           <%let length= users.length > 6 ? 6 : users.length %>
+          <%if(users.length>1){%>
           <% for ( let i=0; i < length;i++) { %>
             <% if(users[i].id!=locals.user.id){%>
                 <div id="users-detail">
@@ -87,7 +93,12 @@
                   </div>
                 </div>
              <%}%>
-             <%}%>
+          <%}%>
+          <%}else{%>
+               <div style="width: 100%; display: flex; padding-left: 25px; align-items: center;
+                 color: rgb(146, 146, 146);
+                  height: 8rem; font-size: 0.8rem; " >No suggestions</div>
+            <%}%>
         </div>
         <div style="color: rgb(142, 142, 142); display: flex; flex-direction:column;font-size: 0.9rem;" class="my-2">
           <p style="margin-left: 2.5rem; margin-bottom: 5px;">Made with <i class="fa-solid fa-heart"></i> by Deepesh Godwani</p>

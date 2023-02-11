@@ -7,9 +7,9 @@
 const loading=(val)=>{
      
     if(val){
-        $('.loading').css({display:"flex"});
+        $('.loading-bar').css({display:"flex"});
     }else{
-        $('.loading').css({display:"none"});
+        $('.loading-bar').css({display:"none"});
     }
 
 }

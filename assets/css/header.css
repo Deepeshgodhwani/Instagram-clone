@@ -30,9 +30,10 @@
       height: 2rem;
       position: relative;
       border: none; }
-    #nav .search-bar .loading {
+    #nav .search-bar .loading-bar {
       margin-left: 2.2rem;
-      display: none; }
+      display: none;
+      width: 1rem; }
     #nav .search-bar #close {
       display: none; }
     #nav .search-bar #arrow {
@@ -51,6 +52,7 @@
       top: 3rem;
       left: -3.5rem;
       min-height: 20rem;
+      max-height: 25rem;
       border: 1px solid lightgray;
       display: none;
       padding: 10px 20px;
@@ -84,7 +86,6 @@
           #nav .search-bar .searchResult .users-detail #user-name2 #username {
             color: #3f3f3f;
             font-size: 0.9rem;
-            width: 5rem;
             text-transform: lowercase; }
           #nav .search-bar .searchResult .users-detail #user-name2 #name {
             margin-top: -17px;

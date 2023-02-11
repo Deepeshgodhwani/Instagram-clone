@@ -340,31 +340,27 @@
         }
         img {
           margin-top: 5px;
-          width: 32px;
-          height: 32px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%;
         }
         #user-name2{
             text-decoration: none;
             margin-left: 12px;
-            // border: 1px solid black;
-             width: 15rem;
+            width: 12rem;
+            margin-top: 2px;
     
     
             #username {
               color: rgb(63, 63, 63);
               font-size: 0.9rem;
-              width: 5rem;
               text-transform: lowercase;
             }
             #name {
-              margin-top: -15px;
+              margin-top: -17px;
               color: rgb(167,167,167);
               font-weight: 500;
-              font-size: 0.7rem;
-            //   width: 15rem;
-
-              
+              font-size: 0.7rem;              
             }
           }
           #follow-button{

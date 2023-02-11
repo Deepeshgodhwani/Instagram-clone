@@ -42,9 +42,10 @@
            
         }
         
-        .loading{
+        .loading-bar{
             margin-left: 2.2rem;
             display: none;
+            width: 1rem;
         }
 
         #close{
@@ -73,6 +74,7 @@
              top: 3rem;
              left: -3.5rem;
              min-height: 20rem;
+             max-height: 25rem;
              border: 1px solid lightgray;
              display: none;
              padding: 10px 20px;
@@ -106,7 +108,6 @@
                 #user-name2{
                     text-decoration: none;
                     margin-left: 12px;
-                    // border: 1px solid black;
                     width: 15rem;
                     margin-top: 7px;
             
@@ -114,7 +115,6 @@
                     #username {
                       color: rgb(63, 63, 63);
                       font-size: 0.9rem;
-                      width: 5rem;
                       text-transform: lowercase;
                     }
                     #name {

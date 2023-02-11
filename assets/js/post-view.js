@@ -56,7 +56,7 @@ const statusMessage =(message)=>{
                             $(`.${$(self).attr('commentId')}`).text(`${likesCount} likes`); 
                     },
                     error:function(err){
-                       console.log("error in sending like request through xhr",err)
+                       statusMessage("Something went wrong. Please try again.");
                     }
 
                  })
@@ -107,7 +107,7 @@ $('.toggle-like-post').click(function(e){
               $('#likedd').text(`${likesCount} likes`); 
       },
       error:function(err){
-         console.log("error in sending like request through xhr",err)
+         statusMessage("Something went wrong. Please try again.");
       }
 
    })
@@ -153,7 +153,7 @@ $('.comment-forms').submit(function(e){
 
       },
       error:function(err){
-         console.log("error in posting comment using ajaz", err);
+         statusMessage("Something went wrong. Please try again.");
       }
    })
 })
@@ -172,7 +172,7 @@ var toggleDelete=function(Id){
             statusMessage("Comment deleted")
       },
       error:function(err){
-         console.log("error in deleting comment using ajax",err);
+         statusMessage("Something went wrong. Please try again.");
       }
    })
 }
@@ -189,7 +189,7 @@ $('#commentBtn').click(function(){
    $('.searchResult').css({display:"none"})
    $('#close').css({display:"none"});
    $('#logo').css({display:"flex"})
-   $('.loading').css({display:'none'});
+   $('.loading-bar').css({display:'none'});
    $('.search').val('');
 
 })

@@ -62,7 +62,6 @@ $('#profile-form').submit(function(e){
              } 
         },
         error:function(err){
-          
            statusMessage("Something went wrong. Please try again.");
         }
     })
@@ -104,7 +103,7 @@ $('.password-changing-form').submit(function(e){
               }
 
           },error:function(err){
-             console.log("error in changing password using ajax at edit profile section",err);
+              statusMessage("Something went wrong. Please try again.");
           }
      })
 
@@ -117,6 +116,6 @@ $('.form-box').click(function(){
      $('.searchResult').css({display:"none"})
      $('#close').css({display:"none"});
      $('#logo').css({display:"flex"})
-     $('.loading').css({display:'none'});
+     $('.loading-bar').css({display:'none'});
      $('.search').val('');
  })

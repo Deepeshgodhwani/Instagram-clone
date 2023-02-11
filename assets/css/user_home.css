@@ -242,20 +242,20 @@
           align-items: center; }
         #container #aside #users-container #users-detail img {
           margin-top: 5px;
-          width: 32px;
-          height: 32px;
+          width: 35px;
+          height: 35px;
           border-radius: 50%; }
         #container #aside #users-container #users-detail #user-name2 {
           text-decoration: none;
           margin-left: 12px;
-          width: 15rem; }
+          width: 12rem;
+          margin-top: 2px; }
           #container #aside #users-container #users-detail #user-name2 #username {
             color: #3f3f3f;
             font-size: 0.9rem;
-            width: 5rem;
             text-transform: lowercase; }
           #container #aside #users-container #users-detail #user-name2 #name {
-            margin-top: -15px;
+            margin-top: -17px;
             color: #a7a7a7;
             font-weight: 500;
             font-size: 0.7rem; }

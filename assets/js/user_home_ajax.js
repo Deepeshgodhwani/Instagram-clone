@@ -154,7 +154,7 @@ $("#container").click(function () {
   $(".searchResult").css({ display: "none" });
   $("#close").css({ display: "none" });
   $("#logo").css({ display: "flex" });
-  $(".loading").css({ display: "none" });
+  $(".loading-bar").css({ display: "none" });
   $(".search").val("");
 });
 

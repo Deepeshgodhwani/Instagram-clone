@@ -1,17 +1,5 @@
 
 
-// const loading=(val)=>{
-     
-//     if(val){
-//         $('.loading').css({display:"flex"});
-//     }else{
-//         $('.loading').css({display:"none"});
-//     }
-
-// }
-
-
-
 const opennList=function(){
     $('.outer-layer').css({display:"flex"})
 }

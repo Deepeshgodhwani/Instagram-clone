@@ -153,6 +153,7 @@
     </div>
     <div id="outer">
         <div id="post-container">
+          <%if(posts.length){%>
             <% for(let itr=0; itr< posts.length ;itr++){%>
                 <%if(itr%10==1||itr%10==5){%>
                     <div class="post2">
@@ -178,7 +179,11 @@
                     </div>
                     <%}%>
                 <%}%> 
-            </div> 
+           <%}else{%> 
+                <div style="text-align: center; width: 57.7rem; margin-top: -3rem; font-size: 1.2rem; ">No posts</div>
+            <%}%>
+    
+       </div> 
             <%-include('footer')-%>
         </div>
         <script > 

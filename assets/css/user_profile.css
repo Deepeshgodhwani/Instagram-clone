@@ -219,6 +219,17 @@
         column-gap: 0.5rem;
         font-size: 1.2rem; }
 
+#message {
+  width: 100%;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  background-color: #262626;
+  color: white;
+  padding: 10px 2rem;
+  font-family: calibri;
+  font-size: 1.1rem; }
+
 .profile-updation-container {
   width: 0;
   height: 0;
@@ -336,13 +347,13 @@
       display: none; }
     .outerLayer .box .search-Result {
       background-color: white;
-      width: 17rem;
+      width: 20rem;
       height: 22rem;
       border-radius: 20px;
       display: flex;
-      padding: 0px 20px;
+      padding: 0px 30px 10px 30px;
       flex-direction: column;
-      row-gap: 10px;
+      row-gap: 7px;
       overflow-y: scroll; }
       .outerLayer .box .search-Result .Loading {
         margin-left: 8rem;
@@ -370,18 +381,16 @@
         .outerLayer .box .search-Result .users-detail #user-name2 {
           text-decoration: none;
           margin-left: 12px;
-          width: 15rem;
           margin-top: 10px; }
           .outerLayer .box .search-Result .users-detail #user-name2 #username {
             color: #3f3f3f;
             font-size: 0.9rem;
-            width: 5rem;
             text-transform: lowercase; }
           .outerLayer .box .search-Result .users-detail #user-name2 #Name {
             color: #a7a7a7;
             font-weight: 500;
             font-size: 0.7rem;
-            margin-top: -15px; }
+            margin-top: -20px; }
         .outerLayer .box .search-Result .users-detail #follow-button {
           margin-top: 7px; }
           .outerLayer .box .search-Result .users-detail #follow-button a {
