@@ -46,7 +46,6 @@ class FollowUnfollow {
           }
         },
         error: function (err) {
-          // console.log("error in following user through home.js",err);
           statusMessage("Something went wrong. Please try again.");
         },
       });
@@ -112,7 +111,6 @@ class ToggleLike {
           }
         },
         error: function (err) {
-          // console.log("error in sending like request through xhr",err)
           statusMessage("Something went wrong. Please try again.");
         },
       });
@@ -336,7 +334,6 @@ allStories.forEach((s, i) => {
     storyFull.classList.add("active");
     storyFullImage.setAttribute("src", s.imageUrl);
     ProfilePic.setAttribute("src", s.thumbUrl);
-    console.log(ProfilePic);
     username.innerHTML = s.username;
     clearInterval(timer);
     timer = setInterval(nextStory, 3000);
@@ -378,7 +375,6 @@ const nextStory = () => {
 
     storyFullImage.setAttribute("src", allStories[currentIndex].imageUrl);
     ProfilePic.setAttribute("src", allStories[currentIndex].thumbUrl);
-    console.log(ProfilePic, "..");
     username.innerHTML = allStories[currentIndex].username;
   }
 };

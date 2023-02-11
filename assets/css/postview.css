@@ -28,10 +28,11 @@
         height: 35px; }
       .post-section #post-view #container #userdetail {
         border-bottom: 1px solid lightgrey;
-        padding-top: 10px;
         padding-left: 10px;
         font-family: calibri;
-        display: flex; }
+        display: flex;
+        align-items: center;
+        height: 11%; }
         .post-section #post-view #container #userdetail #name {
           margin-top: 3px;
           margin-left: 10px;
@@ -52,7 +53,7 @@
       .post-section #post-view #container #achievements {
         border-top: 1px solid lightgray;
         padding: 0px 15px;
-        height: 4rem;
+        height: 14%;
         margin-top: -14px;
         margin-bottom: 10px; }
         .post-section #post-view #container #achievements #out {
@@ -81,7 +82,8 @@
       .post-section #post-view #container .comment-forms {
         border-top: 1px solid lightgray;
         display: flex;
-        padding: 10px; }
+        padding: 10px;
+        height: 12%; }
         .post-section #post-view #container .comment-forms #profilepicture {
           margin-top: 5px;
           border-radius: 50%; }
@@ -103,7 +105,7 @@
       .post-section #post-view #container #comments-section::-webkit-scrollbar {
         display: none; }
       .post-section #post-view #container #comments-section {
-        height: 20rem;
+        height: 61%;
         overflow-x: hidden;
         overflow-y: scroll;
         padding: 10px; }

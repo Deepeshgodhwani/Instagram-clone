@@ -49,7 +49,6 @@ $('#close').click(function(){
                 parantDiv.append(" <div style=`z-index: 1000; width: 100%; height: 20rem; display: flex; justify-content: center; align-items: center;`><p>No Results</p></div>")
             }else{
                 loading(false);
-                console.log(data.users);
                 parantDiv.append(data.users.map(function(element){
                     return  `<div class="users-detail">
                     <a href="/user/profile/${element._id}">

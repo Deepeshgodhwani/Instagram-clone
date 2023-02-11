@@ -1,12 +1,6 @@
 
 
 
-$('#text').on('change',function(e){
-    $('#typing').css({display:"flex"});
-     let val=$('#text').val();
-     console.log(val);
-})
-
 
 
 class chatEngine{
@@ -49,14 +43,20 @@ class chatEngine{
                    let msg= $('#text').val();
                    $('#text').val("");
                    if(msg!=''){
-                    console.log(msg);
-                     self.socket.emit('send_message',{
-                        username:self.username,
-                        message:msg,
-                        userId:self.userId,
-                        chatroom:self.chatroom,
+                    let newMessage=$('<li>');  
+                    let messageType='self-message';
+                    newMessage.append($('<span>',{
+                        'html':msg
+                     }))
+                     newMessage.addClass(messageType);
+                     $('#chat-message-list').append(newMessage); 
+                    self.socket.emit('send_message',{
+                     username:self.username,
+                     message:msg,
+                     userId:self.userId,
+                     chatroom:self.chatroom,
                     });
-                };
+                   };
           });
 
     //   send a message on clicking the  enter //
@@ -74,12 +74,12 @@ class chatEngine{
                      }))
                      newMessage.addClass(messageType);
                      $('#chat-message-list').append(newMessage); 
-                  self.socket.emit('send_message',{
+                    self.socket.emit('send_message',{
                      username:self.username,
                      message:msg,
                      userId:self.userId,
                      chatroom:self.chatroom,
-                 });
+                    });
              };
               }
           })
@@ -88,10 +88,6 @@ class chatEngine{
         if(data.data.chatroom!==self.chatroom) return ;
       $("#chat-message-list").stop().animate({ scrollTop: $("#chat-message-list")[0].scrollHeight}, 1);
 
-      if(data.data.username!=self.username){
-            $('.usernam').css({marginTop:'1rem',marginBottom:'-20px'});
-            $('.status').css({display:"flex"});
-      }
 
        let newMessage=$('<li>');
        let messageType='other-message';
@@ -124,8 +120,10 @@ $('#page').click(function(){
 
 var offLoader=(val)=>{
       if(val){
-           $('.loading-Gif2').css({display:'none'});
-           $('#chat-message-list').css({display:'block'});
+        
+          $('.loading-Gif2').css({display:'none'});
+          $('#chat-message-list').css({display:'block'});
+          $("#chat-message-list").stop().animate({ scrollTop: $("#chat-message-list")[0].scrollHeight}, 1);
            $('.loading-Gif').css({display:'none'});
            $('#recent-chat-list').css({display:'flex'});
 

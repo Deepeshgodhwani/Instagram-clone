@@ -575,6 +575,7 @@
   align-items: center;
   position: relative;
   column-gap: 5rem;
+  width: 40%;
  
   .storyHead{
     height: 90vh;
@@ -606,7 +607,7 @@
 
 .story-full img {
   height: 100%;
-  width: 20rem;
+  width: 100%;
   border-radius: 15px;
 }
 

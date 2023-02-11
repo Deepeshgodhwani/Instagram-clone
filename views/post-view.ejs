@@ -10,7 +10,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <title>Instagram photo by <%=posts.user.name%></title>
-  <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+  <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
 
 </head>
 <body>
@@ -23,7 +23,7 @@
                <a href="/user/profile/<%=posts.user._id%>">
                  <img class="profilepicture" src="<%=posts.user.avtar%>">
                 </a>
-                <a style="text-decoration: none; color:black;" href="/user/profile/<%=posts.user._id%>">
+                <a style="text-decoration: none; margin-top: 10px; color:black;" href="/user/profile/<%=posts.user._id%>">
                   <p id="name"><%=posts.user.username%></p>
                 </a>
                 <%if(eligible==true){%>

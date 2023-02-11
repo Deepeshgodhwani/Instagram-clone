@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
+    <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
 
     <title><%=user_profile.name%> (@<%=user_profile.username%>) • Instagram profile</title>
     <link rel="stylesheet" href="/css/user_profile.css">
@@ -70,8 +70,8 @@
                     <div class="bundle">
                         <a href="/user/direct/inbox?id=<%=user_profile._id%>"><button id="message-button">Message</button></a>
                         <div onclick="toggleUnfollow()" class="unfollowLink" link="/user/tofollow/following?id=<%=user_profile._id%>"><button id="unfollow-">
-                            <img src="../assets/images/unfollow-1.png" id="unfollow-logo1">
-                            <img  src="../assets/images/unfollow-2.png" id="unfollow-logo2">
+                            <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676112934/Instagram-clone/unfollow-1_uhaxnp.png" id="unfollow-logo1">
+                            <img  src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676112970/Instagram-clone/unfollow-2_abqxyo.png" id="unfollow-logo2">
                         </button>
                     </div>
                 </div>
@@ -98,7 +98,8 @@
                    <i onclick="closed()" class="fa-solid fa-xmark"></i>
                 </div>
                 <div class="search-Result" >  
-                  <img style="position: relative;  width: 20px; z-index: 10000;" class="Loading" src="../assets/images/loading.gif">
+                  <img style="position: relative;  width: 20px; z-index: 10000;" class="Loading"
+                   src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
                 </div>
                </div>
            </div>
@@ -113,7 +114,8 @@
    <div  id="post-container">
   <%if(user_profile.posts.length==0){%>
       <div id="no-post-box">
-          <img id="camera-logo" src="../assets/images/camera.png">
+          <img id="camera-logo"
+           src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676112860/Instagram-clone/camera_btyn39.png">
           <p id="no-post">No posts yet</p>
       </div>
   <%}else{%>

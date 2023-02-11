@@ -23,7 +23,7 @@
         </ul>
        </div>
     </div> 
-      <img id="postimage" src="<%=post.content %>">
+      <a href="/user/post/postView/<%= post.id%>"><img id="postimage" src="<%=post.content %>"></a>
       <div id="ratings">
        <a class="toggle-like-button" postId="<%=post._id%>" data-likes="<%=post.likes.length%>" href="/user/liked/toggle?id=<%=post._id%>&type=Post">
        <%if(Liked[i]==true){%>    
@@ -36,7 +36,9 @@
             </div>   
         <%}%>
        </a>
-        <img onclick="doComment('Input<%=post._id%>')" style="cursor:pointer;" class="comment"src="../assets/images/comment.png">  
+       <a href="/user/post/postView/<%= post.id%>" style="margin-top: -9px;">
+        <img onclick="" style="cursor:pointer;" class="comment"src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111124/Instagram-clone/comment_y8fiuh.png">  
+        </a> 
       </div>
       <div id="numbering" class="head<%=post._id%>">
           <%if(post.likes.length >= 1){%>
