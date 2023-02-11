@@ -13,51 +13,61 @@
 <body>
    
   <!-- SIGN IN FORM  -->
-
-   <div class="outer">
-     <form class="form" action="/account/create-session" method="post">    
-        <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg">
-      <input
-       id="email"
-       type="text"
-       name="username"
-       placeholder="Username or email"
-       required
-       autocomplete="off"
-     />
-     <input
-       id="password"
-       type="password"
-       name="password"
-       placeholder="Password"
-       required
-       autocomplete="off"
-     /><br />
-     <input class="button" type="submit" value="Log In" required />
-     <div class="divider"><p class="line1"></p><p>OR</p><p class="line2"></p></div>
-     <div class="guestUser">
-      <i class="fa-solid fa-user"></i> <p>Login as a Guest user</p>
-    </div>  
-     <div class="facebookLogin">
-       <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114381/Instagram-clone/facebook_mkfrhk.png">
-        <a href="/account/auth/facebook"> Login With Facebook</a></div>
-      
-     <%if(type){%>   
-     <div id="errorBox">
-       <p id="errorMessage">
-         Your email or password is incorrect.
-         Please try again. 
-       </p>
-     </div>  
-     <%}%>
-     <div onclick="forgotPasswordSlot()" id="forgotlink">
-        <a href="/account/enteremail" id="forgotButton"> Forgot password?</a>
+  <div class="cover">
+    <div class="slide-container" style="background-image: url(./images/phone-frame.png);">
+      <div class="slide-content" id="slide-content">
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_1_z7bvx8.jpg" alt="slide image" class="active">
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_2_jamjpz.jpg" alt="slide image">
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_3_dzpfu6.jpg" alt="slide image">
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_4_lmohab.jpg" alt="slide image">
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_5_qcp2ee.jpg" alt="slide image">
       </div>
-      <div class="signUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
-  </form>
-  <div class="signup-box"><p>Don't have an account? <a href="/account/signup">Sign up</a></p></div>
+  </div>
+    <div class="outer">
+      <form class="form" action="/account/create-session" method="post">    
+          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg">
+        <input
+        id="email"
+        type="text"
+        name="username"
+        placeholder="Username or email"
+        required
+        autocomplete="off"
+      />
+      <input
+        id="password"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        autocomplete="off"
+      /><br />
+      <input class="button" type="submit" value="Log In" required />
+      <div class="divider"><p class="line1"></p><p>OR</p><p class="line2"></p></div>
+      <div class="guestUser">
+        <i class="fa-solid fa-user"></i> <p>Login as a Guest user</p>
+      </div>  
+      <div class="facebookLogin">
+        <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114381/Instagram-clone/facebook_mkfrhk.png">
+          <a href="/account/auth/facebook"> Login With Facebook</a></div>
+        
+      <%if(type){%>   
+      <div id="errorBox">
+        <p id="errorMessage">
+          Your email or password is incorrect.
+          Please try again. 
+        </p>
+      </div>  
+      <%}%>
+      <div onclick="forgotPasswordSlot()" id="forgotlink">
+          <a href="/account/enteremail" id="forgotButton"> Forgot password?</a>
+        </div>
+        <div class="signUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
+      </form>
+      <div class="signup-box"><p>Don't have an account? <a href="/account/signup">Sign up</a></p></div>
+    </div> 
+  </div> 
   <%-include('footer');-%>
-  </div>   
    <script src="/js/jquery.js"></script>
    <script>
      $('.guestUser').click(function(){
