@@ -214,20 +214,18 @@ var doComment = (Id) => {
 const allStories = [
   {
     thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
-    username: "Deepesh__",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676100101/Instagram-clone/michelMusso.dp_rsiknz.jpg",
+    username: "mitchelmusso",
     imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676100102/Instagram-clone/michelMusso_fzbc5r.jpg",
     title: "Title No. 1",
   },
 
   {
-    thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
-    imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+    thumbUrl:"https://res.cloudinary.com/dynjwlpl3/image/upload/v1676099296/Instagram-clone/andrieu_zulfpy.jpg",
+    imageUrl:"https://res.cloudinary.com/dynjwlpl3/image/upload/v1676099744/Instagram-clone/andriuStory_riwhuf.jpg",
     title: "Title No. 2",
-    username: "Rajesh__",
+    username: "andreideiu_",
   },
 
   {
@@ -250,38 +248,54 @@ const allStories = [
 
   {
     thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676100784/Instagram-clone/jackmorris_dp_fol4by.jpg",
     imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676100782/Instagram-clone/jackmorris_story_ab19dm.jpg",
     title: "Title No. 5",
-    username: "Pritesh__",
+    username: "jackmorris",
   },
 
   {
     thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101109/Instagram-clone/harrymackdp_odstwy.png",
     imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101115/Instagram-clone/harryMackStory_shr5e6.jpg",
     title: "Title No. 6",
-    username: "Thugesh__",
+    username: "harrymack",
   },
 
   {
     thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101410/Instagram-clone/hardwelldp_rxdy9j.jpg",
     imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101407/Instagram-clone/hardwellstory_ddu2yx.jpg",
     title: "Title No. 7",
-    username: "Nilesh__",
+    username: "hardwell",
   },
 
   {
     thumbUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101764/Instagram-clone/johnDavid_dp_arv8v9.jpg",
     imageUrl:
-      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1675592264/ifwfexnagtporo4cpfk9.jpg",
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676101768/Instagram-clone/johnDavidStory_ltxbka.jpg",
     title: "Title No. 8",
-    username: "Tiku__",
+    username: "johndavid",
+  },
+  {
+    thumbUrl:
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676102114/Instagram-clone/jenaissante_dp_hwhrcx.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676102118/Instagram-clone/jenaissante_story_y2tn9v.jpg",
+    title: "Title No. 9",
+    username: "jenaissante",
+  },
+  {
+    thumbUrl:
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676102746/Instagram-clone/brunomarsdp_ydkeem.jpg",
+    imageUrl:
+      "https://res.cloudinary.com/dynjwlpl3/image/upload/v1676102864/Instagram-clone/brunomars_story_fyrwst.jpg",
+    title: "Title No. 10",
+    username: "brunomars",
   },
 ];
 

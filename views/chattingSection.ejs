@@ -11,7 +11,7 @@
   <link rel="icon" href="../assets/images/instagram-favicon.png" type="image/icon type">
   <title>Inbox • Chats</title>
 </head>
-<body>
+<body onload="offLoader(`<%=Chatroom%>`)">
   <%- include('header'); -%>
 <div id="page">
 <div id="container">
@@ -23,28 +23,31 @@
             <div id="recent-chat-list">
                   <%for(chat of recentChats){%>
                       <%if(chat.latestMessage){%>
-                    <div id="chat"> 
-                         <%if(chat.users[0].userId.id!=locals.user._id){%>
-                            <a class="Id<%=chat.users[0].userId._id%>" avtar="<%=chat.users[0].userId.avtar%>" name="<%=chat.users[0].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[0].userId._id%>">
-                               <img id="user-avtar" src="<%=chat.users[0].userId.avtar%>">
-                               <div >
-                                   <p id="user-name"><%=chat.users[0].userId.name%></p>
-                                   <p  id="latestMessage"><%=chat.latestMessage.content.slice(0,30)%>..</p>
-                               </div>
-                            </a>  
-                          <%}else{%> 
-                              <a class="Id<%=chat.users[1].userId._id%>" avtar="<%=chat.users[1].userId.avtar%>" name="<%=chat.users[1].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[1].userId._id%>">     
-                              <img id="user-avtar" src="<%=chat.users[1].userId.avtar%>">
-                              <div>
-                                  <p id="user-name"><%=chat.users[1].userId.name%></p>
-                                  <p id="latestMessage"><%=chat.latestMessage.content.slice(0,30)%>..</p>
-                             </div>                                 
-                            </a>  
+                        <div id="chat"> 
+                              <%if(chat.users[0].userId.id!=locals.user._id){%>
+                                 <a class="Id<%=chat.users[0].userId._id%>" avtar="<%=chat.users[0].userId.avtar%>" name="<%=chat.users[0].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[0].userId._id%>">
+                                    <img id="user-avtar" src="<%=chat.users[0].userId.avtar%>">
+                                    <div >
+                                       <p id="user-name"><%=chat.users[0].userId.name%></p>
+                                       <p  id="latestMessage"><%=chat.latestMessage.content.slice(0,30)%>..</p>
+                                    </div>
+                                 </a>  
+                              <%}else{%> 
+                                    <a class="Id<%=chat.users[1].userId._id%>" avtar="<%=chat.users[1].userId.avtar%>" name="<%=chat.users[1].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[1].userId._id%>">     
+                                    <img id="user-avtar" src="<%=chat.users[1].userId.avtar%>">
+                                    <div>
+                                       <p id="user-name"><%=chat.users[1].userId.name%></p>
+                                       <p id="latestMessage"><%=chat.latestMessage.content.slice(0,30)%>..</p>
+                                 </div>                                 
+                                 </a>  
+                             <%}%>
+                        </div>
                       <%}%>
-                   </div>
                    <%}%>
-                 <%}%>
             </div>  
+            <div style="text-align: center; padding-top: 10rem; width: 100%;" class="loading-Gif"> 
+               <img style="width: 2rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"/>
+            </div>
          </div>
          <%if(Chatroom){%>
           <div  id="user-chat-box">
@@ -57,7 +60,6 @@
                      <p class="usernam"  ><%=User2.name%></p>
                      <p class="status" style=" position:relative;  font-size: 0.9rem;">
                         online 
-                      
                      </p>
                   </div>
                </a>
@@ -84,9 +86,12 @@
                   </span>
               </li>
                </ul>
+               <div style="text-align: center;  padding-top: 10rem; width: 100%;" class="loading-Gif2"> 
+                  <img style="width: 2rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"/>
+               </div>
             <input  autocomplete="off" id="text" type="text" name="messages" placeholder="Message..." required>
             <button class="send-Button">Send</button> 
-       </div>
+         </div>
       <%}else{%>
       <div id="box">
          <div id="send-logo"> <img  src="../assets/images/send.png"></div>

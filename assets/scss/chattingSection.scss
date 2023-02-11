@@ -27,14 +27,13 @@
         height: 85vh;
         display: flex;
     
-        #chat-list::-webkit-scrollbar{
-            display: none;
-        }
+       
 
         #chat-list{
             width: 35%;
-            height: 96%;
-            overflow-y: scroll;
+            height: 100%;
+            position: relative;
+
 
 
             header{
@@ -64,12 +63,15 @@
 
             #recent-chat-list{
                 padding: 10px 0px;
+                width: 100%;
                 overflow: scroll;
-                #chat{
+                height: 74vh;
+                display: none;
+                flex-direction: column;
+
+           #chat{
                         display: flex;
                         align-items: center;
-                       
-                        
 
                      a{
                         display: flex;
@@ -77,18 +79,18 @@
                         text-decoration: none;
                         color: black;
                         column-gap: 10px;
-                        // background-color: lightgrey;
-                        padding: 0px 10px;
+                        padding: 0px 30px;
+                        width: 100%;
+                     }
 
-                        
-
+                     a:hover{
+                         background-color: rgb(250, 250, 250);
                      }
 
                     #user-avtar{
-                        width: 55px;
-                        height: 55px;
+                        width: 50px;
+                        height: 50px;
                         border-radius: 50%;
-                        // margin-bottom: 12px;
                     }
 
                     div{
@@ -165,7 +167,7 @@
     
             #chat-message-list{
                 width: 100%;
-                max-height: 70%;
+                max-height: 76%;
                 height: auto;
                 list-style: none;
                 overflow: auto;
@@ -173,6 +175,7 @@
                 font-family: calibri;
                 position: absolute;
                 bottom: 3rem;
+                display: none;
               
     
                 #typing{

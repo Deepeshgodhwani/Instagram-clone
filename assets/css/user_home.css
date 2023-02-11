@@ -36,9 +36,10 @@
   height: auto;
   padding-bottom: 30px; }
   #container #advertisement {
-    width: 22rem; }
+    width: 25%;
+    border-color: 2px solid yellow; }
   #container .feed {
-    width: 29rem;
+    width: 35%;
     height: auto;
     position: relative;
     padding-top: 35px;
@@ -54,7 +55,7 @@
     row-gap: 1rem;
     position: relative; }
   #container #post {
-    width: 29rem;
+    width: 100%;
     height: auto;
     border: 1px solid #e7e7e7;
     background-color: white;
@@ -306,7 +307,7 @@
   display: flex;
   background: #fff;
   box-shadow: 0 3px 24px -8px rgba(0, 0, 0, 0.3);
-  width: 29rem;
+  width: 100%;
   margin: 0 auto;
   padding: 15px 15px 0px 15px;
   border-radius: 8px;

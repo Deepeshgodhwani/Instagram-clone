@@ -48,14 +48,15 @@
   height: auto;
   padding-bottom: 30px;
   #advertisement {
-    width: 22rem;
-    // border: 1px solid red;
+    width: 25%;
+    border-color: 2px solid yellow;
+    
   }
 
   //    post //
 
   .feed {
-    width:29rem;    
+    width:35%;    
     height: auto;
     position: relative;
     padding-top: 35px;
@@ -63,6 +64,8 @@
     flex-direction: column;
     column-gap: 3rem;
     row-gap: 2rem;
+    // border-color: 1px solid salmon;
+
 
   }
 
@@ -79,7 +82,7 @@
   }
   
   #post {
-    width: 29rem;
+    width: 100%;
     height: auto;
     border: 1px solid rgb(231, 231, 231);
     background-color: rgb(255, 255, 255);
@@ -431,7 +434,7 @@
   display: flex;
   background: #fff;
   box-shadow: 0 3px 24px -8px rgba(0, 0, 0, 0.3);
-  width: 29rem;
+  width:100%;
   margin: 0 auto;
   padding: 15px 15px 0px 15px ;
   border-radius: 8px;
@@ -563,6 +566,7 @@
 .story-full .content .right-arrow {
   width: 40px;
   cursor: pointer;
+
 }
 
 .story-full .content {

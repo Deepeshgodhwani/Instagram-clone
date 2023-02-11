@@ -40,6 +40,8 @@ let toggleSection=(value)=>{
 $('#profile-form').submit(function(e){
     e.preventDefault();
     let self=this;
+    $('#submit').val("");
+    $('.loading_GIF').css({display:"flex"});
 
     $.ajax({
         type:"post",
@@ -49,15 +51,21 @@ $('#profile-form').submit(function(e){
              if(data.error=="wrong password"){    
                   $('.password').val('');
                   statusMessage("Invalid password");
+                  $('#submit').val("submit");
+                  $('.loading_GIF').css({display:"none"}); 
              }else if(data.error=="username already exist"){
                  $('#value-username').val('');
                   statusMessage("Username is already exist");
+                  $('#submit').val("submit");
+                  $('.loading_GIF').css({display:"none"}); 
              }else{
                   $('#value-name').val(data.user.name);
                   $('#value-username').val(data.user.username);
                   $('#value-bio').val(" ");
                   $('#value-username').val(data.user.username);
                   $('.password').val('');
+                  $('#submit').val("submit");
+                  $('.loading_GIF').css({display:"none"}); 
                   statusMessage("Profile saved");
              } 
         },
@@ -71,6 +79,8 @@ $('#profile-form').submit(function(e){
 
 $('.password-changing-form').submit(function(e){
      e.preventDefault();
+     $('#sub').val("");
+     $('.loading_GIF2').css({display:"flex"});
      let oldPass=$('.oldPass');
      let newPass=$('.newPass');
      let confPass=$('.confPass');
@@ -84,21 +94,29 @@ $('.password-changing-form').submit(function(e){
                      oldPass.val('');
                      newPass.val('');
                      confPass.val('');
+                     $('#sub').val("Change Password");
+                     $('.loading_GIF2').css({display:"none"});
                     statusMessage("Old password is invalid");
               }else if(data.error=="same password"){
                     oldPass.val('');
                     newPass.val('');
                     confPass.val('');
+                    $('#sub').val("Change Password");
+                     $('.loading_GIF2').css({display:"none"});
                     statusMessage("Your new password is too similiar to your current password. Please try another password"); 
               }else if(data.error=="passandconf"){
                     oldPass.val('');
                     newPass.val('');
                     confPass.val('');
+                    $('#sub').val("Change Password");
+                     $('.loading_GIF2').css({display:"none"});
                     statusMessage("The password confirmation does not match");
               }else{
                oldPass.val('');
                newPass.val('');
                confPass.val('');
+               $('#sub').val("Change Password");
+               $('.loading_GIF2').css({display:"none"});
                statusMessage("Password changed");
               }
 

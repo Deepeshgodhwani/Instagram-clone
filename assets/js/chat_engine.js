@@ -25,11 +25,10 @@ class chatEngine{
 
         let self=this;
         if(self.user2){
-            $(`.Id${self.user2}`).css({backgroundColor:"lightgrey"});
+            $(`.Id${self.user2}`).css({backgroundColor:"rgb(239,239,239)"});
         }
           this.socket.on('connect',function(){
-            let element=$("#chat-message-list")
-            console.log(element);
+            let element=$("#chat-message-list");
             if(element.length){
                 element.stop().animate({ scrollTop: $("#chat-message-list")[0].scrollHeight}, 1);
             }
@@ -116,3 +115,23 @@ $('#page').click(function(){
     $('.loading').css({display:'none'});
     $('.search').val('');
 })
+
+
+
+
+//loader on rendering page //
+
+
+var offLoader=(val)=>{
+      if(val){
+           $('.loading-Gif2').css({display:'none'});
+           $('#chat-message-list').css({display:'block'});
+           $('.loading-Gif').css({display:'none'});
+           $('#recent-chat-list').css({display:'flex'});
+
+      }else{
+        $('.loading-Gif').css({display:'none'});
+        $('#recent-chat-list').css({display:'flex'});
+         
+      }        
+}
