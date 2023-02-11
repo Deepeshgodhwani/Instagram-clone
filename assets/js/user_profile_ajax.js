@@ -300,6 +300,8 @@ $(".outer-box").click(function () {
   $("#logo").css({ display: "flex" });
   $(".loading-bar").css({ display: "none" });
   $(".search").val("");
+  $('.dropDown').css({display:'none'});
+
 });
 
 // post loading //

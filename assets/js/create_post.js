@@ -13,7 +13,6 @@
      let pageNo=0; 
     
     function postCreationOn(){
-        
       $('#container').on('scroll touchmove mousewheel', function(e){
          e.preventDefault();
          e.stopPropagation();
@@ -52,7 +51,7 @@
 
         $('.create-icon').css({display:"none"});
         $('.createPost').css({display:"flex"});
-
+        $('.dropDown').css({display:'none'});
     }
 
 
@@ -80,7 +79,7 @@
 
 function selectingPictureOn(){
     
-
+     
 
       $("#select-picture").css({
          display:"flex"

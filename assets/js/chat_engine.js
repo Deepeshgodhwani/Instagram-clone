@@ -108,6 +108,7 @@ $('#page').click(function(){
     $('.searchResult').css({display:"none"})
     $('#close').css({display:"none"});
     $('#logo').css({display:"flex"})
+    $('.dropDown').css({display:'none'});
     $('.loading').css({display:'none'});
     $('.search').val('');
 })

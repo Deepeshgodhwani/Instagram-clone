@@ -72,3 +72,15 @@ $('#close').click(function(){
 
      })   
 })
+
+
+var value=false;
+var toggleDropdown=()=>{
+      if(value){
+          $('.dropDown').css({display:'none'});
+          value=false;
+      }else{
+        $('.dropDown').css({display:'flex'});
+        value=true;
+      }
+}

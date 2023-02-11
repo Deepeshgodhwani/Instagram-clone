@@ -35,31 +35,47 @@
   <div id="slots">   
           <a  href="/user/user_home">
             <%if(page=="home"){%>
-              <img class="home-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964149/Instagram-clone/homepageicon_zibwe5.png">
+              <img class="home-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964149/Instagram-clone/homepageicon_zibwe5.png"/>
             <%}else{%>
-              <img class="home-icon2" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964172/Instagram-clone/homepageicon2_zdef6t.png">         
+              <img class="home-icon2" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964172/Instagram-clone/homepageicon2_zdef6t.png"/>         
             <%}%>
             
           </a>
           <a href="/user/direct/inbox">
             <%if(page=="chatting"){%>
-            <img class="inbox-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964203/Instagram-clone/messenger2_ja59vm.png">  
+            <img class="inbox-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964203/Instagram-clone/messenger2_ja59vm.png"/>  
             <%}else{%>
-            <img class="inbox-icon2 " src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964239/Instagram-clone/messenger_atdto8.png">
+            <img class="inbox-icon2 " src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964239/Instagram-clone/messenger_atdto8.png"/>
               <%}%>
           </a>   
-          <img onclick="createPost()" class="create-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964313/Instagram-clone/createpost_cgkchw.png"> 
+          <img onclick="createPost()" class="create-icon"
+           src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964313/Instagram-clone/createpost_cgkchw.png"/> 
           <div onclick="createPost()" class="createPost" ><i class="fa-solid fa-square-plus"></i></div>   
 
           <a href="/explore">
             <%if(page=="explore"){%>
-            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964347/Instagram-clone/explorer_bd5ls3.png">
+            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964347/Instagram-clone/explorer_bd5ls3.png"/>
             <%}else{%>
-            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964406/Instagram-clone/explore_1_yzznce.png"> 
+            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964406/Instagram-clone/explore_1_yzznce.png"/> 
           </a>
+        <!-- </a> -->
             <%}%>              
-                <a href="/user/profile/<%= locals.user.id%>" > <image id="profile-picture" src="<%= user.avtar%>"> <a> 
-            <div><a href="/account/signout"><img class="icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964449/Instagram-clone/power-off_kibtj3.png"></a> </div>
+          <a href="/user/profile/<%= locals.user.id%>" > 
+          </a>
+          <div>
+            <image onclick="toggleDropdown()" style="cursor: pointer; " id="profile-picture" src="<%= user.avtar%>" /> 
+              
+              <div class="dropDown" style=" font-size: 1.1rem; font-family: calibri; display: none; top:2rem; right: 0;  position: absolute; flex-direction: column;
+              background-color: white; border: 1px solid rgb(219,219,219); height: 4.5rem; border-radius: 5px; ">
+                <a style="color: black;" href="/user/profile/<%= locals.user.id%>" > 
+                  <p class="pro" style="text-decoration: none; padding: 5px  40px 3px 40px; border-bottom: 1px solid rgb(219,219,219);">Profile</p>
+                </a>
+                <a class="log-out" href="/account/signout" style="text-decoration: none; color: black; cursor: pointer; padding: 0  40px 0 40px; ">
+                  <p>Logout</p>
+                </a>
+              </div> 
+          </div>
+            </div>
   </div>
 <% } %>
   </div>

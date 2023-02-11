@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <link rel="stylesheet" href="/css/sign_in_page.css" />
   
   <title>Instagram</title>
@@ -14,7 +13,7 @@
    
   <!-- SIGN IN FORM  -->
   <div class="cover">
-    <div class="slide-container" style="background-image: url(./images/phone-frame.png);">
+    <div class="slide-container" style="background-image: url(https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118459/Instagram-clone/phone-frame-removebg-preview_l1k3zi.png);">
       <div class="slide-content" id="slide-content">
           <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_1_z7bvx8.jpg" alt="slide image" class="active">
           <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_2_jamjpz.jpg" alt="slide image">
@@ -65,7 +64,15 @@
         <div class="signUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
       </form>
       <div class="signup-box"><p>Don't have an account? <a href="/account/signup">Sign up</a></p></div>
+      <div style="display: flex; padding-top: 1rem; padding-bottom: 3rem; row-gap: 1rem; align-items: center; flex-direction: column; font-family: calibri;">
+        <p>Get the app.</p>
+        <div>
+          <img style="width: 8rem; height: 2.5rem;  border-radius: 6px;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120608/Instagram-clone/c5Rp7Ym-Klz_oin0he.png">
+          <img style="width: 8rem; height: 2.5rem; border-radius: 6px;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120606/Instagram-clone/EHY6QnZYdNX_k5fueq.png">
+        </div>
+      </div>
     </div> 
+    
   </div> 
   <%-include('footer');-%>
    <script src="/js/jquery.js"></script>
@@ -75,6 +82,18 @@
           $('#email').val('deepeshhh._');
           $('#password').val('deepesh1234');
      })
+     let slide_content = document.querySelector('#slide-content')
+
+     let slide_index = 0
+
+      slide = () => {
+          let slide_items = slide_content.querySelectorAll('img')
+          slide_items.forEach(e => e.classList.remove('active'))
+          slide_index = slide_index + 1 === slide_items.length ? 0 : slide_index + 1
+          slide_items[slide_index].classList.add('active')
+      }
+
+      setInterval(slide, 4000)
    </script>
  </body>
 </html>

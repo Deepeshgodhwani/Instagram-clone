@@ -8,6 +8,8 @@
   width: 100%;
   background-color:rgb(250,250,250) ;
 
+
+
 }
 
 .outer {
@@ -16,9 +18,9 @@
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
-  padding-left: 40px;
   padding-right: 40px;
   background-color: rgb(250,250,250);
+
  
   
   h1 {
@@ -167,7 +169,7 @@
     align-items: center;
     border: 1px solid rgb(219,219,219);
     font-family: calibri;
-    margin-bottom: 3rem;
+
 
     a{
       color: rgb(0,149,246);
@@ -182,6 +184,38 @@
 }
 
 
+// image slider //
+.slide-container {
+  height: 590px;
+  flex-basis: 454px;
+  background-repeat: no-repeat;
+  margin-left: 17rem;
+  margin-top: 1rem;
+
+}
+
+.slide-content {
+  margin: 90.4px 0 0 139.4px; 
+  position: relative;
+  height: 411px;
+}
+
+.slide-content img {
+  position: absolute;
+  top: 0;
+  inset: 0;
+  opacity: 0;
+  height: 100%;
+  width: 14.6rem;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-content img.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 // pasword reset slot //
 
 #container{
@@ -190,6 +224,7 @@
   flex-direction: column;
   padding-top: 100px;
   // padding-bottom: 40px;
+
   .box{
      width: 22rem;
      min-height: 65vh;

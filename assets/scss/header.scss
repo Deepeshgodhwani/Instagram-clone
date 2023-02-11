@@ -163,53 +163,44 @@
         .inbox-icon{
             width: 27px;
             height: 27px;
-            margin-left: 1.4rem;
+            margin-left: 1.5rem;
         }
         .inbox-icon2{
             width: 23px;
             height: 23px;
-            margin-left: 1.4rem;
+            margin-left: 1.5rem;
         }       
         .create-icon{
             width: 23px;
             height: 23px;
-            margin-left: 1.4rem;
-            // display: none;
+            margin-left: 1.5rem;
             cursor: pointer;
 
         }
 
         .createPost{
             display: none;
-            margin-left: 1.4rem;
+            margin-left: 1.5rem;
             font-size: 1.5rem;
             cursor: pointer;
         }
         .explore-icon{
             width: 25px;
             height: 25px;
-            margin-left: 1.4rem;
+            margin-left: 1.5rem;
 
         }
         .explore-icon2{
             width: 25px;
             height: 25px;
-            margin-left: 1.4rem;
-
-        }
-        .icon{
-            width: 23px;
-            height: 23px;
-            margin-left: 1.4rem;
-
+            margin-left: 1.5rem;
 
         }
         #profile-picture{
-            width: 23px;
-            height: 23px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
-            margin-left: 1.4rem;
-
+            margin-left: 1.5rem;
         }
         #user-avtar{
                       
@@ -527,6 +518,7 @@
 }
 
 
-
-
+.log-out{
+   margin-top: -0.8rem; 
+}
 
