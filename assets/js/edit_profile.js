@@ -39,9 +39,20 @@ let toggleSection=(value)=>{
 
 $('#profile-form').submit(function(e){
     e.preventDefault();
+    let isGuest=$(this.isGuest).val();
+    if(isGuest==='true'){
+     statusMessage("Guest user are not permitted to perfom this operation"); 
+     let logname= $(this.logName).val();
+     let username=$(this.logUserName).val()
+     $(this.name).val(logname);
+     $(this.username).val(username);
+     $(this.password).val("");
+     return ;
+   }
     let self=this;
     $('#submit').val("");
     $('.loading_GIF').css({display:"flex"});
+   
 
     $.ajax({
         type:"post",
