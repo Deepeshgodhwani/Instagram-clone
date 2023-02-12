@@ -107,12 +107,12 @@
 
 
     .facebookLogin{
-      margin-top: 0.5rem;
+      margin-top: 1.5rem;
 
         a{
           padding-left: 5px;   
           color:rgb(62,81,133);
-          font-weight: bold;
+          font-weight: 600;
           font-family: calibri;
           text-decoration: none;
         }
@@ -125,15 +125,17 @@
 
     .guestUser{
        font-family: calibri;
-       color:rgb(255,108,55);   
+       color:rgb(224, 105, 149);   
        cursor: pointer;    
-       font-weight: bold;
+       font-weight: 600;
        display: flex;
        font-size: 1rem;
        column-gap: 0.5rem;
-       margin-top: 1.5rem;
-
-    }
+       margin-top: 0.5rem;
+       padding-left:18px;
+       color:rgb(211,79,64);      
+       
+      }
 
     #forgotlink{
       margin-top: 1.5rem;

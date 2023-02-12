@@ -21,7 +21,7 @@ body{
 
 }
 .container{
-    width: 22rem;
+    width: 24rem;
     height: auto;
     display: flex;
     position: relative;
@@ -183,7 +183,7 @@ body{
 }
 #sign{
     border: 1px solid rgb(219,219,219);
-    width: 18rem;
+    width: 20rem;
     padding: 22px 32px;
     display: flex;
     justify-content: center;
@@ -212,7 +212,7 @@ body{
     #confirmation{
     border: 1px solid lightgrey;
     background-color: white;
-    width: 22rem;
+    width: 24rem;
     margin-top:6rem;
     display: flex;
     position: relative;
@@ -222,7 +222,7 @@ body{
     #image{
         margin-top: 20px;
         height:30%;
-        margin-left: 115px;
+        margin-left: 125px;
         width:30%;
     }
     #confirm-para{

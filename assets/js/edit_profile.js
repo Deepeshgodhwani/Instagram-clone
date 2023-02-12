@@ -41,7 +41,7 @@ $('#profile-form').submit(function(e){
     e.preventDefault();
     let isGuest=$(this.isGuest).val();
     if(isGuest==='true'){
-     statusMessage("Guest user are not permitted to perfom this operation"); 
+     statusMessage("Default user are not permitted to perfom this operation"); 
      let logname= $(this.logName).val();
      let username=$(this.logUserName).val()
      $(this.name).val(logname);

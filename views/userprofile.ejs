@@ -37,7 +37,7 @@
         <div style="width: 150px; height: 150px; display: flex; justify-content: center; align-items: center;
         border-radius: 50%; position: relative;">
         <img style="width: 150px; height: 150px; border-radius: 50%;" src="https://aui.atlassian.com/aui/latest/docs/images/avatar-person.svg" alt="">  
-        <img style="width: 3rem; position: absolute;" src="../assets/images/loading2.gif">
+        <img style="width: 3rem; position: absolute;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676192728/Instagram-clone/loading2_klp45v.gif">
         </div>
     <img style="width: 2rem; height: 2rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
    </div>
@@ -64,7 +64,6 @@
               <p id="user_name"> <%=user_profile.username%></p>
               <%if(user.id==user_profile._id){%>
                    <a href="/user/editprofile?id=<%=user_profile._id%>"><button id="button_edit_profile">Edit Profile</button></a>
-                   <!-- <img  id="settings-logo" src="../assets/images/settings.png"> -->
                <%}else if(following==true){%>
                   <div followers="<%=user_profile.followers.length%>" profileId="<%=user_profile._id%>" class="unFollowBox">
                     <div class="bundle">

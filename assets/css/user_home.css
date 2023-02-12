@@ -46,7 +46,8 @@
     display: flex;
     flex-direction: column;
     column-gap: 3rem;
-    row-gap: 2rem; }
+    row-gap: 2rem;
+    margin-bottom: -3rem; }
   #container .feed::-webkit-scrollbar {
     width: 0; }
   #container #posts-box {

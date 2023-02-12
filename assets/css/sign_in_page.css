@@ -78,24 +78,26 @@
         width: 7rem;
         border-top: 1px solid #dbdbdb; }
     .outer form .facebookLogin {
-      margin-top: 0.5rem; }
+      margin-top: 1.5rem; }
       .outer form .facebookLogin a {
         padding-left: 5px;
         color: #3e5185;
-        font-weight: bold;
+        font-weight: 600;
         font-family: calibri;
         text-decoration: none; }
       .outer form .facebookLogin img {
         width: 1rem; }
     .outer form .guestUser {
       font-family: calibri;
-      color: #ff6c37;
+      color: #e06995;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 600;
       display: flex;
       font-size: 1rem;
       column-gap: 0.5rem;
-      margin-top: 1.5rem; }
+      margin-top: 0.5rem;
+      padding-left: 18px;
+      color: #d34f40; }
     .outer form #forgotlink {
       margin-top: 1.5rem;
       cursor: pointer; }

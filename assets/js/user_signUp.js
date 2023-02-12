@@ -8,7 +8,6 @@
     // for creating user //
     $('#signup-form').submit(function(e){
         const submitBtn=$('#submitbutton');
-        console.log(submitBtn);
         submitBtn.attr('disabled',true);
         let loading=$('.Loading')
         loading.css({display:"flex"});
@@ -24,27 +23,32 @@
                     loading.css({display:"none"});
                     submitBtn.val("Sign up");
                     submitBtn.attr('disabled',false);
+                    $("#signup-form")[0].reset()
                     $('.errorBox').text('Password and Confirm Password does not match');
                 }else if(data.errorType=="User"){
                     loading.css({display:"none"});
                     submitBtn.val("Sign up");
                     submitBtn.attr('disabled',false);
+                    $("#signup-form")[0].reset()
                     $('.errorBox').text('Another account is using the same email address');
                 }else if(data.errorType=="username"){
                     loading.css({display:"none"});
                     submitBtn.attr('disabled',false);
                     submitBtn.val("Sign up");
+                    $("#signup-form")[0].reset()
                     $('.errorBox').text("This username isn't available. Please try another");
                 }else if(data.errorType=="incorrect-email"){
                     loading.css({display:"none"});
                     submitBtn.val("Sign up");
                     submitBtn.attr('disabled',false);
+                    $("#signup-form")[0].reset()
                     $('.errorBox').text('Invalid email address'); 
                 }else{
                     submitBtn.val("Sign up");
                     loading.css({display:"none"});
                     submitBtn.attr('disabled',false);
                     signupForm.css({display:"none"}); 
+                    $("#signup-form")[0].reset()
                     $("#confirm-para").text(`Enter the confirmation code we sent to ${data.userEmail}
                     This will expire in 10 minutes .`)
                     emailVerifyPage.css({display:"flex"}) 
@@ -52,7 +56,7 @@
                 }
             },
                error:function(error){     
-            }
+              }
 
          })
     })
