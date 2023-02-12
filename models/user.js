@@ -50,6 +50,10 @@ const userShema= new mongoose.Schema({
      uniqueId:{
          type:String,
          unique:true
+     },
+     isGuest:{
+         type:Boolean,
+         default:false
      }
 }, {
     timestamps : true

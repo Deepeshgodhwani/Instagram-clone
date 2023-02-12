@@ -27,11 +27,11 @@
               </div>
           </div>
               <form id="signup-form" action="/account/create" sign="post">
-                  <input autocomplete="off" id="name" type="text" name="name" placeholder="Name" required><br>
-                  <input  autocomplete="off"id="username" type="text" name="username" placeholder="Username" required><br>
+                  <input autocomplete="off" id="name" type="text" maxlength="25" name="name" placeholder="Name" required><br>
+                  <input  autocomplete="off"id="username" maxlength="15" type="text" name="username" placeholder="Username" required><br>
                   <input autocomplete="off" id="useremail" type="email" name="email" placeholder="Email" required><br>
-                  <input  autocomplete="off"id="userpassword" type="password" name="password" placeholder="Password" minlength="8" maxlength="14" required><br>
-                  <input  autocomplete="off"id="confpassword" type="password" name="confirm_password" minlength="8" maxlength="14" placeholder="Confirm Password" required><br>
+                  <input  autocomplete="off"id="userpassword" type="password" name="password" placeholder="Password" minlength="8" maxlength="20" required><br>
+                  <input  autocomplete="off"id="confpassword" type="password" name="confirm_password" minlength="8" maxlength="20" placeholder="Confirm Password" required><br>
                   <div class="submitBtn">
                        <img class="Loading" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
                       <input  autocomplete="off"id="submitbutton" type="submit"  value="Sign Up">

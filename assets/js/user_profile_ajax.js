@@ -120,7 +120,8 @@
 
   //to change existing profile picture //
 
-  var updateProfile = function (avtar) {
+  var updateProfile = function (guest) {
+      if(guest==='true'){ return ;}
     $(".outer-box").on("scroll touchmove mousewheel", function (e) {
       e.preventDefault();
       e.stopPropagation();

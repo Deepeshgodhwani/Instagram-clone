@@ -24,12 +24,12 @@
                    <div id="slot-1">
                       <div id="head-name"><p> Name</p></div>
                       <div id="contain">
-                        <div ><input id="value-name" autocomplete="off" value="<%=User.name%>" type="text" name="name"></div>
+                        <div ><input id="value-name" autocomplete="off" maxlength="25" value="<%=User.name%>" type="text" name="name"></div>
                     </div>
                     </div>
                    <div id="username">
                         <div  id="head-username"><p>Username</p></div>
-                        <div  id="value-username"><input type="text" autocomplete="off" maxlength="14" value="<%=User.username%>" name="username"></div>  
+                        <div  id="value-username"><input type="text" autocomplete="off" maxlength="15" value="<%=User.username%>" name="username"></div>  
                     </div>
                    <div id="slot-2">
                        <div id="head-bio"><p>Bio</p></div>
@@ -40,7 +40,7 @@
                        <div id="head-password"><p>Password</p></div>
                        <div id="value-password">
                           <p id="heading">Enter your password to submit form</p>
-                        <input type="password" class="password" name="password" minlength="8" autocomplete="off" placeholder="Password" required></div>
+                        <input type="password" class="password" name="password" minlength="8" maxlength="20" autocomplete="off" placeholder="Password" required></div>
                    </div>  
                    <div id="button">
                     <input id="submit" type="submit">
@@ -56,11 +56,11 @@
                 </div>
                 <div id="new-password">
                     <p id="value-new">New password</p>
-                    <input type="password" autocomplete="off" minlength="8" maxlength="14" class="newPass" name="newPassword" required>
+                    <input type="password" autocomplete="off" minlength="8" maxlength="20" class="newPass" name="newPassword" required>
                 </div>
                 <div id="confirm-password">
                     <p id="confirm">Confirm new password</p>
-                    <input id="pass" minlength="8" autocomplete="off" type="password" maxlength="14" class="confPass" name="ConfirmNewPassword" required> 
+                    <input id="pass" minlength="8" autocomplete="off" type="password" maxlength="20" class="confPass" name="ConfirmNewPassword" required> 
                 </div>
                 <div style="position: relative;" id="submit-2">
                     <input id="sub" type="submit" value="Change Password">
