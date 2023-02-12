@@ -50,7 +50,7 @@
  <div id="profile-container">     
    <div id="box-1">
       <% if(user_profile.avtar){%>
-            <img onclick="updateProfile('<%=user.isGuest%>')" id="user-picture" src="<%=user_profile.avtar%>" alt="<%=user.name%>" width="200px" height="200px">      
+            <img style="border: 1px solid rgb(223, 223, 223);" onclick="updateProfile('<%=user.isGuest%>')" id="user-picture" src="<%=user_profile.avtar%>" alt="<%=user.name%>" width="200px" height="200px">      
           <%}else{%>
               <form id="form" action="/user/update/profilepicture?id=<%=user_profile._id%>&type=true" enctype="multipart/form-data" method="post" >
                   <label for="selection-button2"><i id="user-avtar" class="fa-solid fa-user"></i> </label>

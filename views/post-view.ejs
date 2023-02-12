@@ -21,7 +21,7 @@
         <div id="container">
           <div id="userdetail">
                <a href="/user/profile/<%=posts.user._id%>">
-                 <img class="profilepicture" src="<%=posts.user.avtar%>">
+                 <img style="border: 1px solid rgb(223, 223, 223);" class="profilepicture" src="<%=posts.user.avtar%>">
                 </a>
                 <a style="text-decoration: none; margin-top: 10px; color:black;" href="/user/profile/<%=posts.user._id%>">
                   <p id="name"><%=posts.user.username%></p>
@@ -39,7 +39,7 @@
           <ul id="comments-section">
             <%if(posts.caption){%>
             <li class="caption" style="display:flex; padding-right: 1.5rem; margin-bottom: 1rem; column-gap:10px;">
-              <img class="dp" src="<%=posts.user.avtar%>">
+              <img style="border: 1px solid rgb(223, 223, 223);" class="dp" src="<%=posts.user.avtar%>">
               <div style="line-height: 15px; margin-top: 5px;">
                 <p id="name" style=" display: inline; font-weight: 600; margin-top: 5px;"><%=posts.user.username%></p>
                 &nbsp;
@@ -55,7 +55,7 @@
                 <li class="comment<%=comment._id%>" id="comments-list">
                   <div class="box" >
                     <a href="/user/profile/<%=comment.user._id%>">
-                      <img class="dp" src="<%=comment.user.avtar%>">
+                      <img style="border: 1px solid rgb(223, 223, 223);" class="dp" src="<%=comment.user.avtar%>">
                     </a>
                     <div style="word-wrap:break-word ;" id="comment">
                       <a style="text-decoration: none; color:black;" href="/user/profile/<%=comment.user._id%>">
@@ -108,7 +108,7 @@
     <p id="likedd"><%=posts.likes.length%> likes</p>
    </div>
 <form class="comment-forms" id="comments-<%-posts._id%>" action="/user/comment/create", method="post" >
-    <img  id="profilepicture" src="<%= posts.user.avtar%>" >
+    <img style="border: 1px solid rgb(223, 223, 223);" id="profilepicture" src="<%= posts.user.avtar%>" >
     <input id="content" type="text" maxlength="150" name = "comment" placeholder="Add a comment..." autocomplete="off" required>
     <input type="hidden" name = "post" value= "<%= posts._id %>">
     <input id="commentsubmit" type="submit"  value="Post">

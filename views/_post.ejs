@@ -4,7 +4,7 @@
     <div id="postheader">
       <div id="postcreator">
        <% if(post.user.avtar) {%>
-        <img id="profile" src="<%= post.user.avtar%>" >
+        <img style="border: 1px solid rgb(223, 223, 223);" id="profile" src="<%= post.user.avtar%>" >
         <%}else{%>
            <i id="user-avtar" class="fa-solid fa-user"></i>
            <%}%>
@@ -77,7 +77,7 @@
           
       </div>
        <form class="comment-form" id="comments-<%=post._id%>" action="comment/create", method="post" >
-         <img src="<%= user.avtar%>" >
+         <img style="border: 1px solid rgb(223, 223, 223);" src="<%= user.avtar%>" >
        <input id="text" class="Input<%=post._id%>" type="text" name = "comment" placeholder="Add a comment" autocomplete="off" required>
        <input type="hidden" name = "post" value= "<%= post._id %>" >
        <input id="commentbutton" type="submit"  value="Post">
