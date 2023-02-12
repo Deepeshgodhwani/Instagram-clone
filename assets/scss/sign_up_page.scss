@@ -1,290 +1,280 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
-body{
-    background-color: #FAFAFA;
+body {
+  background-color: #fafafa;
 }
-#insta{
-    margin-top: 50px;
-    height: 60px;
-    width: 12rem;
+#insta {
+  margin-top: 50px;
+  height: 60px;
+  width: 12rem;
 }
 
-.outer{
+.outer {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.container {
+  width: 24rem;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  margin-top: 50px;
+  border: 1px solid rgb(219, 219, 219);
+  padding-bottom: 20px;
+
+  #para {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #8e8e8e;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  #or {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    // justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 50px;
-
-
-}
-.container{
-    width: 24rem;
-    height: auto;
-    display: flex;
-    position: relative;
-    align-items: center;
-    flex-direction: column;
-    background-color: white;
-    margin-top: 50px;
-    border: 1px solid rgb(219,219,219);
-    padding-bottom: 20px;
-        
-    #para{
-            font-family: sans-serif;
-            font-size: 1rem;
-            color: #8E8E8E;
-            margin-top: 15px;
-            margin-bottom: 10px;
-    }
-
-    #or{
-        margin-top: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 80%;
-        margin-bottom: 15px;
-        color: #8E8E8E;
-        font-family: calibri;
-        font-weight: 600;
-        font-size: 0.9rem;
-    }
-    #or-1{
-        border-top: 2px solid rgb(219,219,219);
-        width: 7rem;
-    }
-    #or-2{
-        border-top: 2px solid rgb(219,219,219);
-        width: 7rem;
-    }
-    #signup-form{
-        
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        #name{
-            
-        width: 76%;
-        height: 32px;
-        border: 1px lightgray solid;
-        padding: 2px 5px;
-        background-color: #FAFAFA;
-        outline: none; 
-    }
-    #username{
-        
-        width: 76%;
-        height: 32px;
-        border: 1px lightgray solid;
-        padding: 2px 5px;
-        margin-top: -10px;
-        background-color: #FAFAFA;
-        outline: none; 
-    }
-    #useremail{
-        
-        width: 76%;
-        height: 32px;
-        padding: 2px 5px;
-        border: 1px lightgray solid;
-        margin-top: -10px;
-        background-color: #FAFAFA;
-        outline: none; 
-    }
-    #userpassword{   
-        width: 76%;
-        height: 32px;
-        padding: 2px 5px;
-        border: 1px lightgray solid;
-        margin-top: -10px;
-        background-color: #FAFAFA;
-        outline: none; 
-    }
-    #confpassword{
-        width: 76%;
-        height: 32px;
-        padding: 2px 5px;
-        border: 1px lightgray solid;   
-        margin-top: -10px;
-        background-color: #FAFAFA; 
-        outline: none;  
-    }
-
-    .submitBtn{
-        width: 80%;
-        height: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
-            position: absolute;
-            display: none;
-        }
-    }
-    #submitbutton{ 
-        background-color: #0095F6;
-        color: white;
-        border-radius: 5px;
-        width: 100%;
-        height: 32px;
-        border: 1px solid transparent; 
-        outline: none; 
-        font-weight: 600;
-    }
-    
-}
-    .facebook{
-        width: 20px;
-    }
-    #facebook-input{
-        background-color: #0095F6;
-        color: #FAFAFA;
-        border: 0px;
-        // height: 30px;
-        width: 80%;
-        border-radius: 5px;
-        margin-top: 8px;
-        padding-bottom: -5rem;
-        text-align: center;
-        font-size: 1rem;
-        padding: 7px 0px;
-        font-family: calibri;
-        font-weight: 600;
-       
-        a{
-            margin-top: 10px;
-            font-size: 10rem;
-            display: flex;
-            justify-content: space-between;
-            
-        }
-    }
-    #para-2{
-        width: 15rem;
-        color: #8E8E8E;
-        font-family: sans-serif;
-        font-size: 13px;
-        text-align: center;
-        margin-top: 15px;
-    }
-}
-
-.errorBox{
-    padding-top: 20px;
     width: 80%;
+    margin-bottom: 15px;
+    color: #8e8e8e;
     font-family: calibri;
-    text-align: center;
-    color:rgb(237,73,86);
-}
-#sign{
-    border: 1px solid rgb(219,219,219);
-    width: 20rem;
-    padding: 22px 32px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  #or-1 {
+    border-top: 2px solid rgb(219, 219, 219);
+    width: 7rem;
+  }
+  #or-2 {
+    border-top: 2px solid rgb(219, 219, 219);
+    width: 7rem;
+  }
+  #signup-form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
     align-items: center;
-    margin-top: 10px;
-    background-color: white;
+    #name {
+      width: 76%;
+      height: 32px;
+      border: 1px lightgray solid;
+      padding: 2px 5px;
+      background-color: #fafafa;
+      outline: none;
+    }
+    #username {
+      width: 76%;
+      height: 32px;
+      border: 1px lightgray solid;
+      padding: 2px 5px;
+      margin-top: -10px;
+      background-color: #fafafa;
+      outline: none;
+    }
+    #useremail {
+      width: 76%;
+      height: 32px;
+      padding: 2px 5px;
+      border: 1px lightgray solid;
+      margin-top: -10px;
+      background-color: #fafafa;
+      outline: none;
+    }
+    #userpassword {
+      width: 76%;
+      height: 32px;
+      padding: 2px 5px;
+      border: 1px lightgray solid;
+      margin-top: -10px;
+      background-color: #fafafa;
+      outline: none;
+    }
+    #confpassword {
+      width: 76%;
+      height: 32px;
+      padding: 2px 5px;
+      border: 1px lightgray solid;
+      margin-top: -10px;
+      background-color: #fafafa;
+      outline: none;
+    }
+
+    .submitBtn {
+      width: 80%;
+      height: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        position: absolute;
+        display: none;
+      }
+    }
+    #submitbutton {
+      background-color: #0095f6;
+      color: white;
+      border-radius: 5px;
+      width: 100%;
+      height: 32px;
+      border: 1px solid transparent;
+      outline: none;
+      font-weight: 600;
+    }
+  }
+  .facebook {
+    width: 20px;
+  }
+  #facebook-input {
+    background-color: #0095f6;
+    color: #fafafa;
+    border: 0px;
+    // height: 30px;
+    width: 80%;
+    border-radius: 5px;
+    margin-top: 8px;
+    padding-bottom: -5rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 7px 0px;
     font-family: calibri;
-}
-#sign a{
-    text-decoration: none;
-    color: #0095F7;
-    font-family: calibri;
+    font-weight: 600;
+
+    a {
+      margin-top: 10px;
+      font-size: 10rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  #para-2 {
+    width: 15rem;
+    color: #8e8e8e;
+    font-family: sans-serif;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 15px;
+  }
 }
 
+.errorBox {
+  padding-top: 20px;
+  width: 80%;
+  font-family: calibri;
+  text-align: center;
+  color: rgb(237, 73, 86);
+}
+#sign {
+  border: 1px solid rgb(219, 219, 219);
+  width: 20rem;
+  padding: 22px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background-color: white;
+  font-family: calibri;
+}
+#sign a {
+  text-decoration: none;
+  color: #0095f7;
+  font-family: calibri;
+}
 
 //email verification page
 
-.enterOtp{
+.enterOtp {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
 
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 3rem;
-
-    #confirmation{
+  #confirmation {
     border: 1px solid lightgrey;
     background-color: white;
     width: 24rem;
-    margin-top:6rem;
+    margin-top: 6rem;
     display: flex;
     position: relative;
     align-items: center;
-    flex-direction: column;;
-    // display: flex;
-    #image{
-        margin-top: 20px;
-        height:30%;
-        margin-left: 125px;
-        width:30%;
+    flex-direction: column;
+    #image {
+      margin-top: 20px;
+      height: 30%;
+      margin-left: 125px;
+      width: 30%;
     }
-    #confirm-para{
-        text-align: center;
-        width: 85%;
-        margin-left: 5px;
-        font-size: 15px;
-        margin-top: 10px;
-        margin-left: 15px;
-        font-family: calibri;
+    #confirm-para {
+      text-align: center;
+      width: 85%;
+      margin-left: 5px;
+      font-size: 15px;
+      margin-top: 10px;
+      margin-left: 15px;
+      font-family: calibri;
     }
-    a{
-        text-decoration: none;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        color: #0095F6;
-        font-weight: 650;
+    a {
+      text-decoration: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      color: #0095f6;
+      font-weight: 650;
     }
-    #confirm-input{
-        width: 76%;
-        margin-top: 20px;
-        border-radius: 3px;
-        border: 1px lightgray solid;
-        padding: 10px 10px;
-        background-color: #FAFAFA;
-        outline: none; 
-        margin-left: 30px;
+    #confirm-input {
+      width: 76%;
+      margin-top: 20px;
+      border-radius: 3px;
+      border: 1px lightgray solid;
+      padding: 10px 10px;
+      background-color: #fafafa;
+      outline: none;
+      margin-left: 30px;
     }
-    .submitBtn2{
-        display: flex;
-        // justify-content: center;
-        align-items: center;
-        // border: 1px solid red;
-        position: relative;
-        img{
-            position: absolute;
-            left: 10.5rem;
-            top: 1.6rem;
-            display: none;
-        }
+    .submitBtn2 {
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      // border: 1px solid red;
+      position: relative;
+      img {
+        position: absolute;
+        left: 10.5rem;
+        top: 1.6rem;
+        display: none;
+      }
     }
-    #next{
-        background-color: #0095F6;
-        color: white;
-        border-radius: 4px;
-        width: 82%;
-        height: 32px;
-        border: 1px solid transparent; 
-        font-size: 14px;
-        font-weight: 600;
-        margin-top: 17px;
-        margin-left: 30px;
-    } 
+    #next {
+      background-color: #0095f6;
+      color: white;
+      border-radius: 4px;
+      width: 82%;
+      height: 32px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 17px;
+      margin-left: 30px;
+    }
 
-    #go{
-        margin-top: 15px;
-        margin-bottom: 15px;
+    #go {
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
-    
-}
+  }
 
-#account{
-    border: 1px solid rgb(219,219,219);
+  #account {
+    border: 1px solid rgb(219, 219, 219);
     width: 17rem;
     padding: 22px 32px;
     display: flex;
@@ -293,28 +283,23 @@ body{
     margin-top: 10px;
     background-color: white;
     font-family: calibri;
-}
-#account a{
+  }
+  #account a {
     text-decoration: none;
-    color: #0095F7;
+    color: #0095f7;
     font-family: calibri;
-}
-#confirmation h4{
+  }
+  #confirmation h4 {
     margin-top: 15px;
     text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;   
-}
-}
-
-
-.footerHead{
-    row-gap: 1rem;
-    margin-right: 16rem;
-    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-weight: 600;
+  }
 }
 
-
-
-
-
+.footerHead {
+  row-gap: 1rem;
+  margin-right: 16rem;
+}

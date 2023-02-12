@@ -1,8 +1,8 @@
-const express= require('express');
+const express = require("express");
 const router = express.Router();
-const passport=require('passport');
-const likes=require('../controllers/likesController');
+const passport = require("passport");
+const likes = require("../controllers/likesController");
 
-router.get('/toggle',passport.checkAuthenticatedUser,likes.liked);
+router.get("/toggle", passport.checkAuthenticatedUser, likes.liked);
 
-module.exports =router;
+module.exports = router;

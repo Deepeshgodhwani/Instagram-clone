@@ -1,91 +1,148 @@
-    
-      
-   <div class="d-<%= post.id%>" id="post"> 
-    <div id="postheader">
-      <div id="postcreator">
-       <% if(post.user.avtar) {%>
-        <img style="border: 1px solid rgb(223, 223, 223);" id="profile" src="<%= post.user.avtar%>" >
-        <%}else{%>
-           <i id="user-avtar" class="fa-solid fa-user"></i>
-           <%}%>
-         <a style="text-decoration: none;" href="profile/<%= post.user._id%>"><div id="user-name"><p><%= post.user.username%></p></div></a>
-
-      </div>
-        <div class="options" >
-        <button  style="background-color: transparent; border: none; color:black; font-size: larger;" class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-
-        </button>
-        <ul type="none" class="dropdown-menu" style="position: absolute; width: 1rem;" aria-labelledby="dropdownMenuButton2">
-        <li><a class="" href="/user/post/postView/<%= post.id%>"><span >Go to post</span></a></li>
-           <% if (locals.user._id == post.user.id){%>
-          <li> <a class="delete-post-button"  href="post/delete/<%= post.id%>"><span>Delete post</span> </a></li>
-          <%}%>
-        </ul>
-       </div>
-    </div> 
-      <a href="/user/post/postView/<%= post.id%>"><img id="postimage" src="<%=post.content %>"></a>
-      <div id="ratings">
-       <a class="toggle-like-button" postId="<%=post._id%>" data-likes="<%=post.likes.length%>" href="/user/liked/toggle?id=<%=post._id%>&type=Post">
-       <%if(Liked[i]==true){%>    
-          <div id="liked">
-             <i id="red" class="fa-solid fa-heart"></i>
-           </div>
-       <%}else{%>        
-           <div id="unlike">      
-                    <i id="white" class="fa-regular fa-heart"></i>
-            </div>   
-        <%}%>
-       </a>
-       <a href="/user/post/postView/<%= post.id%>" style="margin-top: -9px;">
-        <img onclick="" style="cursor:pointer;" class="comment"src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111124/Instagram-clone/comment_y8fiuh.png">  
-        </a> 
-        <img style="width: 1.4rem; transform: rotate(12deg); height: 1.4rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111255/Instagram-clone/send_vmeqcz.png">
-      </div>
-      <div id="numbering" class="head<%=post._id%>">
-          <%if(post.likes.length >= 1){%>
-             <div class="<%=post._id%>" id="total-likes">
-                 <%=post.likes.length%> likes
-             </div>
-          <%}%>
-          <%if(post.caption){%>
-          <div class="caption"><b><%=post.user.username%></b><%=post.caption%></div>
-          <%}%>
-          <div id="commentBB"  class="Comment<%=post._id%>">
-            <%if(post.comments.length){%>    
-              <a class="count<%=post._id%>" commentCount='<%=post.comments.length%>' style="text-decoration:none ;" href="/user/post/postView/<%= post.id%>"> 
-                <%if( post.comments.length >= 2){%>
-                   <div  id="total-comments">
-                     view all <%=post.comments.length%> comments
-                    </div>
-                    <%}%>
-                  </a>
-              <div  id="commentBox" > 
-                <p class="Username">
-                  <%=post.comments[0].user.username%>
-                </p>
-                <p class="Content">
-                  <%=post.comments[0].content.slice(0,30)%>..
-                </p>
-              </div>
-              <%}else{%>
-              <a class="count<%=post._id%>" commentCount='<%=post.comments.length%>' style="text-decoration:none ;" href="/user/post/postView/<%= post.id%>"> 
-               </a>
-                <%}%>
-            </div>
-            
-          
-          
-      </div>
-       <form class="comment-form" id="comments-<%=post._id%>" action="comment/create", method="post" >
-         <img style="border: 1px solid rgb(223, 223, 223);" src="<%= user.avtar%>" >
-       <input id="text" class="Input<%=post._id%>" type="text" name = "comment" placeholder="Add a comment" autocomplete="off" required>
-       <input type="hidden" name = "post" value= "<%= post._id %>" >
-       <input id="commentbutton" type="submit"  value="Post">
-      </form> 
-
-<!---------------------------- comments section -->    
-
-<!---------------------------------------------------------------------------> 
+<div class="d-<%= post.id%>" id="post">
+  <div id="postheader">
+    <div id="postcreator">
+      <% if(post.user.avtar) {%>
+      <img
+        style="border: 1px solid rgb(223, 223, 223)"
+        id="profile"
+        src="<%= post.user.avtar%>"
+      />
+      <%}else{%>
+      <i id="user-avtar" class="fa-solid fa-user"></i>
+      <%}%>
+      <a style="text-decoration: none" href="profile/<%= post.user._id%>"
+        ><div id="user-name"><p><%= post.user.username%></p></div></a
+      >
     </div>
+    <div class="options">
+      <button
+        style="
+          background-color: transparent;
+          border: none;
+          color: black;
+          font-size: larger;
+        "
+        class="fa-solid fa-ellipsis-vertical"
+        type="button"
+        id="dropdownMenuButton2"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      ></button>
+      <ul
+        type="none"
+        class="dropdown-menu"
+        style="position: absolute; width: 1rem"
+        aria-labelledby="dropdownMenuButton2"
+      >
+        <li>
+          <a class="" href="/user/post/postView/<%= post.id%>"
+            ><span>Go to post</span></a
+          >
+        </li>
+        <% if (locals.user._id == post.user.id){%>
+        <li>
+          <a class="delete-post-button" href="post/delete/<%= post.id%>"
+            ><span>Delete post</span>
+          </a>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </div>
+  <a href="/user/post/postView/<%= post.id%>"
+    ><img id="postimage" src="<%=post.content %>"
+  /></a>
+  <div id="ratings">
+    <a
+      class="toggle-like-button"
+      postId="<%=post._id%>"
+      data-likes="<%=post.likes.length%>"
+      href="/user/liked/toggle?id=<%=post._id%>&type=Post"
+    >
+      <%if(Liked[i]==true){%>
+      <div id="liked">
+        <i id="red" class="fa-solid fa-heart"></i>
+      </div>
+      <%}else{%>
+      <div id="unlike">
+        <i id="white" class="fa-regular fa-heart"></i>
+      </div>
+      <%}%>
+    </a>
+    <a href="/user/post/postView/<%= post.id%>" style="margin-top: -9px">
+      <img
+        onclick=""
+        style="cursor: pointer"
+        class="comment"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111124/Instagram-clone/comment_y8fiuh.png"
+      />
+    </a>
+    <img
+      style="width: 1.4rem; transform: rotate(12deg); height: 1.4rem"
+      src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111255/Instagram-clone/send_vmeqcz.png"
+    />
+  </div>
+  <div id="numbering" class="head<%=post._id%>">
+    <%if(post.likes.length >= 1){%>
+    <div class="<%=post._id%>" id="total-likes">
+      <%=post.likes.length%> likes
+    </div>
+    <%}%> <%if(post.caption){%>
+    <div class="caption">
+      <b><%=post.user.username%></b>&nbsp;<%=post.caption%>
+    </div>
+    <%}%>
+    <div id="commentBB" class="Comment<%=post._id%>">
+      <%if(post.comments.length){%>
+      <a
+        class="count<%=post._id%>"
+        commentCount="<%=post.comments.length%>"
+        style="text-decoration: none"
+        href="/user/post/postView/<%= post.id%>"
+      >
+        <%if( post.comments.length >= 2){%>
+        <div id="total-comments">
+          view all <%=post.comments.length%> comments
+        </div>
+        <%}%>
+      </a>
+      <div id="commentBox">
+        <p class="Username"><%=post.comments[0].user.username%></p>
+        <p class="Content"><%=post.comments[0].content.slice(0,30)%>..</p>
+      </div>
+      <%}else{%>
+      <a
+        class="count<%=post._id%>"
+        commentCount="<%=post.comments.length%>"
+        style="text-decoration: none"
+        href="/user/post/postView/<%= post.id%>"
+      >
+      </a>
+      <%}%>
+    </div>
+  </div>
+  <form
+    class="comment-form"
+    id="comments-<%=post._id%>"
+    action="comment/create"
+    ,
+    method="post"
+  >
+    <img style="border: 1px solid rgb(223, 223, 223)" src="<%= user.avtar%>" />
+    <input
+      id="text"
+      class="Input<%=post._id%>"
+      type="text"
+      name="comment"
+      placeholder="Add a comment"
+      autocomplete="off"
+      required
+    />
+    <input type="hidden" name="post" value="<%= post._id %>" />
+    <input id="commentbutton" type="submit" value="Post" />
+  </form>
 
-   
+  <!---------------------------- comments section -->
+
+  <!--------------------------------------------------------------------------->
+</div>

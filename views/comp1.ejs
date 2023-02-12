@@ -1,74 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Reset Password • Instagram</title>
-  <link rel="icon"
-   href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png"
+      type="image/icon type"
+    />
     <style>
-       .outer{
-          display: flex;
-          /* justify-content: center; */
-          align-items: center;
-          flex-direction: column;
-          height: 100vh;
-          background-color: rgb(250,250,250);
-          font-family: calibri;
+      .outer {
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: rgb(250, 250, 250);
+        font-family: calibri;
+      }
 
-       } 
-       
-       .box{
+      .box {
         margin-top: 14rem;
         background-color: white;
         width: 22rem;
-        border: 1px solid rgb(219,219,219); 
+        border: 1px solid rgb(219, 219, 219);
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 0.5rem;
         /* margin-bottom: 10rem; */
-       }
-       .footerHead{
-         margin-top: 6rem;
-       }
+      }
+      .footerHead {
+        margin-top: 6rem;
+      }
 
-       #heading{
+      #heading {
         font-weight: 700;
         font-size: 1.1rem;
         margin-bottom: -10px;
-       }
-       
-       #message{
-         width: 80%;
-         text-align: center ;
-         color: rgb(142,142,142);
-         
-       }
+      }
 
-       #message h{
-          color: black;
-       }
-       .box a{
-            text-decoration: none;
-            color: rgb(0,156,247);
-            margin-bottom: 10px;
-       }
+      #message {
+        width: 80%;
+        text-align: center;
+        color: rgb(142, 142, 142);
+      }
 
+      #message h {
+        color: black;
+      }
+      .box a {
+        text-decoration: none;
+        color: rgb(0, 156, 247);
+        margin-bottom: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <%-include("header")-%>
-    <div class="outer" >
-        <div class="box">
-            <p id="heading">Email sent</p>
-            <p id="message">We've sent an email to <h><%=email%> </h>with a link to get back into your account.</p>
-            <a href="/">OK</a>
-        </div>
-        <%-include('footer');-%>
+    <div class="outer">
+      <div class="box">
+        <p id="heading">Email sent</p>
+        <p id="message">
+          We've sent an email to <h><%=email%> </h>with a link to get back into
+          your account.
+        </p>
+        <a href="/">OK</a>
+      </div>
+      <%-include('footer');-%>
     </div>
-       
-    </div>
-</body>
+  </body>
 </html>

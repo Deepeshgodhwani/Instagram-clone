@@ -1,145 +1,226 @@
-
 <head>
+  <link rel="stylesheet" href="/css/header.css" />
+  <script
+    src="https://kit.fontawesome.com/992825dbbb.js"
+    crossorigin="anonymous"
+  ></script>
 
-    <link rel="stylesheet" href="/css/header.css">
-    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
-
-      <style>
-           ul.ui-autocomplete{
-            position: absolute;
-            margin-top: 1000px;
-            z-index: 10000;
-            width: 10rem;
-
-         }
-    </style>
+  <style>
+    ul.ui-autocomplete {
+      position: absolute;
+      margin-top: 1000px;
+      z-index: 10000;
+      width: 10rem;
+    }
+  </style>
 </head>
 
-
 <nav id="nav">
-<div id="Instagram-logo">
- <a href="/">
-
-   <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg">
-  </a> 
-</div>
-<% if (locals.user) { %>
-<div class="search-bar">
-  <i id="logo" class="fa-solid fa-magnifying-glass" ></i>
-  <input autocomplete="off"  type="text" class="search" placeholder="Search"> 
-  <img class="loading-bar" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
-  <i id="close" style="cursor: pointer; margin-left: 2.4rem; font-size: 1.1rem;" class="fa-solid fa-xmark"></i>
-  <div style="color:black;" class="searchResult" >  
+  <div id="Instagram-logo">
+    <a href="/">
+      <img
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg"
+      />
+    </a>
   </div>
-</div>
-  <div id="slots">   
-          <a  href="/user/user_home">
-            <%if(page=="home"){%>
-              <img class="home-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964149/Instagram-clone/homepageicon_zibwe5.png"/>
-            <%}else{%>
-              <img class="home-icon2" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964172/Instagram-clone/homepageicon2_zdef6t.png"/>         
-            <%}%>
-            
-          </a>
-          <a href="/user/direct/inbox">
-            <%if(page=="chatting"){%>
-            <img class="inbox-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964203/Instagram-clone/messenger2_ja59vm.png"/>  
-            <%}else{%>
-            <img class="inbox-icon2 " src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964239/Instagram-clone/messenger_atdto8.png"/>
-              <%}%>
-          </a>   
-          <img onclick="createPost()" class="create-icon"
-           src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964313/Instagram-clone/createpost_cgkchw.png"/> 
-          <div onclick="createPost()" class="createPost" ><i class="fa-solid fa-square-plus"></i></div>   
-
-          <a href="/explore">
-            <%if(page=="explore"){%>
-            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964347/Instagram-clone/explorer_bd5ls3.png"/>
-            <%}else{%>
-            <img class="explore-icon" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964406/Instagram-clone/explore_1_yzznce.png"/> 
-          </a>
-        <!-- </a> -->
-            <%}%>              
-          <a href="/user/profile/<%= locals.user.id%>" > 
-          </a>
-          <div>
-            <image style="border: 1px solid rgb(223, 223, 223); cursor: pointer;" onclick="toggleDropdown()" style="cursor: pointer; " id="profile-picture" src="<%= user.avtar%>" /> 
-              
-              <div class="dropDown" style=" font-size: 1.1rem; font-family: calibri; display: none; top:2rem; right: 0;  position: absolute; flex-direction: column;
-              background-color: white; border: 1px solid rgb(219,219,219); height: 4.5rem; border-radius: 5px; ">
-                <a style="color: black;" href="/user/profile/<%= locals.user.id%>" > 
-                  <p class="pro" style="text-decoration: none; padding: 5px  40px 3px 40px; border-bottom: 1px solid rgb(219,219,219);">Profile</p>
-                </a>
-                <a class="log-out" href="/account/signout" style="text-decoration: none; color: black; cursor: pointer; padding: 0  40px 0 40px; ">
-                  <p>Logout</p>
-                </a>
-              </div> 
-          </div>
-            </div>
+  <% if (locals.user) { %>
+  <div class="search-bar">
+    <i id="logo" class="fa-solid fa-magnifying-glass"></i>
+    <input autocomplete="off" type="text" class="search" placeholder="Search" />
+    <img
+      class="loading-bar"
+      src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+    />
+    <i
+      id="close"
+      style="cursor: pointer; margin-left: 2.4rem; font-size: 1.1rem"
+      class="fa-solid fa-xmark"
+    ></i>
+    <div style="color: black" class="searchResult"></div>
   </div>
-<% } %>
-  </div>
-    </nav>
+  <div id="slots">
+    <a href="/user/user_home">
+      <%if(page=="home"){%>
+      <img
+        class="home-icon"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964149/Instagram-clone/homepageicon_zibwe5.png"
+      />
+      <%}else{%>
+      <img
+        class="home-icon2"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964172/Instagram-clone/homepageicon2_zdef6t.png"
+      />
+      <%}%>
+    </a>
+    <a href="/user/direct/inbox">
+      <%if(page=="chatting"){%>
+      <img
+        class="inbox-icon"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964203/Instagram-clone/messenger2_ja59vm.png"
+      />
+      <%}else{%>
+      <img
+        class="inbox-icon2"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964239/Instagram-clone/messenger_atdto8.png"
+      />
+      <%}%>
+    </a>
+    <img
+      onclick="createPost()"
+      class="create-icon"
+      src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964313/Instagram-clone/createpost_cgkchw.png"
+    />
+    <div onclick="createPost()" class="createPost">
+      <i class="fa-solid fa-square-plus"></i>
+    </div>
 
-
-
-    
-   <%if(locals.user){%>
-
-    <!--CREATE POST   -->
-    
-    <div class="create-post">
-      
-      <div onclick="closeTheProcess()" id="background-color">
-        <i style="cursor: pointer;" class="fa-solid fa-xmark"></i>
+    <a href="/explore">
+      <%if(page=="explore"){%>
+      <img
+        class="explore-icon"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964347/Instagram-clone/explorer_bd5ls3.png"
+      />
+      <%}else{%>
+      <img
+        class="explore-icon"
+        src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675964406/Instagram-clone/explore_1_yzznce.png"
+      />
+    </a>
+    <!-- </a> -->
+    <%}%>
+    <a href="/user/profile/<%= locals.user.id%>"> </a>
+    <div>
+      <img
+        style="border: 1px solid rgb(223, 223, 223); cursor: pointer"
+        onclick="toggleDropdown()"
+        id="profile-picture"
+        src="<%= user.avtar%>"
+      />
+      <div
+        class="dropDown"
+        style="
+          font-size: 1.1rem;
+          font-family: calibri;
+          display: none;
+          top: 2rem;
+          right: 0;
+          position: absolute;
+          flex-direction: column;
+          background-color: white;
+          border: 1px solid rgb(219, 219, 219);
+          height: 4.5rem;
+          border-radius: 5px;
+        "
+      >
+        <a style="color: black" href="/user/profile/<%= locals.user.id%>">
+          <p
+            class="pro"
+            style="
+              text-decoration: none;
+              padding: 5px 40px 3px 40px;
+              border-bottom: 1px solid rgb(219, 219, 219);
+            "
+          >
+            Profile
+          </p>
+        </a>
+        <a
+          class="log-out"
+          href="/account/signout"
+          style="
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            padding: 0 40px 0 40px;
+          "
+        >
+          <p>Logout</p>
+        </a>
       </div>
-      <!-- <div class="container">  -->
-        <form class="post-form" action="/user/post/create", enctype="multipart/form-data"  method="post">
-          <div id="select-picture">
-            <div class="header"> <p id="heading">Create new post </p> </div>    
-            <div id="main">
-              <img id="image" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676113073/Instagram-clone/drag_wwhnkd.jpg">
-              <p id="description">Drag photos and videos here</p>
-              <label for="select-button">Select From Computer</label>
-              <input  id="select-button" type="file" name="content" required>      
-            </div>        
-          </div>
-          <div id="create-new-post">
-            <div class="header2"><i onclick="closeTheProcess()" id="back-icon" class="fa-solid fa-arrow-left-long"></i> <p id="heading">Create new post </p> <input id="share-button" type="submit" value="Share"></div>
-            <div id="main">
-              <div id="image-section">
-                <img src="" id="post-image">
-              </div>
-              <div id="caption-section">
-                <div id="profile">
-                  <% if (user.avtar){%>
-                    <img id="dp" src="<%=user.avtar%>">
-                    <%}else{%>
-                      <i id="user-avtar" class="fa-solid fa-user"></i>  
-                      <%}%>
-                      <p id="username"><%=user.username%></p>
-                    </div>
-                    <textarea id="caption-area" cols="37" rows="35" maxlength="150"  placeholder="Write a caption..." name="caption"></textarea>
-                  </div>
-                </div>                         
-         </div>
-        </form>    
-        <div id="confirmation-slot">
-          <div id="background-c"></div>
-          <div id="contain-er">
-            <p style="cursor: pointer;" id="heading-"> Discard post?</p>
-            <p style="cursor: pointer;" id="p1">If you leave, your edits won't be saved.</p>
-            <p style="cursor: pointer;" onclick="discard()" id="p2">Discard</p>
-            <p style="cursor: pointer;" onclick="continueProcess()" id="p3">Cancel</p>
-          </div>
-        </div> 
+    </div>
   </div>
-  <%}%> 
-  
-  <script src="/js/jquery.js"></script>
-  <script src="/js/header.js"></script>
-  <script>  
-  </script>
- 
-<script src="/js/create_post.js"></script>
+  <% } %>
+</nav>
 
+<%if(locals.user){%>
+
+<!--CREATE POST   -->
+
+<div class="create-post">
+  <div onclick="closeTheProcess()" id="background-color">
+    <i style="cursor: pointer" class="fa-solid fa-xmark"></i>
+  </div>
+  <!-- <div class="container">  -->
+  <form
+    class="post-form"
+    action="/user/post/create"
+    ,
+    enctype="multipart/form-data"
+    method="post"
+  >
+    <div id="select-picture">
+      <div class="header"><p id="heading">Create new post</p></div>
+      <div id="main">
+        <img
+          id="image"
+          src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676113073/Instagram-clone/drag_wwhnkd.jpg"
+        />
+        <p id="description">Drag photos and videos here</p>
+        <label for="select-button">Select From Computer</label>
+        <input id="select-button" type="file" name="content" required />
+      </div>
+    </div>
+    <div id="create-new-post">
+      <div class="header2">
+        <i
+          onclick="closeTheProcess()"
+          id="back-icon"
+          class="fa-solid fa-arrow-left-long"
+        ></i>
+        <p id="heading">Create new post</p>
+        <input id="share-button" type="submit" value="Share" />
+      </div>
+      <div id="main">
+        <div id="image-section">
+          <img src="" id="post-image" />
+        </div>
+        <div id="caption-section">
+          <div id="profile">
+            <% if (user.avtar){%>
+            <img id="dp" src="<%=user.avtar%>" />
+            <%}else{%>
+            <i id="user-avtar" class="fa-solid fa-user"></i>
+            <%}%>
+            <p id="username"><%=user.username%></p>
+          </div>
+          <textarea
+            id="caption-area"
+            cols="37"
+            rows="35"
+            maxlength="150"
+            placeholder="Write a caption..."
+            name="caption"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="confirmation-slot">
+    <div id="background-c"></div>
+    <div id="contain-er">
+      <p style="cursor: pointer" id="heading-">Discard post?</p>
+      <p style="cursor: pointer" id="p1">
+        If you leave, your edits won't be saved.
+      </p>
+      <p style="cursor: pointer" onclick="discard()" id="p2">Discard</p>
+      <p style="cursor: pointer" onclick="continueProcess()" id="p3">Cancel</p>
+    </div>
+  </div>
+</div>
+<%}%>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/header.js"></script>
+<script></script>
+
+<script src="/js/create_post.js"></script>

@@ -3,165 +3,151 @@
   margin: 0;
 }
 
-.cover{
+.cover {
   display: flex;
   width: 100%;
-  background-color:rgb(250,250,250) ;
-
-
-
+  background-color: rgb(250, 250, 250);
 }
 
 .outer {
- 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 40px;
   padding-right: 40px;
-  background-color: rgb(250,250,250);
+  background-color: rgb(250, 250, 250);
 
- 
-  
   h1 {
     position: absolute;
     left: 1px;
   }
 
-  form{
+  form {
     background-color: white;
     width: 19.5rem;
     height: auto;
     min-height: 61vh;
     padding: 20px;
-    border: 1px solid rgb(219,219,219);
+    border: 1px solid rgb(219, 219, 219);
     display: flex;
     align-items: center;
     flex-direction: column;
-    img{
-        width: 90%;
+    img {
+      width: 90%;
     }
 
-    #email{
-        background-color: rgb(250,250,250);
-        border: 1px solid rgb(219,219,219);
-        width: 86%;
-        height: 2.4rem;
-        padding: 0px 5px;
-        outline: none;
-        border-radius: 2px;
-        margin-bottom: 7px;
-        margin-top: 35px;
-
+    #email {
+      background-color: rgb(250, 250, 250);
+      border: 1px solid rgb(219, 219, 219);
+      width: 86%;
+      height: 2.4rem;
+      padding: 0px 5px;
+      outline: none;
+      border-radius: 2px;
+      margin-bottom: 7px;
+      margin-top: 35px;
     }
-    #password{
-        background-color: rgb(250,250,250);
-        border: 1px solid rgb(219,219,219);
-        width: 86%;
-        height: 2.4rem;
-        padding: 0px 5px;
-        outline: none;
-        border-radius: 2px;
-
+    #password {
+      background-color: rgb(250, 250, 250);
+      border: 1px solid rgb(219, 219, 219);
+      width: 86%;
+      height: 2.4rem;
+      padding: 0px 5px;
+      outline: none;
+      border-radius: 2px;
     }
-    .button{
-        width: 90%;
-        height: 2rem;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        background-color: rgb(0,149,246);
-        color: white;
-        font-weight: 600;
-        cursor: pointer;
-
+    .button {
+      width: 90%;
+      height: 2rem;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: rgb(0, 149, 246);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
     }
 
-    .divider{
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         justify-content: space-between;
-         width: 90%;
-         margin-top: 1rem;
-        
-      .line1{
-          
-         height: 1;
-         width: 7rem;
-         border-top:1px solid rgb(219,219,219) ;
-      }
-      p{
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: rgb(142,142,142);
-        font-family: calibri;
-      }
-      .line2{
-          
+    .divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin-top: 1rem;
+
+      .line1 {
         height: 1;
         width: 7rem;
-        border-top:1px solid rgb(219,219,219) ;
-     }
+        border-top: 1px solid rgb(219, 219, 219);
+      }
+      p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: rgb(142, 142, 142);
+        font-family: calibri;
+      }
+      .line2 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid rgb(219, 219, 219);
+      }
     }
 
-
-    .facebookLogin{
+    .facebookLogin {
       margin-top: 1.5rem;
 
-        a{
-          padding-left: 5px;   
-          color:rgb(62,81,133);
-          font-weight: 600;
-          font-family: calibri;
-          text-decoration: none;
-        }
-        
-        img{
-          width: 1rem;
-        }
-    
-    }
-
-    .guestUser{
-       font-family: calibri;
-       color:rgb(224, 105, 149);   
-       cursor: pointer;    
-       font-weight: 600;
-       display: flex;
-       font-size: 1rem;
-       column-gap: 0.5rem;
-       margin-top: 0.5rem;
-       padding-left:18px;
-       color:rgb(211,79,64);      
-       
+      a {
+        padding-left: 5px;
+        color: rgb(62, 81, 133);
+        font-weight: 600;
+        font-family: calibri;
+        text-decoration: none;
       }
 
-    #forgotlink{
+      img {
+        width: 1rem;
+      }
+    }
+
+    .guestUser {
+      font-family: calibri;
+      color: rgb(224, 105, 149);
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      font-size: 1rem;
+      column-gap: 0.5rem;
+      margin-top: 0.5rem;
+      padding-left: 18px;
+      color: rgb(211, 79, 64);
+    }
+
+    #forgotlink {
       margin-top: 1.5rem;
       cursor: pointer;
-      a{
-       color:rgb(56,81,133);
-       font-size: 0.9rem;            
-       font-family: calibri;
-       text-decoration: none;
+      a {
+        color: rgb(56, 81, 133);
+        font-size: 0.9rem;
+        font-family: calibri;
+        text-decoration: none;
       }
     }
 
-    #errorBox{
+    #errorBox {
       width: 80%;
       text-align: center;
       margin-top: 10px;
-        p{
-          // margin-top: 1.5rem;
-          color: red;
-          font-weight:lighter;
-          font-family: calibri;
-          font-size: 0.9rem;
-        }
+      p {
+        // margin-top: 1.5rem;
+        color: red;
+        font-weight: lighter;
+        font-family: calibri;
+        font-size: 0.9rem;
+      }
     }
   }
-  .signup-box{
+  .signup-box {
     background-color: white;
     width: 22rem;
     height: 4rem;
@@ -169,22 +155,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(219,219,219);
+    border: 1px solid rgb(219, 219, 219);
     font-family: calibri;
 
-
-    a{
-      color: rgb(0,149,246);
+    a {
+      color: rgb(0, 149, 246);
       text-decoration: none;
       font-weight: 700;
     }
-
   }
-  .signUp{
+  .signUp {
     display: none;
   }
 }
-
 
 // image slider //
 .slide-container {
@@ -193,11 +176,10 @@
   background-repeat: no-repeat;
   margin-left: 17rem;
   margin-top: 1rem;
-
 }
 
 .slide-content {
-  margin: 90.4px 0 0 139.4px; 
+  margin: 90.4px 0 0 139.4px;
   position: relative;
   height: 411px;
 }
@@ -220,43 +202,43 @@
 
 // pasword reset slot //
 
-#container{
+#container {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 100px;
   // padding-bottom: 40px;
 
-  .box{
-     width: 22rem;
-     min-height: 65vh;
-     height: auto;
-     border: 1px solid rgb(219,219,219);
-     background-color: white;
-     display: flex;
-     flex-direction: column;
-     row-gap: 1rem;
-     align-items: center;
-     padding: 1rem;
+  .box {
+    width: 22rem;
+    min-height: 65vh;
+    height: auto;
+    border: 1px solid rgb(219, 219, 219);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: center;
+    padding: 1rem;
 
-     .para{
+    .para {
       width: 75%;
-      color: rgb(142,142,142);
+      color: rgb(142, 142, 142);
       font-family: calibri;
       font-size: 1rem;
-     }
+    }
 
-     .lock-logo{
-           border: 3px solid black;
-           border-radius: 50%;
-           padding: 1.2rem;
-        img{
-          width: 3rem;
-        }
-     }
-     #email{
-      background-color: rgb(250,250,250);
-      border: 1px solid rgb(219,219,219);
+    .lock-logo {
+      border: 3px solid black;
+      border-radius: 50%;
+      padding: 1.2rem;
+      img {
+        width: 3rem;
+      }
+    }
+    #email {
+      background-color: rgb(250, 250, 250);
+      border: 1px solid rgb(219, 219, 219);
       width: 85%;
       height: 1rem;
       padding: 10px;
@@ -264,59 +246,55 @@
       border-radius: 5px;
       margin-bottom: 15px;
       font-size: 14px;
-   }
-   .button{
-    width: 93%;
-    height: 2rem;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    background-color: rgb(0,149,246);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
+    }
+    .button {
+      width: 93%;
+      height: 2rem;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background-color: rgb(0, 149, 246);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin-top: 1rem;
 
-  }
-  .divider{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin-top: 1rem;
-   
- .line1{
-     
-    height: 1;
-    width: 7rem;
-    border-top:1px solid rgb(219,219,219) ;
- }
- p{
-   font-size: 0.9rem;
-   font-weight: bold;
-   color: rgb(142,142,142);
-   font-family: calibri;
- }
- .line2{
-     
-   height: 1;
-   width: 7rem;
-   border-top:1px solid rgb(219,219,219) ;
- }
-}
-.signUp-btn {
-  color: black;
-  font-family: sans-serif;
-  font-size: 14px;
-}
-.signup-a{
-  margin-top: 9px;
-  text-decoration: none;
-}
-.error{
-  color: red;
-}
-    
+      .line1 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid rgb(219, 219, 219);
+      }
+      p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: rgb(142, 142, 142);
+        font-family: calibri;
+      }
+      .line2 {
+        height: 1;
+        width: 7rem;
+        border-top: 1px solid rgb(219, 219, 219);
+      }
+    }
+    .signUp-btn {
+      color: black;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+    .signup-a {
+      margin-top: 9px;
+      text-decoration: none;
+    }
+    .error {
+      color: red;
+    }
   }
   .signIn-btn {
     border: 1px rgb(179, 178, 178) solid;
@@ -327,15 +305,11 @@
     text-align: center;
     padding-top: 8px;
     padding-bottom: 8px;
-    background-color:#FAFAFA ;
+    background-color: #fafafa;
     margin-bottom: 3rem;
   }
-  .signIn-btn a{
+  .signIn-btn a {
     color: black;
     text-decoration: none;
-  } 
+  }
 }
-
-
-
-

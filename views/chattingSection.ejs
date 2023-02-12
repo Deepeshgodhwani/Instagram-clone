@@ -1,133 +1,186 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/css/chattingSection.css">  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">      
-  <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
-  <title>Inbox • Chats</title>
-</head>
-<body onload="offLoader(`<%=Chatroom%>`)">
-  <%- include('header'); -%>
-<div id="page">
-<div id="container">
-         <div id="chat-list">
-            <header>
-                   <p><%=locals.user.username%></p>
-                   <img  style="cursor: pointer;" onclick="opennList()" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676121889/Instagram-clone/edit_ddrvpx.png">
-            </header>
-            <div id="recent-chat-list">
-                  <%for(chat of recentChats){%>
-                      <%if(chat.latestMessage){%>
-                        <div id="chat"> 
-                              <%if(chat.users[0].userId.id!=locals.user._id){%>
-                                 <a class="Id<%=chat.users[0].userId._id%>" avtar="<%=chat.users[0].userId.avtar%>" name="<%=chat.users[0].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[0].userId._id%>">
-                                    <img id="user-avtar" src="<%=chat.users[0].userId.avtar%>">
-                                    <div >
-                                       <p id="user-name"><%=chat.users[0].userId.name%></p>
-                                       <p  id="latestMessage"><%=chat.latestMessage.content.slice(0,25)%></p>
-                                    </div>
-                                 </a>  
-                              <%}else{%> 
-                                    <a class="Id<%=chat.users[1].userId._id%>" avtar="<%=chat.users[1].userId.avtar%>" name="<%=chat.users[1].userId.name%>" href="/user/direct/inbox?id=<%=chat.users[1].userId._id%>">     
-                                    <img id="user-avtar" src="<%=chat.users[1].userId.avtar%>">
-                                    <div>
-                                       <p id="user-name"><%=chat.users[1].userId.name%></p>
-                                       <p id="latestMessage"><%=chat.latestMessage.content.slice(0,25)%></p>
-                                 </div>                                 
-                                 </a>  
-                             <%}%>
-                        </div>
-                      <%}%>
-                   <%}%>
-            </div>  
-            <div style="text-align: center; padding-top: 10rem; width: 100%;" class="loading-Gif"> 
-               <img style="width: 2rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script
+      src="https://kit.fontawesome.com/992825dbbb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/chattingSection.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png"
+      type="image/icon type"
+    />
+    <title>Inbox • Chats</title>
+  </head>
+  <body onload="offLoader(`<%=Chatroom%>`)">
+    <%- include('header'); -%>
+    <div id="page">
+      <div id="container">
+        <div id="chat-list">
+          <header>
+            <p><%=locals.user.username%></p>
+            <img
+              style="cursor: pointer"
+              onclick="opennList()"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676121889/Instagram-clone/edit_ddrvpx.png"
+            />
+          </header>
+          <div id="recent-chat-list">
+            <%for(chat of recentChats){%> <%if(chat.latestMessage){%>
+            <div id="chat">
+              <%if(chat.users[0].userId.id!=locals.user._id){%>
+              <a
+                class="Id<%=chat.users[0].userId._id%>"
+                avtar="<%=chat.users[0].userId.avtar%>"
+                name="<%=chat.users[0].userId.name%>"
+                href="/user/direct/inbox?id=<%=chat.users[0].userId._id%>"
+              >
+                <img id="user-avtar" src="<%=chat.users[0].userId.avtar%>" />
+                <div>
+                  <p id="user-name"><%=chat.users[0].userId.name%></p>
+                  <p id="latestMessage">
+                    <%=chat.latestMessage.content.slice(0,25)%>
+                  </p>
+                </div>
+              </a>
+              <%}else{%>
+              <a
+                class="Id<%=chat.users[1].userId._id%>"
+                avtar="<%=chat.users[1].userId.avtar%>"
+                name="<%=chat.users[1].userId.name%>"
+                href="/user/direct/inbox?id=<%=chat.users[1].userId._id%>"
+              >
+                <img id="user-avtar" src="<%=chat.users[1].userId.avtar%>" />
+                <div>
+                  <p id="user-name"><%=chat.users[1].userId.name%></p>
+                  <p id="latestMessage">
+                    <%=chat.latestMessage.content.slice(0,25)%>
+                  </p>
+                </div>
+              </a>
+              <%}%>
             </div>
-         </div>
-         <%if(Chatroom){%>
-          <div  id="user-chat-box">
-              <header>
-               <a href="/user/profile/<%=User2._id%>">
-                  <img id="other-user-image" src="<%=User2.avtar%>">
-               </a>
-               <a style="text-decoration: none;" href="/user/profile/<%=User2._id%>">
-                  <div>
-                     <p class="usernam"  ><%=User2.name%></p>
-                  </div>
-               </a>
-              </header>
-              <ul id="chat-message-list">
-                 <%for(message of Messages){%>
-                   <%if(message.sender.id!=locals.user._id){%> 
-                     <li class="other-message">
-                        <span>
-                           <%=message.content%>
-                        </span>
-                    </li>
-                  <%}else{%>
-                  <li class="self-message">
-                      <span>
-                           <%=message.content%>
-                      </span>
-                  </li>
-                  <%}%> 
-                <%}%>
-               </ul>
-               <div style="text-align: center;  padding-top: 10rem; width: 100%;" class="loading-Gif2"> 
-                  <img style="width: 2rem;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"/>
-               </div>
-            <input  autocomplete="off" id="text" type="text" name="messages" placeholder="Message..." required>
-            <button class="send-Button">Send</button> 
-         </div>
-      <%}else{%>
-      <div id="box">
-         <div id="send-logo"> <img  src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111255/Instagram-clone/send_vmeqcz.png"></div>
-         <div id="p1"><p>Your messages</p></div>
-         <div id="p2"><p>Send private messages to a friend.</p></div>
-         <div onclick="opennList()" class="btn"><p>Send message</p></div>
+            <%}%> <%}%>
+          </div>
+          <div
+            style="text-align: center; padding-top: 10rem; width: 100%"
+            class="loading-Gif"
+          >
+            <img
+              style="width: 2rem"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+            />
+          </div>
+        </div>
+        <%if(Chatroom){%>
+        <div id="user-chat-box">
+          <header>
+            <a href="/user/profile/<%=User2._id%>">
+              <img id="other-user-image" src="<%=User2.avtar%>" />
+            </a>
+            <a
+              style="text-decoration: none"
+              href="/user/profile/<%=User2._id%>"
+            >
+              <div>
+                <p class="usernam"><%=User2.name%></p>
+              </div>
+            </a>
+          </header>
+          <ul id="chat-message-list">
+            <%for(message of Messages){%>
+            <%if(message.sender.id!=locals.user._id){%>
+            <li class="other-message">
+              <span> <%=message.content%> </span>
+            </li>
+            <%}else{%>
+            <li class="self-message">
+              <span> <%=message.content%> </span>
+            </li>
+            <%}%> <%}%>
+          </ul>
+          <div
+            style="text-align: center; padding-top: 10rem; width: 100%"
+            class="loading-Gif2"
+          >
+            <img
+              style="width: 2rem"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+            />
+          </div>
+          <input
+            autocomplete="off"
+            id="text"
+            type="text"
+            name="messages"
+            placeholder="Message..."
+            required
+          />
+          <button class="send-Button">Send</button>
+        </div>
+        <%}else{%>
+        <div id="box">
+          <div id="send-logo">
+            <img
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676111255/Instagram-clone/send_vmeqcz.png"
+            />
+          </div>
+          <div id="p1"><p>Your messages</p></div>
+          <div id="p2"><p>Send private messages to a friend.</p></div>
+          <div onclick="opennList()" class="btn"><p>Send message</p></div>
+        </div>
+        <%}%>
       </div>
-      <%}%> 
-       
-  </div>
-</div>    
-  
-   <!-- users list  -->
-     <div class="outer-layer">
-      <div onclick="closed()" class="background"></div>
-       <div class="box">
-        <div class="header">
-           <p>New message</p> 
-           <i onclick="closed()" class="fa-solid fa-xmark"></i>
-        </div>
-        <div class="search-space"><p>To:</p> <input  type="text" class="search-bar" placeholder="Search"> </div>
-        <div class="search-Result" >  
-        </div>
-       </div>
-     </div>
+    </div>
 
-     
-    
+    <!-- users list  -->
+    <div class="outer-layer">
+      <div onclick="closed()" class="background"></div>
+      <div class="box">
+        <div class="header">
+          <p>New message</p>
+          <i onclick="closed()" class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="search-space">
+          <p>To:</p>
+          <input type="text" class="search-bar" placeholder="Search" />
+        </div>
+        <div class="search-Result"></div>
+      </div>
+    </div>
+
     <script src="http://localhost:5000/socket.io/socket.io.js"></script>
     <script src="/js/jquery.js"></script>
-    <script src="/js/chat_engine.js"> </script>
+    <script src="/js/chat_engine.js"></script>
     <script src="/js/users-list.js"></script>
-     
-  <%if(locals.user){%>
-    <% if(Chatroom){%>
-      <script>
-          new chatEngine('<%=Chatroom._id%>','<%=locals.user.username%>','<%=locals.user._id%>','<%=User2.id%>');       
-       </script>
-       <%}else{%>
-         <script>
-            new chatEngine(null,'<%=locals.user.username%>','<%=locals.user._id%>',null);       
-         </script>       
-         <%}%>
-    <%}%>
-</body>
-</html>
 
+    <%if(locals.user){%> <% if(Chatroom){%>
+    <script>
+      new chatEngine(
+        "<%=Chatroom._id%>",
+        "<%=locals.user.username%>",
+        "<%=locals.user._id%>",
+        "<%=User2.id%>"
+      );
+    </script>
+    <%}else{%>
+    <script>
+      new chatEngine(
+        null,
+        "<%=locals.user.username%>",
+        "<%=locals.user._id%>",
+        null
+      );
+    </script>
+    <%}%> <%}%>
+  </body>
+</html>

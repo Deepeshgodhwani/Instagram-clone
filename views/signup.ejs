@@ -1,81 +1,163 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" type="text/css" href="/css/sign_up_page.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script
+      src="https://kit.fontawesome.com/992825dbbb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="/css/sign_up_page.css" />
     <title>Sign up • Instagram</title>
-  <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
-</head>
-<body>
-
-    <div class="outer">   
-        <div class="container">
-           <img id="insta" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg">
-           <div id="para">
-               <p>Sign up to see photos from your friends.</p>
-           </div>
-              <a href="/account/auth/facebook" style="text-decoration: none;" id="facebook-input"><i class="fa-brands fa-square-facebook"></i> Login with facebook</a>
-              <div id="or">
-                  <div id="or-1">
-              </div>
-                 <p>OR</p> 
-                 <div id="or-2">
-  
-              </div>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png"
+      type="image/icon type"
+    />
+  </head>
+  <body>
+    <div class="outer">
+      <div class="container">
+        <img
+          id="insta"
+          src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg"
+        />
+        <div id="para">
+          <p>Sign up to see photos from your friends.</p>
+        </div>
+        <a
+          href="/account/auth/facebook"
+          style="text-decoration: none"
+          id="facebook-input"
+          ><i class="fa-brands fa-square-facebook"></i> Login with facebook</a
+        >
+        <div id="or">
+          <div id="or-1"></div>
+          <p>OR</p>
+          <div id="or-2"></div>
+        </div>
+        <form id="signup-form" action="/account/create" sign="post">
+          <input
+            autocomplete="off"
+            id="name"
+            type="text"
+            maxlength="25"
+            name="name"
+            placeholder="Name"
+            required
+          /><br />
+          <input
+            autocomplete="off"
+            id="username"
+            maxlength="15"
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+          /><br />
+          <input
+            autocomplete="off"
+            id="useremail"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          /><br />
+          <input
+            autocomplete="off"
+            id="userpassword"
+            type="password"
+            name="password"
+            placeholder="Password"
+            minlength="8"
+            maxlength="20"
+            required
+          /><br />
+          <input
+            autocomplete="off"
+            id="confpassword"
+            type="password"
+            name="confirm_password"
+            minlength="8"
+            maxlength="20"
+            placeholder="Confirm Password"
+            required
+          /><br />
+          <div class="submitBtn">
+            <img
+              style="width: 1rem"
+              class="Loading"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+            />
+            <input
+              autocomplete="off"
+              id="submitbutton"
+              type="submit"
+              value="Sign Up"
+            />
           </div>
-              <form id="signup-form" action="/account/create" sign="post">
-                  <input autocomplete="off" id="name" type="text" maxlength="25" name="name" placeholder="Name" required><br>
-                  <input  autocomplete="off"id="username" maxlength="15" type="text" name="username" placeholder="Username" required><br>
-                  <input autocomplete="off" id="useremail" type="email" name="email" placeholder="Email" required><br>
-                  <input  autocomplete="off"id="userpassword" type="password" name="password" placeholder="Password" minlength="8" maxlength="20" required><br>
-                  <input  autocomplete="off"id="confpassword" type="password" name="confirm_password" minlength="8" maxlength="20" placeholder="Confirm Password" required><br>
-                  <div class="submitBtn">
-                       <img style="width: 1rem;" class="Loading" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
-                      <input  autocomplete="off"id="submitbutton" type="submit"  value="Sign Up">
-                  </div>
-              </form>  
-              <p class="errorBox">
-              </p>
+        </form>
+        <p class="errorBox"></p>
       </div>
       <div id="sign">
-          <p>Have an account?</p>&nbsp;
-          <a href="/">Log in</a>
+        <p>Have an account?</p>
+        &nbsp;
+        <a href="/">Log in</a>
       </div>
-     
     </div>
-   
-      <!-- email verification page -->
-      <div class="enterOtp">
-          <div id="confirmation">
-           <form id="otpForm" method="post" action="/account/verify-email">
-          <img id="image" src="https://cdn-icons-png.flaticon.com/512/6806/6806987.png"  alt=" ">
+
+    <!-- email verification page -->
+    <div class="enterOtp">
+      <div id="confirmation">
+        <form id="otpForm" method="post" action="/account/verify-email">
+          <img
+            id="image"
+            src="https://cdn-icons-png.flaticon.com/512/6806/6806987.png"
+            alt=" "
+          />
           <h4>Enter Confirmation Code</h4>
-          <p id="confirm-para">Enter the confirmation code we sent to deepeshhgodwani28@gmail.com.
-                This will expire in 10 minutes .</p>
-          <p id="errorMessage" style="color: red; margin-left:7rem; margin-bottom: -10px; margin-top: 5px;  font-family: calibri;"></p>
-          <input autocomplete="off" id="confirm-input" name="otp" type="password" maxlength="6" placeholder="Confirmation Code"><br>
+          <p id="confirm-para">
+            Enter the confirmation code we sent to deepeshhgodwani28@gmail.com.
+            This will expire in 10 minutes .
+          </p>
+          <p
+            id="errorMessage"
+            style="
+              color: red;
+              margin-left: 7rem;
+              margin-bottom: -10px;
+              margin-top: 5px;
+              font-family: calibri;
+            "
+          ></p>
+          <input
+            autocomplete="off"
+            id="confirm-input"
+            name="otp"
+            type="password"
+            maxlength="6"
+            placeholder="Confirmation Code"
+          /><br />
           <div class="submitBtn2">
-              <img style="width: 1rem;" class="Loading2" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
-              <input type="submit" id="next" value="Next">
+            <img
+              style="width: 1rem"
+              class="Loading2"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+            />
+            <input type="submit" id="next" value="Next" />
           </div>
-          </form> 
-          <a href="/account/signup" style="cursor: pointer;"  id="go">Go Back</a>
-      </div>  
+        </form>
+        <a href="/account/signup" style="cursor: pointer" id="go">Go Back</a>
+      </div>
       <div id="sign">
-          <p>Have an account?</p>&nbsp;
-          <a href="/">Log in</a>
+        <p>Have an account?</p>
+        &nbsp;
+        <a href="/">Log in</a>
       </div>
-     
-      </div>
-      <div style="margin-left: 17rem;">
-          <%-include('footer');-%>
-      </div>
-  
-  <script src="/js/jquery.js"> </script>
-  <script src="/js/user_signUp.js"></script>  
+    </div>
+    <div style="margin-left: 17rem"><%-include('footer');-%></div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/user_signUp.js"></script>
   </body>
 </html>
-

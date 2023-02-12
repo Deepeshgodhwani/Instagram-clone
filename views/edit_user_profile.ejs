@@ -1,93 +1,196 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link rel="stylesheet" href="/css/edit_profile.css">
+    <link rel="stylesheet" href="/css/edit_profile.css" />
     <title>Edit Profile • Instagram</title>
-    <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
- </head>
- <body>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png"
+      type="image/icon type"
+    />
+  </head>
+  <body>
     <%- include('header'); -%>
-        
+
     <div class="form-box">
-        <div id="profile-box">
-
-             <div id="section-heading">
-                  <div onclick="toggleSection(true)" id="heading-1"><p>Edit Profile</p></div>
-                  <div onclick="toggleSection(false)" id="heading-2"><p>Change password</p></div>
-             </div>
-             <div id="section">
-            
-               <form autocomplete="off" method="post" action="/user/editprofile/update?id=<%=User._id%>&type=profile" id="profile-form">
-                   <div id="slot-1">
-                      <div id="head-name"><p> Name</p></div>
-                      <div id="contain">
-                        <div ><input id="value-name" autocomplete="off" maxlength="25" value="<%=User.name%>" type="text" name="name"></div>
-                    </div>
-                    </div>
-                   <div id="username">
-                        <div  id="head-username"><p>Username</p></div>
-                        <div  id="value-username"><input type="text" autocomplete="off" maxlength="15" value="<%=User.username%>" name="username"></div>  
-                    </div>
-                   <div id="slot-2">
-                       <div id="head-bio"><p>Bio</p></div>
-                       <div><textarea name="bio" id="value-bio" maxlength="150" autocomplete="off" placeholder="Bio"  cols="40" rows="5"></textarea></div>
-                   </div>   
-
-                   <div id="slot-3">
-                       <div id="head-password"><p>Password</p></div>
-                       <div id="value-password">
-                          <p id="heading">Enter your password to submit form</p>
-                        <input type="password" class="password" name="password" minlength="8" maxlength="20" autocomplete="off" placeholder="Password" required></div>
-                   </div> 
-                   <input style="display: none;" name="isGuest" value="<%=user.isGuest%>" > 
-                   <input style="display: none;" name="logName" value="<%=user.name%>" > 
-                   <input style="display: none;" name="logUserName" value="<%=user.username%>" > 
-                   <div id="button">
-                    <input id="submit" type="submit">
-                    <img class="loading_GIF" style="display:none; width: 1rem; margin-top: 37px; margin-left: 13.8rem; position: absolute;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
-                   </div>
-            </form>
-
-            
-            <form method="post" action="/user/editprofile/update?id=<%=User._id%>&type=password"  id="passwordChangeSection" class="password-changing-form">
-                <div id="old-password">
-                    <p id="value-old">Old password</p>
-                    <input autocomplete="off" type="password" minlength="8" class="oldPass" name="password" required>
+      <div id="profile-box">
+        <div id="section-heading">
+          <div onclick="toggleSection(true)" id="heading-1">
+            <p>Edit Profile</p>
+          </div>
+          <div onclick="toggleSection(false)" id="heading-2">
+            <p>Change password</p>
+          </div>
+        </div>
+        <div id="section">
+          <form
+            autocomplete="off"
+            method="post"
+            action="/user/editprofile/update?id=<%=User._id%>&type=profile"
+            id="profile-form"
+          >
+            <div id="slot-1">
+              <div id="head-name"><p>Name</p></div>
+              <div id="contain">
+                <div>
+                  <input
+                    id="value-name"
+                    autocomplete="off"
+                    maxlength="25"
+                    value="<%=User.name%>"
+                    type="text"
+                    name="name"
+                  />
                 </div>
-                <div id="new-password">
-                    <p id="value-new">New password</p>
-                    <input type="password" autocomplete="off" minlength="8" maxlength="20" class="newPass" name="newPassword" required>
-                </div>
-                <div id="confirm-password">
-                    <p id="confirm">Confirm new password</p>
-                    <input id="pass" minlength="8" autocomplete="off" type="password" maxlength="20" class="confPass" name="ConfirmNewPassword" required> 
-                </div>
-                <div style="position: relative;" id="submit-2">
-                    <input id="sub" type="submit" value="Change Password">
-                    <img class="loading_GIF2" style="display:none; width: 1.3rem; top:1.5rem; margin-left: 6.6rem; position: absolute;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif">
-                </div>
-            </form>
-           </div> 
-       </div>
-  </div>
+              </div>
+            </div>
+            <div id="username">
+              <div id="head-username"><p>Username</p></div>
+              <div id="value-username">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  maxlength="15"
+                  value="<%=User.username%>"
+                  name="username"
+                />
+              </div>
+            </div>
+            <div id="slot-2">
+              <div id="head-bio"><p>Bio</p></div>
+              <div>
+                <textarea
+                  name="bio"
+                  id="value-bio"
+                  maxlength="150"
+                  autocomplete="off"
+                  placeholder="Bio"
+                  cols="40"
+                  rows="5"
+                ></textarea>
+              </div>
+            </div>
 
-  <!-- flash message   -->
-  <div id="message"></div>
-  
-  <script src="/js/jquery.js"></script>
- <script src="/js/edit_profile.js" ></script>
-</body>
- </html>
- 
- <!DOCTYPE html>
-<html>
-    <head>
-    
-        
-    </head>
-   
+            <div id="slot-3">
+              <div id="head-password"><p>Password</p></div>
+              <div id="value-password">
+                <p id="heading">Enter your password to submit form</p>
+                <input
+                  type="password"
+                  class="password"
+                  name="password"
+                  minlength="8"
+                  maxlength="20"
+                  autocomplete="off"
+                  placeholder="Password"
+                  required
+                />
+              </div>
+            </div>
+            <input
+              style="display: none"
+              name="isGuest"
+              value="<%=user.isGuest%>"
+            />
+            <input
+              style="display: none"
+              name="logName"
+              value="<%=user.name%>"
+            />
+            <input
+              style="display: none"
+              name="logUserName"
+              value="<%=user.username%>"
+            />
+            <div id="button">
+              <input id="submit" type="submit" />
+              <img
+                class="loading_GIF"
+                style="
+                  display: none;
+                  width: 1rem;
+                  margin-top: 37px;
+                  margin-left: 13.8rem;
+                  position: absolute;
+                "
+                src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+              />
+            </div>
+          </form>
+
+          <form
+            method="post"
+            action="/user/editprofile/update?id=<%=User._id%>&type=password"
+            id="passwordChangeSection"
+            class="password-changing-form"
+          >
+            <div id="old-password">
+              <p id="value-old">Old password</p>
+              <input
+                autocomplete="off"
+                type="password"
+                minlength="8"
+                class="oldPass"
+                name="password"
+                required
+              />
+            </div>
+            <div id="new-password">
+              <p id="value-new">New password</p>
+              <input
+                type="password"
+                autocomplete="off"
+                minlength="8"
+                maxlength="20"
+                class="newPass"
+                name="newPassword"
+                required
+              />
+            </div>
+            <div id="confirm-password">
+              <p id="confirm">Confirm new password</p>
+              <input
+                id="pass"
+                minlength="8"
+                autocomplete="off"
+                type="password"
+                maxlength="20"
+                class="confPass"
+                name="ConfirmNewPassword"
+                required
+              />
+            </div>
+            <div style="position: relative" id="submit-2">
+              <input id="sub" type="submit" value="Change Password" />
+              <img
+                class="loading_GIF2"
+                style="
+                  display: none;
+                  width: 1.3rem;
+                  top: 1.5rem;
+                  margin-left: 6.6rem;
+                  position: absolute;
+                "
+                src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1675963390/Instagram-clone/loading_lcbqs7.gif"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- flash message   -->
+    <div id="message"></div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/edit_profile.js"></script>
+  </body>
 </html>
 
+<!DOCTYPE html>
+<html>
+  <head> </head>
+</html>

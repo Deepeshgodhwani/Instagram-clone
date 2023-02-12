@@ -1,14 +1,12 @@
-const mongoose= require ('mongoose');
-const env=require('./environment');
+const mongoose = require("mongoose");
+const env = require("./environment");
 mongoose.connect(`mongodb://localhost/${env.db}`);
-const db =mongoose.connection;
+const db = mongoose.connection;
 
-db.once('open', function(error){
+db.once("open", function (error) {
+  if (error) {
+    console.log("ERROR IN CONNECTING WITH DATABASE");
+  }
 
-     if(error){
-
-        console.log("ERROR IN CONNECTING WITH DATABASE")
-     }
-     
-    console.log("DATABASE CONNECTED SUCCESSFULY")
+  console.log("DATABASE CONNECTED SUCCESSFULY");
 });

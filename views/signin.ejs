@@ -1,103 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="/css/sign_in_page.css" />
-  
-  <title>Instagram</title>
-  <link rel="icon" href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png" type="image/icon type">
-  <script src="https://kit.fontawesome.com/992825dbbb.js" crossorigin="anonymous"></script>
-</head>
-<body>
-   
-  <!-- SIGN IN FORM  -->
-  <div class="cover">
-    <div class="slide-container" style="background-image: url(https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118459/Instagram-clone/phone-frame-removebg-preview_l1k3zi.png);">
-      <div class="slide-content" id="slide-content">
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_1_z7bvx8.jpg" alt="slide image" class="active">
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_2_jamjpz.jpg" alt="slide image">
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_3_dzpfu6.jpg" alt="slide image">
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_4_lmohab.jpg" alt="slide image">
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_5_qcp2ee.jpg" alt="slide image">
-      </div>
-  </div>
-    <div class="outer">
-      <form class="form" action="/account/create-session" method="post">    
-          <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg">
-        <input
-        id="email"
-        type="text"
-        name="username"
-        placeholder="Username or email"
-        required
-        autocomplete="off"
-      />
-      <input
-        id="password"
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        autocomplete="off"
-      /><br />
-      <input class="button" type="submit" value="Log In" required />
-      <div class="divider"><p class="line1"></p><p>OR</p><p class="line2"></p></div>
-      
-      <div class="facebookLogin">
-        <img src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114381/Instagram-clone/facebook_mkfrhk.png">
-          <a href="/account/auth/facebook"> Log in with Facebook</a>
-        </div>
-        <div class="guestUser">
-         <i class="fa-brands fa-square-instagram"></i><p>Log in with Default user</p>
-        </div> 
-        
-      <%if(type){%>   
-      <div id="errorBox">
-        <p id="errorMessage">
-          Your email or password is incorrect.
-          Please try again. 
-        </p>
-      </div>  
-      <%}%>
-      <div onclick="forgotPasswordSlot()" id="forgotlink">
-          <a href="/account/enteremail" id="forgotButton"> Forgot password?</a>
-        </div>
-        <div class="signUp"><p><p>Don't have an account? <a href="/account/signup">Sign up</a> </p> </div>
-      </form>
-      <div class="signup-box"><p>Don't have an account? <a href="/account/signup">Sign up</a></p></div>
-      <div style="display: flex; padding-top: 1rem; padding-bottom: 3rem; row-gap: 1rem; align-items: center; flex-direction: column; font-family: calibri;">
-        <p>Get the app.</p>
-        <div>
-          <img style="width: 8rem; height: 2.5rem;  border-radius: 6px;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120608/Instagram-clone/c5Rp7Ym-Klz_oin0he.png">
-          <img style="width: 8rem; height: 2.5rem; border-radius: 6px;" src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120606/Instagram-clone/EHY6QnZYdNX_k5fueq.png">
-        </div>
-      </div>
-    </div> 
-    
-  </div> 
-  <%-include('footer');-%>
-   <script src="/js/jquery.js"></script>
-   <script>
-     $('.guestUser').click(function(){
-      
-          $('#email').val('instagram');
-          $('#password').val('instagram-1212');
-     })
-     let slide_content = document.querySelector('#slide-content')
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/css/sign_in_page.css" />
 
-     let slide_index = 0
+    <title>Instagram</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114002/Instagram-clone/instagramfffff_mioxem.png"
+      type="image/icon type"
+    />
+    <script
+      src="https://kit.fontawesome.com/992825dbbb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- SIGN IN FORM  -->
+    <div class="cover">
+      <div
+        class="slide-container"
+        style="
+          background-image: url(https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118459/Instagram-clone/phone-frame-removebg-preview_l1k3zi.png);
+        "
+      >
+        <div class="slide-content" id="slide-content">
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_1_z7bvx8.jpg"
+            alt="slide image"
+            class="active"
+          />
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_2_jamjpz.jpg"
+            alt="slide image"
+          />
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_3_dzpfu6.jpg"
+            alt="slide image"
+          />
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_4_lmohab.jpg"
+            alt="slide image"
+          />
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676118006/Instagram-clone/slide_5_qcp2ee.jpg"
+            alt="slide image"
+          />
+        </div>
+      </div>
+      <div class="outer">
+        <form class="form" action="/account/create-session" method="post">
+          <img
+            src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676104334/Instagram-clone/instagram_logo_wkg01w.jpg"
+          />
+          <input
+            id="email"
+            type="text"
+            name="username"
+            placeholder="Username or email"
+            required
+            autocomplete="off"
+          />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            autocomplete="off"
+          /><br />
+          <input class="button" type="submit" value="Log In" required />
+          <div class="divider">
+            <p class="line1"></p>
+            <p>OR</p>
+            <p class="line2"></p>
+          </div>
+
+          <div class="facebookLogin">
+            <img
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676114381/Instagram-clone/facebook_mkfrhk.png"
+            />
+            <a href="/account/auth/facebook"> Log in with Facebook</a>
+          </div>
+          <div class="guestUser">
+            <i class="fa-brands fa-square-instagram"></i>
+            <p>Log in with Default user</p>
+          </div>
+
+          <%if(type){%>
+          <div id="errorBox">
+            <p id="errorMessage">
+              Your email or password is incorrect. Please try again.
+            </p>
+          </div>
+          <%}%>
+          <div onclick="forgotPasswordSlot()" id="forgotlink">
+            <a href="/account/enteremail" id="forgotButton">
+              Forgot password?</a
+            >
+          </div>
+          <div class="signUp">
+            <p></p>
+            <p>Don't have an account? <a href="/account/signup">Sign up</a></p>
+          </div>
+        </form>
+        <div class="signup-box">
+          <p>Don't have an account? <a href="/account/signup">Sign up</a></p>
+        </div>
+        <div
+          style="
+            display: flex;
+            padding-top: 1rem;
+            padding-bottom: 3rem;
+            row-gap: 1rem;
+            align-items: center;
+            flex-direction: column;
+            font-family: calibri;
+          "
+        >
+          <p>Get the app.</p>
+          <div>
+            <img
+              style="width: 8rem; height: 2.5rem; border-radius: 6px"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120608/Instagram-clone/c5Rp7Ym-Klz_oin0he.png"
+            />
+            <img
+              style="width: 8rem; height: 2.5rem; border-radius: 6px"
+              src="https://res.cloudinary.com/dynjwlpl3/image/upload/v1676120606/Instagram-clone/EHY6QnZYdNX_k5fueq.png"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <%-include('footer');-%>
+    <script src="/js/jquery.js"></script>
+    <script>
+      $(".guestUser").click(function () {
+        $("#email").val("instagram");
+        $("#password").val("instagram-1212");
+      });
+      let slide_content = document.querySelector("#slide-content");
+
+      let slide_index = 0;
 
       slide = () => {
-          let slide_items = slide_content.querySelectorAll('img')
-          slide_items.forEach(e => e.classList.remove('active'))
-          slide_index = slide_index + 1 === slide_items.length ? 0 : slide_index + 1
-          slide_items[slide_index].classList.add('active')
-      }
+        let slide_items = slide_content.querySelectorAll("img");
+        slide_items.forEach((e) => e.classList.remove("active"));
+        slide_index =
+          slide_index + 1 === slide_items.length ? 0 : slide_index + 1;
+        slide_items[slide_index].classList.add("active");
+      };
 
-      setInterval(slide, 3000)
-   </script>
- </body>
+      setInterval(slide, 3000);
+    </script>
+  </body>
 </html>
-
-
