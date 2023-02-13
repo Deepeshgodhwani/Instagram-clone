@@ -157,8 +157,6 @@ module.exports.emailVerification = function (req, res) {
 // sending password changing link to the user //
 
 module.exports.forgotPassword = async function (req, res) {
-  console.log("reached");
-
   try {
     let user = await User.findOne({ email: req.body.email });
 

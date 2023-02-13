@@ -77,6 +77,7 @@
           margin-top: 5px;
           width: 45px;
           height: 45px;
+          border: 1px solid rgb(223, 223, 223); 
           border-radius: 50%; }
         #nav .search-bar .searchResult .users-detail #user-name2 {
           text-decoration: none;

@@ -71,7 +71,6 @@ module.exports.deletePost = async function (req, res) {
         });
       }
       await Comment.deleteMany({ post: req.params.id });
-      console.log(req.user.id);
 
       return res.redirect(`/user/profile/${req.user.id}`);
     } else {
@@ -128,7 +127,7 @@ module.exports.postview = async function (req, res) {
     let eligible = false;
 
     req.user.id == post.user.id ? (eligible = true) : (eligible = false);
-    console.log(eligible);
+    
     if (req.xhr) {
       return res.status(201).json({
         post: post,
