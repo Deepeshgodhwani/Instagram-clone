@@ -40,7 +40,7 @@
         .post-section #post-view #container #userdetail .options button {
           transform: rotate(90deg); }
         .post-section #post-view #container #userdetail .options {
-          margin-left: 10rem;
+          margin-left: 12rem;
           margin-top: 0.5rem; }
           .post-section #post-view #container #userdetail .options ul {
             width: 1rem; }
@@ -83,9 +83,9 @@
         border-top: 1px solid lightgray;
         display: flex;
         padding: 10px;
-        height: 12%; }
+        height: 12%;
+        align-items: center; }
         .post-section #post-view #container .comment-forms #profilepicture {
-          margin-top: 5px;
           border-radius: 50%; }
         .post-section #post-view #container .comment-forms #commentsubmit {
           color: #0095f7;

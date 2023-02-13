@@ -184,8 +184,8 @@
       margin-left: 1.5rem;
     }
     #profile-picture {
-      width: 25px;
-      height: 25px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       margin-left: 1.5rem;
     }
@@ -247,9 +247,6 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    // overflow: hidden;
-    // width: 0;
-    // height: 0;
 
     .header {
       height: 10%;
@@ -364,7 +361,6 @@
           height: 15%;
           align-items: center;
           padding-left: 15px;
-          // border: 2px solid red;
           padding-top: 17px;
 
           #user-avtar {
@@ -405,8 +401,6 @@
 
   #confirmation-slot {
     position: absolute;
-    // width: 100%;
-    // height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

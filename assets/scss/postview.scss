@@ -50,7 +50,7 @@
         }
 
         .options {
-          margin-left: 10rem;
+          margin-left: 12rem;
           margin-top: 0.5rem;
           ul {
             width: 1rem;
@@ -109,9 +109,11 @@
         display: flex;
         padding: 10px;
         height: 12%;
+        // justify-content: center;
+        align-items: center;
 
         #profilepicture {
-          margin-top: 5px;
+          // margin-top: 5px;
           border-radius: 50%;
         }
         #commentsubmit {

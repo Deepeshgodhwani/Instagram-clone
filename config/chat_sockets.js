@@ -17,7 +17,6 @@ module.exports.chatSockets = function (socketServer) {
     });
 
     socket.on("setup", function (data) {
-      console.log(data.userId);
       socket.join(data.userId);
       console.log("user joined", data.name);
     });
@@ -42,7 +41,6 @@ module.exports.chatSockets = function (socketServer) {
       }
 
       let user = await User.findById(messageRecieverId);
-
       const details = {
         data: data,
         reciever: user,

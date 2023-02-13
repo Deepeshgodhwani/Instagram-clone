@@ -15,6 +15,7 @@ const sassMiddleware = require("node-sass-middleware");
 const path = require("path");
 
 
+console.log()
 // setup the chat server to be used with socket.io //
 
 const chatServer = require("http").Server(app);
@@ -50,29 +51,13 @@ app.set("views", "./views");
 
 
 app.use(express.static(env.asset_path));
-app.use(
-  "/user/assets/images",
-  express.static(__dirname + "/" + env.asset_path + "/images")
-);
-app.use(
-  "/account/password/assets/images",
-  express.static(__dirname + "/" + env.asset_path + "/images")
-);
-app.use(
-  "/assets/images",
-  express.static(__dirname + "/" + env.asset_path + "/images")
-);
-app.use(
-  "/user/post/assets/images",
-  express.static(__dirname + "/" + env.asset_path + "/images")
-);
 
 //MONGO STORE IS USED TO STORE THE SESSION COOKIE  IN THE DB//
 
 app.use(
   session({
     name: "codial",
-    secret: env.session_cokie_key,
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

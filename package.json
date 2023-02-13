@@ -30,12 +30,15 @@
   "description": "MY FIRST SOCIAL MEDIA WEB APP",
   "main": "index.js",
   "devDependencies": {
-    "coffee-script": "^1.3.3"
+    "coffee-script": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^5.1.0"
   },
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-     "prod_start": "NODE_ENV=production nodemon index.js" 
+    "prod_start": "NODE_ENV=production nodemon index.js"
   },
   "keywords": [
     "social"
