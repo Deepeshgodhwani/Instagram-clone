@@ -1,3 +1,4 @@
+const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = 8000;
@@ -13,7 +14,6 @@ const MongoStore = require("connect-mongodb-session")(session);
 const sassMiddleware = require("node-sass-middleware");
 const path = require("path");
 
-// const extended = require('it/lib/extended');
 
 // setup the chat server to be used with socket.io //
 
@@ -39,6 +39,7 @@ if (env.name == "development") {
   );
 }
 
+
 app.use(express.urlencoded());
 app.use(cookieParser());
 
@@ -46,6 +47,7 @@ app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
+
 
 app.use(express.static(env.asset_path));
 app.use(
