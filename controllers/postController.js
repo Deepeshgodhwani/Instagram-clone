@@ -127,7 +127,7 @@ module.exports.postview = async function (req, res) {
     let eligible = false;
 
     req.user.id == post.user.id ? (eligible = true) : (eligible = false);
-    
+
     if (req.xhr) {
       return res.status(201).json({
         post: post,

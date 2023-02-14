@@ -14,8 +14,6 @@ const MongoStore = require("connect-mongodb-session")(session);
 const sassMiddleware = require("node-sass-middleware");
 const path = require("path");
 
-
-console.log()
 // setup the chat server to be used with socket.io //
 
 const chatServer = require("http").Server(app);
@@ -40,7 +38,6 @@ if (env.name == "development") {
   );
 }
 
-
 app.use(express.urlencoded());
 app.use(cookieParser());
 
@@ -48,7 +45,6 @@ app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
 
 app.use(express.static(env.asset_path));
 
