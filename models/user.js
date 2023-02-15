@@ -51,6 +51,7 @@ const userShema = new mongoose.Schema(
     ],
     uniqueId: {
       type: String,
+      default:null
     },
     isGuest: {
       type: Boolean,
