@@ -49,7 +49,7 @@ const userShema = new mongoose.Schema(
         ref: "followers",
       },
     ],
-    uniqueId: {
+    userId: {
       type: String,
       default:null
     },

@@ -12,7 +12,7 @@ passport.use(
       callbackURL: env.facebook_call_backURL,
     },
     function (accessToken, refreshToken, profile, done) {
-      User.findOne({ uniqueId: profile.id }).exec(async function (err, user) {
+      User.findOne({ userId: profile.id }).exec(async function (err, user) {
         if (err) {
           console.log(err, "error in finding user");
           return;
@@ -31,7 +31,7 @@ passport.use(
             {
               name: profile.displayName,
               username: profile.displayName,
-              uniqueId: profile.id,
+              userId: profile.id,
               password: crypto.randomBytes(20).toString("hex"),
             },
             function (err, user) {
