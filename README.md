@@ -34,13 +34,6 @@
   
 </p>
 
-<h4 align="center">Deployed On:</h4>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Amazon%20AWS-232F3E.svg?style=for-the-badge&logo=Amazon-AWS&logoColor=white" alt="AWS" />
-
-</p>
-
 
 
 <h3 align="center"><a href="http://deepeshgodwaniproject.tech/"><strong>Want to see live preview »</strong></a></h3>
