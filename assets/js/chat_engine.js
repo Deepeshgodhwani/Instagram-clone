@@ -1,8 +1,5 @@
 
 
-
-
-
 class chatEngine{
     constructor(chatBoxId,username,userId,user2){
 
@@ -10,7 +7,7 @@ class chatEngine{
         this.chatroom=chatBoxId
         this.username=username;
         this.user2=user2;
-        this.socket=io.connect('http://65.1.148.154:5000');
+        this.socket=io.connect('http://localhost:5000');
         if(this.username){
             this.connectionHandler();
         }
