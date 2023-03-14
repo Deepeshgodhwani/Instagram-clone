@@ -115,7 +115,7 @@ Instagram Clone is Full Stack Social Media web application .It allows users to c
 
 ## Getting Started
 
-This project was built using HTML, CSS, SASS, JavaScript, EJS , Node JS, Express and MongoDB. It is an Chat web application and for running on your local environment you should follow these guidelines.
+This project was built using HTML, CSS, SASS, JavaScript, EJS , Node JS, Express and MongoDB. It is an Social Media web application and for running on your local environment you should follow these guidelines.
 
 
 ### Prerequisites
