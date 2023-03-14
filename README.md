@@ -46,7 +46,7 @@
   <a href="#Contact">Author</a> &#10023;
 </p>
 
-Instagram Clone is Full Stack Social Media web application .It allows users to create accounts, Post Photos  interact with other users through likes and comments, and follow other users. Through this project, I gained hands-on experience in full-stack web development, RESTful APIs, user authentication, and cloud-based deployment.
+It's a Full Stack Social Media web application .It allows users to create accounts, Post Photos  interact with other users through likes and comments, and follow other users. Through this project, I gained hands-on experience in full-stack web development, RESTful APIs, user authentication, and cloud-based deployment.
 
 
 
