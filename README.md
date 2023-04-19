@@ -127,13 +127,13 @@ This project was built using HTML, CSS, SASS, JavaScript, EJS , Node JS, Express
 ### Setup
 
 
-The project repository can be found in [GitHub link](https://github.com/Deepeshgodwani/Instagram-clone) or just clone the project using this command. 
+The project repository can be found in [GitHub link](https://github.com/Deepeshgodhwani/Instagram-clone) or just clone the project using this command. 
 
 
 ```
 Using HTTPS
 
-# git clone  https://github.com/Deepeshgodwani/Instagram-clone.git
+# git clone  https://github.com/Deepeshgodhwani/Instagram-clone.git
 ```
 
 + Open terminal on your workspace with
